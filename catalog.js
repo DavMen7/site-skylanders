@@ -11,7 +11,7 @@ const CATALOG = {
         { 
           name: "Camo",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Camo.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Camo_temp.jpg" }
           ]
         },
         { 
