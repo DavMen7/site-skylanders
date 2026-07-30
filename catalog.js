@@ -729,7 +729,7 @@ const CATALOG = {
           name: "Flare Wolf",
           variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Flarewolf.jpg" },
-            { name: "Hard-Boiled", image: "fotos/6. Imaginators/variants/Hard-Boiled FlareWolf.jpg" }
+            { name: "Hard-Boiled", image: "fotos/6. Imaginators/variants/Hard-Boiled Flarewolf.jpg" }
           ]
         },
         { name: "Tidepool", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Tidepool.jpg" }] },
