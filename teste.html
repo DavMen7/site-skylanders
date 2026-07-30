@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traptanium Cards — Cartões NFC Skylanders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0c1e;
+  --bg-panel:#141530;
+  --bg-panel2:#1b1d40;
+  --line:#2c2f5c;
+  --ink:#eef0fb;
+  --ink-muted:#9ca3c9;
+  --cyan:#22d3ee;
+  --violet:#a855f7;
+  --gold:#f5c451;
+  --danger:#ef4444;
+  --radius:14px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(168,85,247,.20), transparent 60%),
+    radial-gradient(ellipse 900px 600px at 90% 0%, rgba(34,211,238,.14), transparent 55%),
+    var(--bg);
+  color:var(--ink);
+  font-family:'Manrope', sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{ font-family:'Cinzel', serif; letter-spacing:.02em; }
+.mono{ font-family:'JetBrains Mono', monospace; }
+a{color:inherit;}
+img{max-width:100%; display:block;}
+
+/* ---------- topbar ---------- */
+.topbar{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 28px;
+  background:rgba(11,12,30,.82);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.brand{ display:flex; align-items:center; gap:10px; font-family:'Cinzel',serif; font-weight:700; font-size:1.15rem; }
+.brand-ring{
+  width:30px;height:30px;border-radius:50%;
+  background:conic-gradient(from 0deg, var(--cyan), var(--violet), var(--gold), var(--cyan));
+  box-shadow:0 0 16px rgba(168,85,247,.6);
+}
+.nav-links{ display:flex; gap:4px; flex-wrap:wrap; }
+.nav-links button{
+  background:none;border:1px solid transparent;color:var(--ink-muted);
+  font-family:'Manrope';font-size:.82rem;font-weight:700;
+  padding:7px 12px;border-radius:999px;cursor:pointer;transition:.2s;
+  white-space:nowrap;
+}
+.nav-links button:hover{ color:var(--ink); border-color:var(--line); background:var(--bg-panel);}
+.cart-btn{
+  position:relative; display:flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,var(--cyan),var(--violet));
+  color:#0b0c1e; border:none; padding:10px 16px; border-radius:999px;
+  font-weight:800; cursor:pointer; font-family:'Manrope'; font-size:.85rem;
+  box-shadow:0 0 20px rgba(34,211,238,.35);
+}
+.cart-count{
+  background:#0b0c1e;color:#fff;border-radius:999px;min-width:20px;height:20px;
+  font-size:.72rem;display:flex;align-items:center;justify-content:center;padding:0 5px;
+}
+
+/* ---------- hero ---------- */
+.hero{ position:relative; padding:78px 28px 60px; text-align:center; overflow:hidden;}
+.hero-slideshow{
+  width:min(520px,90%); height:280px; margin:0 auto 30px; position:relative;
+}
+.hero-slideshow .slide{
+  position:absolute; inset:0; background-size:contain; background-position:center; background-repeat:no-repeat;
+  opacity:0; transition:opacity .9s ease;
+}
+.hero-slideshow .slide.active{ opacity:1; }
+.hero h1{ font-size:clamp(2rem,5vw,3.4rem); margin:0 0 14px; line-height:1.1;
+  background:linear-gradient(90deg,#fff,var(--cyan) 45%,var(--violet));
+  -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero p{ max-width:620px;margin:0 auto 26px;color:var(--ink-muted);font-size:1.05rem;line-height:1.6;}
+.hero-note{
+  display:inline-block;margin-top:6px;padding:10px 18px;border-radius:999px;
+  background:var(--bg-panel);border:1px solid var(--line);color:var(--ink-muted);font-size:.82rem;
+}
+
+/* ---------- category chips ---------- */
+.chiprow{ display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:0 20px 50px;}
+.chip{
+  border:1px solid var(--line); padding:10px 18px;border-radius:999px;cursor:pointer;
+  font-weight:700;font-size:.85rem;background:var(--bg-panel);transition:.2s;
+}
+.chip:hover{ transform:translateY(-2px); }
+
+/* ---------- section ---------- */
+.game-section{ padding:10px 28px 10px; max-width:1240px;margin:0 auto;}
+.game-head{
+  display:flex;align-items:baseline;gap:14px;padding:34px 22px 20px;border-radius:16px 16px 0 0;
+  margin-top:46px; border-bottom:1px solid var(--line);
+}
+.game-head h2{ font-size:1.7rem;margin:0; }
+.game-head .year{ font-family:'JetBrains Mono';color:var(--ink-muted);font-size:.9rem;}
+.group-title{
+  font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--ink-muted); margin:30px 4px 14px;
+}
+.grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(178px,1fr)); gap:14px;
+}
+
+/* ---------- product card ---------- */
+.card{
+  background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
+  padding:14px; position:relative; overflow:hidden; transition:.25s border-color;
+}
+.card:hover{ border-color:var(--accent, var(--cyan)); }
+.card::after{
+  content:""; position:absolute; left:0; right:0; top:-100%; height:40%;
+  background:linear-gradient(180deg, transparent, rgba(255,255,255,.18), transparent);
+  transition:top .6s ease; pointer-events:none;
+}
+.card:hover::after{ top:120%; }
+.card-top{ height:4px;border-radius:4px;margin-bottom:12px; background:var(--accent,var(--cyan)); }
+.card h4{ margin:0 0 4px; font-size:.98rem; font-family:'Manrope'; font-weight:800; }
+.badge{
+  display:inline-block; font-size:.68rem; font-weight:700; padding:2px 8px; border-radius:999px;
+  background:var(--bg-panel2); color:var(--ink-muted); margin-bottom:10px;
+}
+.badge.rare{ background:rgba(245,196,81,.15); color:var(--gold); }
+.no-photo{
+  height:74px; border:1px dashed var(--line); border-radius:10px; margin-bottom:10px;
+  display:flex; align-items:center; justify-content:center; color:var(--ink-muted); font-size:.68rem;
+  text-align:center; padding:6px; line-height:1.3;
+}
+.card-foot{ display:flex; align-items:center; justify-content:space-between; margin-top:8px;}
+.price{ font-family:'JetBrains Mono'; font-weight:700; color:var(--ink); }
+.add-btn{
+  background:var(--bg-panel2); border:1px solid var(--line); color:var(--ink);
+  width:32px;height:32px;border-radius:9px;cursor:pointer;font-size:1.1rem;font-weight:800;
+}
+.add-btn:hover{ background:var(--accent,var(--cyan)); color:#0b0c1e; border-color:transparent;}
+
+/* ---------- pack section ---------- */
+.pack-section{ max-width:1240px;margin:70px auto 10px; padding:0 28px; }
+.pack-card{
+  display:grid; grid-template-columns:1.1fr 1fr; gap:0; border:1px solid var(--line);
+  border-radius:18px; overflow:hidden; background:var(--bg-panel);
+}
+.pack-card img{ width:100%;height:100%; object-fit:cover; }
+.pack-info{ padding:34px; display:flex; flex-direction:column; gap:14px; }
+.pack-info h3{ margin:0; font-size:1.6rem; }
+.pack-info p{ color:var(--ink-muted); line-height:1.6; margin:0;}
+.pack-list{ font-family:'JetBrains Mono'; font-size:.76rem; color:var(--ink-muted); line-height:1.7; }
+.pack-price-row{ display:flex; align-items:center; gap:14px; margin-top:6px; }
+.pack-old{ text-decoration:line-through; color:var(--ink-muted); font-family:'JetBrains Mono';}
+.pack-new{ font-family:'JetBrains Mono'; font-size:1.5rem; font-weight:700; color:var(--gold);}
+.buy-pack{
+  align-self:flex-start; background:linear-gradient(135deg,var(--cyan),var(--violet));
+  border:none;color:#0b0c1e;font-weight:800;padding:12px 22px;border-radius:999px;cursor:pointer;
+}
+
+@media(max-width:760px){ .pack-card{grid-template-columns:1fr;} .pack-card img{height:220px;} }
+
+/* ---------- cart drawer ---------- */
+.overlay{
+  position:fixed; inset:0; background:rgba(4,5,15,.6); backdrop-filter:blur(2px);
+  opacity:0; pointer-events:none; transition:.25s; z-index:90;
+}
+.overlay.open{ opacity:1; pointer-events:auto; }
+.drawer{
+  position:fixed; top:0; right:-420px; width:400px; max-width:92vw; height:100%;
+  background:var(--bg-panel); border-left:1px solid var(--line); z-index:99;
+  transition:right .3s ease; display:flex; flex-direction:column;
+}
+.drawer.open{ right:0; }
+.drawer-head{ display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid var(--line);}
+.drawer-head h3{ margin:0;font-size:1.15rem; }
+.close-btn{ background:none;border:none;color:var(--ink-muted);font-size:1.3rem;cursor:pointer;}
+.drawer-items{ flex:1; overflow-y:auto; padding:14px 20px; display:flex; flex-direction:column; gap:12px;}
+.empty-cart{ color:var(--ink-muted); text-align:center; margin-top:60px; font-size:.9rem;}
+.d-item{ display:flex; justify-content:space-between; gap:10px; border-bottom:1px solid var(--line); padding-bottom:10px;}
+.d-item .name{ font-weight:700; font-size:.88rem; }
+.d-item .sub{ color:var(--ink-muted); font-size:.74rem; margin-top:2px;}
+.qty-ctrl{ display:flex; align-items:center; gap:8px; margin-top:6px; }
+.qty-ctrl button{ background:var(--bg-panel2); border:1px solid var(--line); color:var(--ink); width:22px;height:22px;border-radius:6px;cursor:pointer; }
+.d-item .price-col{ text-align:right; font-family:'JetBrains Mono'; font-size:.85rem; white-space:nowrap; }
+.remove-link{ color:var(--danger); font-size:.72rem; cursor:pointer; background:none; border:none; padding:0; margin-top:6px;}
+.drawer-foot{ padding:20px; border-top:1px solid var(--line); }
+.address-block{ margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--line); }
+.addr-label{ display:block; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-muted); margin:10px 0 5px; }
+.addr-label:first-child{ margin-top:0; }
+.address-block select, .address-block input{
+  width:100%; background:var(--bg-panel2); border:1px solid var(--line); color:var(--ink);
+  padding:9px 10px; border-radius:8px; font-family:'Manrope'; font-size:.85rem; outline:none;
+}
+.address-block select:focus, .address-block input:focus{ border-color:var(--cyan); }
+.addr-row{ display:flex; gap:8px; margin-top:5px; }
+.addr-row input{ flex:1; }
+.zone-note{ font-size:.74rem; margin-top:8px; padding:8px 10px; border-radius:8px; line-height:1.5; display:none; }
+.zone-note.show{ display:block; }
+.zone-note.pt{ background:rgba(34,211,238,.12); color:var(--cyan); }
+.zone-note.eu{ background:rgba(168,85,247,.14); color:var(--violet); }
+.zone-note.other{ background:rgba(245,196,81,.14); color:var(--gold); }
+.shipping-row{ display:flex; justify-content:space-between; font-size:.85rem; color:var(--ink-muted); margin-bottom:8px; }
+.shipping-row .mono{ color:var(--ink); }
+.total-row{ display:flex; justify-content:space-between; font-weight:800; font-size:1.1rem; margin-bottom:14px;}
+.checkout-btn{
+  width:100%; background:linear-gradient(135deg,#25d366,#1aa851); border:none; color:#062012;
+  font-weight:800; padding:13px; border-radius:12px; cursor:pointer; font-size:.95rem;
+}
+.checkout-note{ color:var(--ink-muted); font-size:.72rem; margin-top:10px; line-height:1.5; }
+
+footer{ text-align:center; padding:60px 20px 40px; color:var(--ink-muted); font-size:.82rem; }
+footer .brand{ justify-content:center; margin-bottom:10px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="brand-ring"></span> Traptanium Cards</div>
+  <div class="nav-links" id="navLinks"></div>
+  <button class="cart-btn" onclick="openCart()">🛒 Carrinho <span class="cart-count" id="cartCount">0</span></button>
+</div>
+
+<section class="hero">
+  <div class="hero-slideshow" id="heroSlideshow"></div>
+  <h1>Toda a coleção Skylanders,<br>sem pagar o preço das figuras.</h1>
+  <p>Cada cartão tem um chip NFC embutido que faz o portal reconhecer o teu Skylander exatamente como se fosse a figura física — mesmos poderes, mesmo upgrade, mesma magia. A um preço bem mais simpático.</p>
+  <div class="hero-note">📦 Envio para todo o país · 💬 Encomendas confirmadas via WhatsApp</div>
+</section>
+
+<div class="chiprow" id="chipRow"></div>
+
+<div id="gamesRoot"></div>
+
+<section class="pack-section" id="packSection"></section>
+
+<footer>
+  <div class="brand"><span class="brand-ring"></span> Traptanium Cards</div>
+  Coleção não-oficial de cartões NFC compatíveis · Skylanders é propriedade da Activision.<br>
+  Preços e stock ilustrativos — confirma sempre a disponibilidade antes de finalizar a encomenda.
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>O teu carrinho</h3>
+    <button class="close-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot">
+    <div class="address-block">
+      <label class="addr-label">País de entrega *</label>
+      <select id="countrySelect" onchange="onAddressChange()">
+        <option value="">— Seleciona o país —</option>
+        <option value="PT">Portugal</option>
+        <optgroup label="Europa">
+          <option value="ES">Espanha</option>
+          <option value="FR">França</option>
+          <option value="DE">Alemanha</option>
+          <option value="IT">Itália</option>
+          <option value="GB">Reino Unido</option>
+          <option value="IE">Irlanda</option>
+          <option value="NL">Países Baixos</option>
+          <option value="BE">Bélgica</option>
+          <option value="LU">Luxemburgo</option>
+          <option value="AT">Áustria</option>
+          <option value="CH">Suíça</option>
+          <option value="LI">Liechtenstein</option>
+          <option value="DK">Dinamarca</option>
+          <option value="SE">Suécia</option>
+          <option value="NO">Noruega</option>
+          <option value="FI">Finlândia</option>
+          <option value="IS">Islândia</option>
+          <option value="PL">Polónia</option>
+          <option value="CZ">Chéquia</option>
+          <option value="SK">Eslováquia</option>
+          <option value="HU">Hungria</option>
+          <option value="RO">Roménia</option>
+          <option value="BG">Bulgária</option>
+          <option value="GR">Grécia</option>
+          <option value="HR">Croácia</option>
+          <option value="SI">Eslovénia</option>
+          <option value="EE">Estónia</option>
+          <option value="LV">Letónia</option>
+          <option value="LT">Lituânia</option>
+          <option value="MT">Malta</option>
+          <option value="CY">Chipre</option>
+          <option value="MC">Mónaco</option>
+          <option value="AD">Andorra</option>
+        </optgroup>
+        <option value="OTHER">Outro país (fora da Europa)</option>
+      </select>
+      <div id="zoneNote" class="zone-note"></div>
+      <label class="addr-label">Morada (rua, número, andar)</label>
+      <input id="addrStreet" type="text" placeholder="Ex: Rua das Flores, 123, 2º Dto" oninput="onAddressChange()">
+      <div class="addr-row">
+        <input id="addrZip" type="text" placeholder="Código postal" oninput="onAddressChange()">
+        <input id="addrCity" type="text" placeholder="Localidade" oninput="onAddressChange()">
+      </div>
+    </div>
+    <div class="shipping-row"><span>Portes de envio</span><span class="mono" id="shippingCost">—</span></div>
+    <div class="total-row"><span>Total</span><span class="mono" id="cartTotal">0,00 €</span></div>
+    <button class="checkout-btn" onclick="checkout()">Finalizar por WhatsApp →</button>
+    <div class="checkout-note">Ao finalizar, abre-se o WhatsApp com a tua lista de cartões, morada e portes prontos a enviar. Nada é cobrado automaticamente — o pagamento e envio são combinados diretamente contigo.</div>
+  </div>
+</div>
+
+//carregar Skylander
+<script src="catalog.js"></script>
+
+<script>
+/* ======= CONFIGURAÇÃO — editar aqui ======= */
+const WHATSAPP_NUMBER = "351928053935"; // <-- substitui pelo teu número (formato: código do país + número, sem espaços)
+const PRICES = {
+  normal: 4.0,
+  trapmaster: 5.5,
+  mini: 3.0,
+  Senseis: 5.0,
+  Villain: 5.0,
+  supercharger: 5.0
+};
+const RARE_SURCHARGE = 1.5; // acréscimo para variantes especiais (Legendary, Dark, LightCore, Nitro, etc.)
+const PACK_DISCOUNT = 0.85; // pack Trap Masters completo = 15% de desconto sobre a soma
+
+/* ---- envio: peso e tabela de portes ---- */
+const CARD_WEIGHT_G = 7;      // peso de cada cartão
+const ENVELOPE_WEIGHT_G = 6;  // peso do envelope
+const SHIPPING_TABLE = [
+    //Correio Normal
+  { maxG: 100,  pt: 1.58, eu: 2.65 },
+  { maxG: 250,  pt: 2.34, eu: 4.25 },
+  { maxG: 500,  pt: 5.55, eu: 7.05 },
+  { maxG: 1000, pt: 5.55, eu: 10.85 },
+  { maxG: 2000, pt: 5.55, eu: 18.47 }
+];
+/*
+        Tabela para Correio Azul
+  { maxG: 100,  pt: 2.10, eu: 5.80 },
+  { maxG: 250,  pt: 3.90, eu: 7.55 },
+  { maxG: 500,  pt: 3.90, eu: 9.80 },
+  { maxG: 1000, pt: 7.80, eu: 13.20 }
+*/
+
+const EUROPE_CODES = new Set(["ES","FR","DE","IT","GB","IE","NL","BE","LU","AT","CH","LI","DK","SE","NO","FI","IS","PL","CZ","SK","HU","RO","BG","GR","HR","SI","EE","LV","LT","MT","CY","MC","AD"]);
+
+function zoneOf(countryCode){
+  if(countryCode === "PT") return "pt";
+  if(EUROPE_CODES.has(countryCode)) return "eu";
+  if(countryCode === "OTHER") return "other";
+  return null; // nada selecionado ainda
+}
+function shippingCostFor(weightG, zone){
+  if(zone !== "pt" && zone !== "eu") return null; // "other" ou por selecionar -> sem tarifa automática
+  for(const tier of SHIPPING_TABLE){
+    if(weightG <= tier.maxG) return zone === "pt" ? tier.pt : tier.eu;
+  }
+  return null; // acima de 1kg -> a combinar
+}
+/* =========================================== */
+
+function isRareVariant(v){
+  if(v === "Normal") return false;
+  if(v.startsWith("Series")) return false;
+  return true;
+}
+function tierOf(gameKey, group){
+  return group.special_tier || CATALOG[gameKey].tier;
+}
+function priceOf(gameKey, group, item, variant){
+  const base = item?.price ?? (PRICES[tierOf(gameKey, group)] ?? PRICES.normal);
+  return base + (isRareVariant(variant) ? RARE_SURCHARGE : 0);
+}
+function fmt(n){ return n.toFixed(2).replace(".", ",") + " €"; }
+
+let cart = []; // {id, name, variant, price, qty, units}
+
+function addToCart(id, name, variant, price, units){
+  units = units || 1; // nº de cartões físicos que este item representa (packs valem por vários)
+  const existing = cart.find(i => i.id === id);
+  if(existing){ existing.qty++; }
+  else{ cart.push({id, name, variant, price, qty:1, units}); }
+  renderCart();
+  openCart();
+}
+function changeQty(id, delta){
+  const it = cart.find(i => i.id === id);
+  if(!it) return;
+  it.qty += delta;
+  if(it.qty <= 0) cart = cart.filter(i => i.id !== id);
+  renderCart();
+}
+function removeItem(id){ cart = cart.filter(i => i.id !== id); renderCart(); }
+
+function renderCart(){
+  const wrap = document.getElementById("drawerItems");
+  const count = cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById("cartCount").textContent = count;
+  if(cart.length === 0){
+    wrap.innerHTML = '<div class="empty-cart">O carrinho está vazio.<br>Escolhe uns cartões ✨</div>';
+  } else {
+    wrap.innerHTML = cart.map(i => `
+      <div class="d-item">
+        <div>
+          <div class="name">${i.name}</div>
+          <div class="sub">${i.variant}</div>
+          <div class="qty-ctrl">
+            <button onclick="changeQty('${i.id}',-1)">−</button>
+            <span class="mono">${i.qty}</span>
+            <button onclick="changeQty('${i.id}',1)">+</button>
+          </div>
+        </div>
+        <div class="price-col">
+          ${fmt(i.price*i.qty)}
+          <div><button class="remove-link" onclick="removeItem('${i.id}')">remover</button></div>
+        </div>
+      </div>`).join("");
+  }
+  updateTotals();
+}
+
+function getCartWeightG(){
+  const totalUnits = cart.reduce((s,i)=> s + (i.units||1)*i.qty, 0);
+  if(totalUnits === 0) return 0;
+  return ENVELOPE_WEIGHT_G + CARD_WEIGHT_G * totalUnits;
+}
+
+function updateTotals(){
+  const itemsTotal = cart.reduce((s,i)=> s + i.price*i.qty, 0);
+  const countryCode = document.getElementById("countrySelect").value;
+  const zone = zoneOf(countryCode);
+  const weightG = getCartWeightG();
+
+  const zoneNoteEl = document.getElementById("zoneNote");
+  zoneNoteEl.className = "zone-note";
+  if(!countryCode){
+    zoneNoteEl.classList.remove("show");
+  } else if(zone === "pt"){
+    zoneNoteEl.textContent = "🇵🇹 Envio nacional (Portugal).";
+    zoneNoteEl.classList.add("show","pt");
+  } else if(zone === "eu"){
+    zoneNoteEl.textContent = "🇪🇺 País da Europa — aplica-se a tarifa de envio europeu.";
+    zoneNoteEl.classList.add("show","eu");
+  } else {
+    zoneNoteEl.textContent = "🌍 Fora da Europa — os portes não estão automatizados para este destino; combinamos o valor exato por WhatsApp antes de confirmar.";
+    zoneNoteEl.classList.add("show","other");
+  }
+
+  let shipping = 0;
+  const shippingEl = document.getElementById("shippingCost");
+  if(cart.length === 0){
+    shippingEl.textContent = "—";
+  } else if(!countryCode){
+    shippingEl.textContent = "Seleciona o país";
+  } else {
+    const cost = shippingCostFor(weightG, zone);
+    if(cost === null){
+      shippingEl.textContent = zone === "other" ? "a combinar" : "encomenda >1kg, a combinar";
+    } else {
+      shipping = cost;
+      shippingEl.textContent = fmt(cost);
+    }
+  }
+
+  document.getElementById("cartTotal").textContent = fmt(itemsTotal + shipping);
+}
+
+function onAddressChange(){ updateTotals(); }
+
+function openCart(){ document.getElementById("drawer").classList.add("open"); document.getElementById("overlay").classList.add("open"); }
+function closeCart(){ document.getElementById("drawer").classList.remove("open"); document.getElementById("overlay").classList.remove("open"); }
+
+function checkout(){
+  if(cart.length === 0){ alert("O carrinho está vazio."); return; }
+  const countrySelect = document.getElementById("countrySelect");
+  const countryCode = countrySelect.value;
+  if(!countryCode){
+    alert("Por favor seleciona o país de entrega antes de finalizar.");
+    countrySelect.focus();
+    return;
+  }
+  const countryName = countrySelect.options[countrySelect.selectedIndex].text;
+  const zone = zoneOf(countryCode);
+  const weightG = getCartWeightG();
+  const shippingCost = shippingCostFor(weightG, zone);
+  const street = document.getElementById("addrStreet").value.trim();
+  const zip = document.getElementById("addrZip").value.trim();
+  const city = document.getElementById("addrCity").value.trim();
+
+  let msg = "Olá! Gostava de encomendar estes cartões NFC Skylanders:%0A%0A";
+  cart.forEach(i => { msg += `• ${i.qty}x ${i.name} (${i.variant}) — ${fmt(i.price*i.qty)}%0A`; });
+  const itemsTotal = cart.reduce((s,i)=> s + i.price*i.qty, 0);
+
+  msg += `%0AMorada de entrega:%0A`;
+  msg += `País: ${countryName}%0A`;
+  if(street) msg += `Morada: ${street}%0A`;
+  if(zip || city) msg += `${zip ? zip + " " : ""}${city}%0A`;
+  msg += `(Peso estimado da encomenda: ${weightG}g)%0A`;
+
+  msg += `%0APortes de envio: ${shippingCost !== null ? fmt(shippingCost) : "a combinar"}%0A`;
+  msg += `Subtotal artigos: ${fmt(itemsTotal)}%0A`;
+  if(shippingCost !== null){
+    msg += `Total (com portes): ${fmt(itemsTotal + shippingCost)}`;
+  }
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+}
+
+/* ---------- render catalog ---------- */
+const gamesRoot = document.getElementById("gamesRoot");
+const navLinks = document.getElementById("navLinks");
+const chipRow = document.getElementById("chipRow");
+
+Object.entries(CATALOG).forEach(([key, game]) => {
+  navLinks.innerHTML += `<button onclick="document.getElementById('game-${key}').scrollIntoView({behavior:'smooth'})">${game.title}</button>`;
+  chipRow.innerHTML += `<div class="chip" style="border-color:${game.color}" onclick="document.getElementById('game-${key}').scrollIntoView({behavior:'smooth'})">${game.title} <span class="mono" style="color:${game.color}">'${game.year.slice(2)}</span></div>`;
+
+ let groupsHtml = "";
+  game.groups.forEach(group => {
+    const tier = tierOf(key, group);
+    let cardsHtml = "";
+    group.items.forEach(item => {
+      item.variants.forEach(variant => {
+        // Suporte para variantes como objeto { name, image } ou como string simples
+        const variantName = typeof variant === "object" ? variant.name : variant;
+        const variantImg = typeof variant === "object" ? variant.image : (item.image || null);
+
+        const id = `${key}-${item.name}-${variantName}`.replace(/\s+/g,"_");
+        const price = priceOf(key, group, item, variantName);
+        const rare = isRareVariant(variantName);
+
+        // Se houver caminho de imagem, cria a tag <img>, senão mantém o placeholder
+        const imageHtml = variantImg 
+          ? `<img src="${variantImg}" alt="${item.name} (${variantName})" class="card-img">`
+          : `<div class="no-photo">sem foto<br>(espaço reservado)</div>`;
+
+        cardsHtml += `
+          <div class="card" style="--accent:${game.color}">
+            <div class="card-top"></div>
+            ${imageHtml}
+            <span class="badge ${rare ? 'rare':''}">${variantName}</span>
+            <h4>${item.name}</h4>
+            <div class="card-foot">
+              <span class="price">${fmt(price)}</span>
+              <button class="add-btn" onclick="addToCart('${id}', '${item.name.replace(/'/g,"\'")}', '${variantName.replace(/'/g,"\'")}', ${price})">+</button>
+            </div>
+          </div>`;
+      });
+    });
+    groupsHtml += `<div class="group-title">${group.name}</div><div class="grid">${cardsHtml}</div>`;
+  });
+
+  gamesRoot.innerHTML += `
+    <div class="game-section" id="game-${key}">
+      <div class="game-head" style="border-color:${game.color}55">
+        <h2 style="color:${game.color}">${game.title}</h2>
+        <span class="year">${game.year}</span>
+      </div>
+      ${groupsHtml}
+    </div>`;
+});
+
+/* ---------- Trap Masters pack ---------- */
+const tm = CATALOG["trap-team"].groups.find(g => g.name === "Trap Masters");
+const tmPriceEach = PRICES.trapmaster;
+const tmSum = tm.items.length * tmPriceEach; // 18 normais
+const packPrice = Math.round(tmSum * PACK_DISCOUNT * 100) / 100;
+document.getElementById("packSection").innerHTML = `
+  <div class="group-title" style="margin-top:0;">Packs completos</div>
+  <div class="pack-card">
+    <img src="trapmasters.jpeg" alt="Pack completo Trap Masters">
+    <div class="pack-info">
+      <h3>Pack Trap Masters Completo</h3>
+      <p>Os 18 Trap Masters de Skylanders: Trap Team, num único pack — a coleção completa da foto acima, pronta para ativar qualquer um deles no portal.</p>
+      <div class="pack-list">${tm.items.map(i=>i.name).join(" · ")}</div>
+      <div class="pack-price-row">
+        <span class="pack-old">${fmt(tmSum)}</span>
+        <span class="pack-new">${fmt(packPrice)}</span>
+      </div>
+      <button class="buy-pack" onclick="addToCart('pack-trapmasters-full','Pack Trap Masters Completo','18 cartões',${packPrice},18)">Adicionar pack ao carrinho</button>
+    </div>
+  </div>`;
+
+/* ---- slideshow de fotos no topo do site (troca automática) ---- */
+// Acrescenta aqui os caminhos das tuas fotos (coloca os ficheiros em assets/portal/)
+const PORTAL_IMAGES = [
+  "symbols/dark2.png",
+  "symbols/light2.png",
+  "symbols/fire2.png",
+  "symbols/water2.png",
+  "symbols/leaf2.png",
+  "symbols/magic2.png",
+  "symbols/undead2.png",
+  "symbols/air2.png",
+  "symbols/rock2.png",
+  "symbols/tech2.png"
+];
+const PORTAL_INTERVAL_MS = 1000; // tempo entre trocas
+let portalIdx = 0;
+function startPortalPhotos(){
+  const root = document.getElementById("heroSlideshow");
+  if(!root || PORTAL_IMAGES.length === 0) return;
+  root.innerHTML = PORTAL_IMAGES.map((src,i) =>
+    `<div class="slide${i===0 ? " active":""}" style="background-image:url('${src}')"></div>`
+  ).join("");
+  if(PORTAL_IMAGES.length > 1){
+    const slides = root.querySelectorAll(".slide");
+    setInterval(()=>{
+      slides[portalIdx].classList.remove("active");
+      portalIdx = (portalIdx + 1) % slides.length;
+      slides[portalIdx].classList.add("active");
+    }, PORTAL_INTERVAL_MS);
+  }
+}
+startPortalPhotos();
+
+renderCart();
+</script>
+</body>
+</html>
