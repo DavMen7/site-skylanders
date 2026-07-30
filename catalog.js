@@ -11,26 +11,26 @@ const CATALOG = {
         { 
           name: "Camo",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/camo.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Camo.jpg" }
           ]
         },
         { 
           name: "Stealth Elf",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/stealth elf.jpg" },
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Stealth Elf.jpg" },
             { name: "Sidekick", image: "fotos/1. Spyro's Adventure/variants/Whisper Elf.jpg" }
           ]
         },
         { 
           name: "Stump Smash",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/stump smash.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Stump Smash.jpg" }
           ]
         },
         { 
           name: "Zook",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/zook.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Zook.jpg" }
           ]
         },
         { 
