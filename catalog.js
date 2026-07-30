@@ -171,52 +171,93 @@ const CATALOG = {
       {
         name: "Giants",
         items: [
-          { name: "Tree Rex", image: "imagens/tree-rex.png", variants: ["Normal"] },
-          { name: "Crusher", image: "imagens/crusher.png", variants: ["Normal"] },
-          { name: "Swarm", image: "imagens/swarm.png", variants: ["Normal"] },
-          { name: "Hot Head", image: "imagens/hot-head.png", variants: ["Normal"] },
-          { name: "Thumpback", image: "imagens/thumpback.png", variants: ["Normal"] },
-          { name: "Eye-Brawl", image: "imagens/eye-brawl.png", variants: ["Normal"] },
-          { name: "Ninjini", image: "imagens/ninjini.png", variants: ["Normal"] },
-          { name: "Bouncer", image: "imagens/bouncer.png", variants: ["Normal", "Legendary"] }
+          { name: "Tree Rex", variants: [{ name: "Normal", image: "fotos/2. Giants/Tree Rex.jpg"}]},
+          { name: "Crusher", variants: [{ name: "Normal", image: "fotos/2. Giants/Crusher.jpg"}]},
+          { name: "Swarm", variants: [{ name: "Normal", image: "fotos/2. Giants/Swarm.jpg"}]},
+          { name: "Hot Head", variants: [{ name: "Normal", image: "fotos/2. Giants/Hot Head.jpg"}]},
+          { name: "Thumpback", variants: [{ name: "Normal", image: "fotos/2. Giants/Thumpback.jpg"}]},
+          { name: "Eye Brawl", variants: [{ name: "Normal", image: "fotos/2. Giants/Eye Brawl.jpg"}]},
+          { name: "Bouncer", variants: [{ name: "Normal", image: "fotos/2. Giants/Bouncer.jpg"}]}
         ]
       },
       {
-        name: "Novos Skylanders",
-        items: [
-          { name: "Jet-Vac", image: "imagens/jet-vac.png", variants: ["Normal", "Legendary", "LightCore", "Turbo Jet-Vac (Swap Force)", "Full Blast Jet-Vac (Trap Team)", "Hurricane Jet-Vac (SuperChargers)"] },
-          { name: "Pop Fizz", image: "imagens/pop-fizz.png", variants: ["Normal", "LightCore", "Super Gulp Pop Fizz", "Big Bubble Pop Fizz"] },
-          { name: "Shroomboom", image: "imagens/shroomboom.png", variants: ["Normal", "LightCore"] },
-          { name: "Fright Rider", image: "imagens/fright-rider.png", variants: ["Normal"] },
-          { name: "Chill", image: "imagens/chill.png", variants: ["Normal", "LightCore"] },
-          { name: "Flashwing", image: "imagens/flashwing.png", variants: ["Normal", "LightCore"] },
-          { name: "Sprocket", image: "imagens/sprocket.png", variants: ["Normal", "Heavy Duty Sprocket"] },
-          { name: "Hot Dog", image: "imagens/hot-dog.png", variants: ["Normal"] }
-        ]
-      },
-      {
-        name: "Series 2",
-        items: [
-          { name: "Chop Chop", image: "imagens/chop-chop.png", variants: ["Series 2"] },
-          { name: "Cynder", image: "imagens/cynder.png", variants: ["Series 2"] },
-          { name: "Drobot", image: "imagens/drobot.png", variants: ["Series 2"] },
-          { name: "Drill Sergeant", image: "imagens/drill-sergeant.png", variants: ["Series 2"] },
-          { name: "Eruptor", image: "imagens/eruptor.png", variants: ["Series 2"] },
-          { name: "Flameslinger", image: "imagens/flameslinger.png", variants: ["Series 2"] },
-          { name: "Gill Grunt", image: "imagens/gill-grunt.png", variants: ["Series 2"] },
-          { name: "Hex", image: "imagens/hex.png", variants: ["Series 2"] },
-          { name: "Lightning Rod", image: "imagens/lightning-rod.png", variants: ["Series 2"] },
-          { name: "Prism Break", image: "imagens/prism-break.png", variants: ["Series 2"] },
-          { name: "Slam Bam", image: "imagens/slam-bam.png", variants: ["Series 2"] },
-          { name: "Sonic Boom", image: "imagens/sonic-boom.png", variants: ["Series 2"] },
-          { name: "Spyro", image: "imagens/spyro.png", variants: ["Series 2"] },
-          { name: "Stealth Elf", image: "imagens/stealth-elf.png", variants: ["Series 2"] },
-          { name: "Stump Smash", image: "imagens/stump-smash.png", variants: ["Series 2"] },
-          { name: "Trigger Happy", image: "imagens/trigger-happy.png", variants: ["Series 2"] },
-          { name: "Whirlwind", image: "imagens/whirlwind.png", variants: ["Series 2"] },
-          { name: "Zap", image: "imagens/zap.png", variants: ["Series 2"] }
-        ]
-      }
+  name: "Novos Skylanders",
+  items: [
+    {
+      name: "Jet-Vac",
+      variants: [
+        { name: "Normal", image: "fotos/2. Giants/Jet-Vac.jpg" },
+        { name: "Legendary", image: "fotos/2. Giants/variants/Legendary Jet-Vac.jpg" },
+        { name: "LightCore", image: "fotos/2. Giants/variants/LightCore Jet-Vac.jpg" },
+        { name: "Turbo Jet-Vac (Swap Force)", image: "fotos/2. Giants/variants/Turbo Jet-Vac (Swap Force).jpg" },
+        { name: "Full Blast Jet-Vac (Trap Team)", image: "fotos/2. Giants/variants/Full Blast Jet-Vac (Trap Team).jpg" },
+        { name: "Hurricane Jet-Vac (SuperChargers)", image: "fotos/2. Giants/variants/Hurricane Jet-Vac (SuperChargers).jpg" }
+      ]
+    },
+    {
+      name: "Pop Fizz",
+      variants: [
+        { name: "Normal", image: "fotos/2. Giants/Pop Fizz.jpg" },
+        { name: "LightCore", image: "fotos/2. Giants/variants/LightCore Pop Fizz.jpg" },
+        { name: "Super Gulp", image: "fotos/2. Giants/variants/Super Gulp Pop Fizz.jpg" },
+        { name: "Big Bubble", image: "fotos/2. Giants/variants/Big Bubble Pop Fizz.jpg" }
+      ]
+    },
+    {
+      name: "Shroomboom",
+      variants: [
+        { name: "Normal", image: "fotos/2. Giants/Shroomboom.jpg" },
+        { name: "LightCore", image: "fotos/2. Giants/variants/LightCore Shroomboom.jpg" }
+      ]
+    },
+    {name: "Fright Rider",variants: [{ name: "Normal", image: "fotos/2. Giants/Fright Rider.jpg" }]},
+    {
+      name: "Chill",
+      variants: [
+        { name: "Normal", image: "fotos/2. Giants/Chill.jpg" },
+        { name: "LightCore", image: "fotos/2. Giants/variants/LightCore Chill.jpg" }
+      ]
+    },
+    {
+      name: "Flashwing",
+      variants: [
+        { name: "Normal", image: "fotos/2. Giants/Flashwing.jpg" },
+        { name: "LightCore", image: "fotos/2. Giants/variants/LightCore Flashwing.jpg" }
+      ]
+    },
+    {
+      name: "Sprocket",
+      variants: [
+        { name: "Normal", image: "fotos/2. Giants/Sprocket.jpg" },
+        { name: "Heavy Duty", image: "fotos/2. Giants/variants/Heavy Duty Sprocket.jpg" }
+      ]
+    },
+    {name: "Hot Dog", variants: [{ name: "Normal", image: "fotos/2. Giants/Hot Dog.jpg" }]}
+  ]
+},
+{
+  name: "Series 2",
+  items: [
+    {name: "Chop Chop", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Chop Chop (Series 2).jpg" }]},
+    {name: "Cynder", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Cynder (Series 2).jpg" }]},
+    {name: "Drobot", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Drobot (Series 2).jpg" }]},
+    {name: "Drill Sergeant", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Drill Sergeant (Series 2).jpg" }]},
+    {name: "Eruptor", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Eruptor (Series 2).jpg" }]},
+    {name: "Flameslinger",variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Flameslinger (Series 2).jpg" }]},
+    {name: "Gill Grunt", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Gill Grunt (Series 2).jpg" }]},
+    {name: "Hex", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Hex (Series 2).jpg" }]},
+    {name: "Lightning Rod", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Lightning Rod (Series 2).jpg" }]},
+    {name: "Prism Break", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Prism Break (Series 2).jpg" }]},
+    {name: "Slam Bam", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Slam Bam (Series 2).jpg" }]},
+    {name: "Sonic Boom", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Sonic Boom (Series 2).jpg" }]},
+    {name: "Spyro", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Spyro (Series 2).jpg" }]},
+    {name: "Stealth Elf",variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Stealth Elf (Series 2).jpg" }]},
+    {name: "Stump Smash", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Stump Smash (Series 2).jpg" }]},
+    {name: "Trigger Happy", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Trigger Happy (Series 2).jpg" }]},
+    {name: "Whirlwind", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Whirlwind (Series 2).jpg" }]},
+    {name: "Zap", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Zap (Series 2).jpg" }]}
+  ]
+}
     ]
   },
   //========SWAP-FORCE========
