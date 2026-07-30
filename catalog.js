@@ -201,41 +201,41 @@ const CATALOG = {
     { name: "Pop Fizz", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Pop Fizz LightCore.jpg" }] },
     { name: "Shroomboom", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Shroomboom LightCore.jpg" }] },
     { name: "Chill", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Chill LightCore.jpg" }] },
-    { name: "Flashwing", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Flashwing LightCore.jpg" }] },
     { name: "Prism Break", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Prism Break LightCore.jpg" }] },
     { name: "Drobot", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Drobot LightCore.jpg" }] },
     { name: "Eruptor", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Eruptor LightCore.jpg" }] },
-    { name: "Hex", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Hex LightCore.jpg" }] },
-    { name: "Lightning Rod", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Lightning Rod LightCore.jpg" }] },
-    { name: "Sonic Boom", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Sonic Boom LightCore.jpg" }] },
-    { name: "Bumble Blast", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Bumble Blast LightCore.jpg" }] },
-    { name: "Countdown", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Countdown LightCore.jpg" }] },
-    { name: "Smolderdash", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Smolderdash LightCore.jpg" }] },
-    { name: "Star Strike", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Star Strike LightCore.jpg" }] },
-    { name: "Grim Creeper", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Grim Creeper LightCore.jpg" }] }
-  ]
+    { name: "Hex", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Hex LightCore.jpg" }] }
+    ]
 },
 {
   name: "Series 2",
   items: [
     {name: "Chop Chop", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Chop Chop (Series 2).jpg" }]},
     {name: "Cynder", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Cynder (Series 2).jpg" }]},
+    {name: "Hex", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Hex (Series 2).jpg" }]},
     {name: "Drobot", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Drobot (Series 2).jpg" }]},
     {name: "Drill Sergeant", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Drill Sergeant (Series 2).jpg" }]},
+    {name: "Trigger Happy", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Trigger Happy (Series 2).jpg" }]},
     {name: "Eruptor", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Eruptor (Series 2).jpg" }]},
     {name: "Flameslinger",variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Flameslinger (Series 2).jpg" }]},
+    {name: "Ignitor", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Ignitor (Series 2).jpg" }]},
     {name: "Gill Grunt", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Gill Grunt (Series 2).jpg" }]},
-    {name: "Hex", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Hex (Series 2).jpg" }]},
-    {name: "Lightning Rod", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Lightning Rod (Series 2).jpg" }]},
-    {name: "Prism Break", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Prism Break (Series 2).jpg" }]},
     {name: "Slam Bam", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Slam Bam (Series 2).jpg" }]},
+    {name: "Zap", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Zap (Series 2).jpg" }]},
+    {name: "Lightning Rod", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Lightning Rod (Series 2).jpg" }]},
+    {name: "Whirlwind", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Whirlwind (Series 2).jpg" }]},
     {name: "Sonic Boom", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Sonic Boom (Series 2).jpg" }]},
+    {name: "Prism Break", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Prism Break (Series 2).jpg" }]},
+    {name: "Terrafin ", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Terrafin  (Series 2).jpg" }]},
+    {name: "Bash", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Bash (Series 2).jpg" }]},
     {name: "Spyro", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Spyro (Series 2).jpg" }]},
+    {name: "Double Trouble ", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Double Trouble  (Series 2).jpg" }]},
+    {name: "Wrecking Ball", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Wrecking Ball (Series 2).jpg" }]},
     {name: "Stealth Elf",variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Stealth Elf (Series 2).jpg" }]},
     {name: "Stump Smash", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Stump Smash (Series 2).jpg" }]},
-    {name: "Trigger Happy", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Trigger Happy (Series 2).jpg" }]},
-    {name: "Whirlwind", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Whirlwind (Series 2).jpg" }]},
-    {name: "Zap", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Zap (Series 2).jpg" }]}
+    {name: "Zook", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Zook (Series 2).jpg" }]},
+    
+    
   ]
 }
     ]
