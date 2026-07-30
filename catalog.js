@@ -42,118 +42,118 @@ const CATALOG = {
         { 
           name: "Flameslinger",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/flameslinger.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Flameslinger.jpg" }
           ]
         },
         { 
           name: "Ignitor",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/ignitor.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Ignitor.jpg" }
           ]
         },
         { 
           name: "Sunburn",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/sunburn.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Sunburn.jpg" }
           ]
         },
         { 
           name: "Gill Grunt",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/gill grunt.jpg" },
-            { name: "Sidekick", image: "fotos/1. Spyro's Adventure/variants/gill runt.jpg" },
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Gill Grunt.jpg" },
+            { name: "Sidekick", image: "fotos/1. Spyro's Adventure/variants/Gill Runt.jpg" },
           ]
         },
         { 
           name: "Slam Bam",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/slam bam.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Slam Bam.jpg" }
           ]
         },
         { 
           name: "Wham-Shell",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/wham-shell.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Wham-Shell.jpg" }
           ]
         },
         { 
           name: "Zap",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/zap.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Zap.jpg" }
           ]
         },
         { 
           name: "Warnado",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/warnado.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Warnado.jpg" }
           ]
         },
         { 
           name: "Lightning Rod",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/lightning rod.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Lightning Rod.jpg" }
           ]
         },
         { 
           name: "Whirlwind",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/whirlwind.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Whirlwind.jpg" }
           ]
         },
         { 
           name: "Sonic Boom",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/sonic boom.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Sonic Boom.jpg" }
           ]
         },
         { 
           name: "Bash",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/bash.jpg" },
-            { name: "Legendary", image: "fotos/1. Spyro's Adventure/variants/legendary bash.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Bash.jpg" },
+            { name: "Legendary", image: "fotos/1. Spyro's Adventure/variants/Legendary Bash.jpg" }
           ]
         },
         { 
           name: "Dino-Rang",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/dino-rang.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Dino-Rang.jpg" }
           ]
         },
         { 
           name: "Prism Break",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/prism break.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Prism Break.jpg" }
           ]
         },
         { 
           name: "Terrafin",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/terrafin.jpg" },
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Terrafin.jpg" },
             { name: "Sidekick", image: "fotos/1. Spyro's Adventure/variants/Terrabite.jpg" }
           ]
         },
         { 
           name: "Boomer",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/boomer.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Boomer.jpg" }
           ]
         },
         { 
           name: "Drill Sergeant",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/drill sergeant.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Drill Sergeant.jpg" }
           ]
         },
         { 
           name: "Drobot",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/drobot.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Drobot.jpg" }
           ]
         },
         { 
           name: "Trigger Happy",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/trigger happy.jpg" },
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Trigger Happy.jpg" },
             { name: "Legendary", image: "fotos/1. Spyro's Adventure/variants/Legendary Trigger Happy.jpg" },
             { name: "SideKick", image: "fotos/1. Spyro's Adventure/variants/Trigger Snappy.jpg" }
           ]
@@ -161,52 +161,52 @@ const CATALOG = {
         { 
           name: "Chop Chop",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/chop chop.jpg" },
-            { name: "Legendary", image: "fotos/1. Spyro's Adventure/variants/legendary chop chop.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Chop Chop.jpg" },
+            { name: "Legendary", image: "fotos/1. Spyro's Adventure/variants/Legendary Chop Chop.jpg" }
           ]
         },
         { 
           name: "Cynder",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/cynder.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Cynder.jpg" }
           ]
         },
         { 
           name: "Ghost Roaster",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/ghost roaster.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Ghost Roaster.jpg" }
           ]
         },
         { 
           name: "Hex",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/hex.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Hex.jpg" }
           ]
         },
         { 
           name: "Double Trouble",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/double trouble.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Double Trouble.jpg" }
           ]
         },
         { 
           name: "Spyro",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/spyro.jpg" },
-            { name: "Dark", image: "fotos/1. Spyro's Adventure/variants/dark spyro.jpg" },
-            { name: "Legendary", image: "fotos/1. Spyro's Adventure/variants/legendary spyro.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Spyro.jpg" },
+            { name: "Dark", image: "fotos/1. Spyro's Adventure/variants/Dark Spyro.jpg" },
+            { name: "Legendary", image: "fotos/1. Spyro's Adventure/variants/Legendary Spyro.jpg" }
           ]
         },
         { 
           name: "Voodood",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/voodood.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Voodood.jpg" }
           ]
         },
         { 
           name: "Wrecking Ball",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/wrecking ball.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Wrecking Ball.jpg" }
         ]}
       ]
     }
