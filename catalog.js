@@ -162,77 +162,56 @@ const CATALOG = {
     }
   ]
 },
-  //========GIANTS========
-  "giants": {
-    title: "Giants",
-    year: "2012",
-    color: "#FB7600",
-    groups: [
-      {
-        name: "Giants",
-        items: [
-          { name: "Tree Rex", variants: [{ name: "Normal", image: "fotos/2. Giants/Tree Rex.jpg"}]},
-          { name: "Crusher", variants: [{ name: "Normal", image: "fotos/2. Giants/Crusher.jpg"}]},
-          { name: "Swarm", variants: [{ name: "Normal", image: "fotos/2. Giants/Swarm.jpg"}]},
-          { name: "Hot Head", variants: [{ name: "Normal", image: "fotos/2. Giants/Hot Head.jpg"}]},
-          { name: "Thumpback", variants: [{ name: "Normal", image: "fotos/2. Giants/Thumpback.jpg"}]},
-          { name: "Eye Brawl", variants: [{ name: "Normal", image: "fotos/2. Giants/Eye Brawl.jpg"}]},
-          { name: "Bouncer", variants: [{ name: "Normal", image: "fotos/2. Giants/Bouncer.jpg"}]}
-        ]
-      },
-      {
+//========GIANTS========
+"giants": {
+  title: "Giants",
+  year: "2012",
+  color: "#FB7600",
+  groups: [
+{
+  name: "Giants",
+  items: [
+    { name: "Tree Rex", variants: [{ name: "Normal", image: "fotos/2. Giants/Tree Rex.jpg"}]},
+    { name: "Crusher", variants: [{ name: "Normal", image: "fotos/2. Giants/Crusher.jpg"}]},
+    { name: "Swarm", variants: [{ name: "Normal", image: "fotos/2. Giants/Swarm.jpg"}]},
+    { name: "Hot Head", variants: [{ name: "Normal", image: "fotos/2. Giants/Hot Head.jpg"}]},
+    { name: "Thumpback", variants: [{ name: "Normal", image: "fotos/2. Giants/Thumpback.jpg"}]},
+    { name: "Eye Brawl", variants: [{ name: "Normal", image: "fotos/2. Giants/Eye Brawl.jpg"}]},
+    { name: "Bouncer", variants: [{ name: "Normal", image: "fotos/2. Giants/Bouncer.jpg"}]}
+  ]
+},
+{
   name: "Novos Skylanders",
   items: [
-    {
-      name: "Jet-Vac",
-      variants: [
-        { name: "Normal", image: "fotos/2. Giants/Jet-Vac.jpg" },
-        { name: "Legendary", image: "fotos/2. Giants/variants/Legendary Jet-Vac.jpg" },
-        { name: "LightCore", image: "fotos/2. Giants/variants/LightCore Jet-Vac.jpg" },
-        { name: "Turbo Jet-Vac (Swap Force)", image: "fotos/2. Giants/variants/Turbo Jet-Vac (Swap Force).jpg" },
-        { name: "Full Blast Jet-Vac (Trap Team)", image: "fotos/2. Giants/variants/Full Blast Jet-Vac (Trap Team).jpg" },
-        { name: "Hurricane Jet-Vac (SuperChargers)", image: "fotos/2. Giants/variants/Hurricane Jet-Vac (SuperChargers).jpg" }
-      ]
-    },
-    {
-      name: "Pop Fizz",
-      variants: [
-        { name: "Normal", image: "fotos/2. Giants/Pop Fizz.jpg" },
-        { name: "LightCore", image: "fotos/2. Giants/variants/LightCore Pop Fizz.jpg" },
-        { name: "Super Gulp", image: "fotos/2. Giants/variants/Super Gulp Pop Fizz.jpg" },
-        { name: "Big Bubble", image: "fotos/2. Giants/variants/Big Bubble Pop Fizz.jpg" }
-      ]
-    },
-    {
-      name: "Shroomboom",
-      variants: [
-        { name: "Normal", image: "fotos/2. Giants/Shroomboom.jpg" },
-        { name: "LightCore", image: "fotos/2. Giants/variants/LightCore Shroomboom.jpg" }
-      ]
-    },
-    {name: "Fright Rider",variants: [{ name: "Normal", image: "fotos/2. Giants/Fright Rider.jpg" }]},
-    {
-      name: "Chill",
-      variants: [
-        { name: "Normal", image: "fotos/2. Giants/Chill.jpg" },
-        { name: "LightCore", image: "fotos/2. Giants/variants/LightCore Chill.jpg" }
-      ]
-    },
-    {
-      name: "Flashwing",
-      variants: [
-        { name: "Normal", image: "fotos/2. Giants/Flashwing.jpg" },
-        { name: "LightCore", image: "fotos/2. Giants/variants/LightCore Flashwing.jpg" }
-      ]
-    },
-    {
-      name: "Sprocket",
-      variants: [
-        { name: "Normal", image: "fotos/2. Giants/Sprocket.jpg" },
-        { name: "Heavy Duty", image: "fotos/2. Giants/variants/Heavy Duty Sprocket.jpg" }
-      ]
-    },
-    {name: "Hot Dog", variants: [{ name: "Normal", image: "fotos/2. Giants/Hot Dog.jpg" }]}
+    { name: "Jet-Vac", variants: [{ name: "Normal", image: "fotos/2. Giants/Jet-Vac.jpg" }] },
+    { name: "Pop Fizz", variants: [{ name: "Normal", image: "fotos/2. Giants/Pop Fizz.jpg" }] },
+    { name: "Shroomboom", variants: [{ name: "Normal", image: "fotos/2. Giants/Shroomboom.jpg" }] },
+    { name: "Fright Rider", variants: [{ name: "Normal", image: "fotos/2. Giants/Fright Rider.jpg" }] },
+    { name: "Chill", variants: [{ name: "Normal", image: "fotos/2. Giants/Chill.jpg" }] },
+    { name: "Flashwing", variants: [{ name: "Normal", image: "fotos/2. Giants/Flashwing.jpg" }] },
+    { name: "Sprocket", variants: [{ name: "Normal", image: "fotos/2. Giants/Sprocket.jpg" }] },
+    { name: "Hot Dog", variants: [{ name: "Normal", image: "fotos/2. Giants/Hot Dog.jpg" }] }
+  ]
+},
+{
+  name: "LightCore",
+  items: [
+    { name: "Jet-Vac", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Jet-Vac LightCore.jpg" }] },
+    { name: "Pop Fizz", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Pop Fizz LightCore.jpg" }] },
+    { name: "Shroomboom", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Shroomboom LightCore.jpg" }] },
+    { name: "Chill", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Chill LightCore.jpg" }] },
+    { name: "Flashwing", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Flashwing LightCore.jpg" }] },
+    { name: "Prism Break", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Prism Break LightCore.jpg" }] },
+    { name: "Drobot", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Drobot LightCore.jpg" }] },
+    { name: "Eruptor", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Eruptor LightCore.jpg" }] },
+    { name: "Hex", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Hex LightCore.jpg" }] },
+    { name: "Lightning Rod", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Lightning Rod LightCore.jpg" }] },
+    { name: "Sonic Boom", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Sonic Boom LightCore.jpg" }] },
+    { name: "Bumble Blast", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Bumble Blast LightCore.jpg" }] },
+    { name: "Countdown", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Countdown LightCore.jpg" }] },
+    { name: "Smolderdash", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Smolderdash LightCore.jpg" }] },
+    { name: "Star Strike", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Star Strike LightCore.jpg" }] },
+    { name: "Grim Creeper", variants: [{ name: "LightCore", image: "fotos/2. Giants/lightcore/Grim Creeper LightCore.jpg" }] }
   ]
 },
 {
