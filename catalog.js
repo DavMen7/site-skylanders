@@ -154,7 +154,7 @@ const CATALOG = {
           name: "Trigger Happy",
           variants: [
             { name: "Normal", image: "fotos/1. Spyro's Adventure/trigger happy.jpg" },
-            { name: "Legendary", image: "fotos/1. Spyro's Adventure/variants/legendary trigger happy.jpg" },
+            { name: "Legendary", image: "fotos/1. Spyro's Adventure/variants/Legendary Trigger Happy.jpg" },
             { name: "SideKick", image: "fotos/1. Spyro's Adventure/variants/Trigger Snappy.jpg" }
           ]
         },
