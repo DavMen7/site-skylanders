@@ -176,8 +176,9 @@ const CATALOG = {
     { name: "Swarm", variants: [{ name: "Normal", image: "fotos/2. Giants/Swarm.jpg"}]},
     { name: "Hot Head", variants: [{ name: "Normal", image: "fotos/2. Giants/Hot Head.jpg"}]},
     { name: "Thumpback", variants: [{ name: "Normal", image: "fotos/2. Giants/Thumpback.jpg"}]},
-    { name: "Eye Brawl", variants: [{ name: "Normal", image: "fotos/2. Giants/Eye Brawl.jpg"}]},
-    { name: "Bouncer", variants: [{ name: "Normal", image: "fotos/2. Giants/Bouncer.jpg"}]}
+    { name: "Eye-Brawl", variants: [{ name: "Normal", image: "fotos/2. Giants/Eye-Brawl.jpg"}]},
+    { name: "Bouncer", variants: [{ name: "Normal", image: "fotos/2. Giants/Bouncer.jpg"}]},
+    { name: "Ninjini", variants: [{ name: "Normal", image: "fotos/2. Giants/Ninjini.jpg"}]}
   ]
 },
 {
