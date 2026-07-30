@@ -36,7 +36,7 @@ const CATALOG = {
         { 
           name: "Eruptor",
           variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/eruptor.jpg" }
+            { name: "Normal", image: "fotos/1. Spyro's Adventure/Eruptor.jpg" }
           ]
         },
         { 
