@@ -424,122 +424,121 @@ const CATALOG = {
         {
           name: "Spitfire",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/spitfire.jpg" },
-            { name: "Dark", image: "fotos/5. SuperChargers/variants/dark spitfire.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Spitfire.jpg" },
+            { name: "Dark", image: "fotos/5. SuperChargers/variants/Dark Spitfire.jpg" }
           ]
         },
         {
           name: "Hammer Slam Bowser",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/hammer slam bowser.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Hammer Slam Bowser.jpg" }
           ]
         },
         {
           name: "Stormblade",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/stormblade.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Stormblade.jpg" }
           ]
         },
         {
           name: "Smash Hit",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/smash hit.jpg" },
-            { name: "Steel Plated", image: "fotos/5. SuperChargers/variants/steel plated smash hit.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Smash Hit.jpg" },
+            { name: "Steel Plated", image: "fotos/5. SuperChargers/variants/Steel Plated Smash Hit.jpg" }
           ]
         },
         {
           name: "High Volt",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/high volt.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/High Volt.jpg" }
           ]
         },
         {
           name: "Fiesta",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/fiesta.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Fiesta.jpg" }
           ]
         },
         {
           name: "Splat",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/splat.jpg" },
-            { name: "Power Blue", image: "fotos/5. SuperChargers/variants/power blue splat.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Splat.jpg" },
+            { name: "Power Blue", image: "fotos/5. SuperChargers/variants/Power Blue Splat.jpg" }
           ]
         },
         {
           name: "Astroblast",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/astroblast.jpg" },
-            { name: "Legendary", image: "fotos/5. SuperChargers/variants/legendary astroblast.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Astroblast.jpg" },
+            { name: "Legendary", image: "fotos/5. SuperChargers/variants/Legendary Astroblast.jpg" }
           ]
         },
         {
           name: "Bone Bash Roller Brawl",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/bone bash roller brawl.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Bone Bash Roller Brawl.jpg" }
           ]
         },
         {
           name: "Dive-Clops",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/dive-clops.jpg" },
-            { name: "Missile-Tow", image: "fotos/5. SuperChargers/variants/missile-tow dive-clops.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Dive-Clops.jpg" },
+            { name: "Missile-Tow", image: "fotos/5. SuperChargers/variants/Missile-Tow Dive-Clops.jpg" }
           ]
         },
         {
           name: "Turbo Charge Donkey Kong",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/turbo charge donkey kong.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Turbo Charge Donkey Kong.jpg" }
           ]
         },
         {
           name: "Thrillipede",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/thrillipede.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Thrillipede.jpg" }
           ]
         }
       ]
     },
-      //========IMAGINATORS========
     {
       name: "SuperCharger Reposes",
       items: [
         {
           name: "Deep Dive Gill Grunt",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/deep dive gill grunt.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Deep Dive Gill Grunt.jpg" }
           ]
         },
         {
           name: "Double Dare Trigger Happy",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/double dare trigger happy.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Double Dare Trigger Happy.jpg" }
           ]
         },
         {
           name: "Lava Lance Eruptor",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/lava lance eruptor.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Lava Lance Eruptor.jpg" }
           ]
         },
         {
           name: "Shark Shooter Terrafin",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/shark shooter terrafin.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Shark Shooter Terrafin.jpg" }
           ]
         },
         {
           name: "Super Shot Stealth Elf",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/super shot stealth elf.jpg" },
-            { name: "Dark", image: "fotos/5. SuperChargers/variants/dark super shot stealth elf.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Super Shot Stealth Elf.jpg" },
+            { name: "Dark", image: "fotos/5. SuperChargers/variants/Dark Super Shot Stealth Elf.jpg" }
           ]
         },
         {
           name: "Hurricane Jet-Vac",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/hurricane jet-vac.jpg" },
-            { name: "Legendary", image: "fotos/5. SuperChargers/variants/legendary hurricane jet-vac.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/Hurricane Jet-Vac.jpg" },
+            { name: "Legendary", image: "fotos/5. SuperChargers/variants/Legendary Hurricane Jet-Vac.jpg" }
           ]
         }
       ]
@@ -551,133 +550,133 @@ const CATALOG = {
         {
           name: "Hot Streak",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/hot streak.jpg" },
-            { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/dark hot streak.jpg" },
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Hot Streak.jpg" },
+            { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/Dark Hot Streak.jpg" },
             { name: "E3", image: "fotos/5. SuperChargers/vehicles/variants/E3 Hot Streak.jpg" },
-            { name: "golden", image: "fotos/5. SuperChargers/vehicles/variants/golden Hot Streak.jpg" }
+            { name: "golden", image: "fotos/5. SuperChargers/vehicles/variants/Golden Hot Streak.jpg" }
           ]
         },
         {
           name: "Burn-Cycle",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/burn-cycle.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Burn-Cycle.jpg" }
           ]
         },
         {
           name: "Shark Tank",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/shark tank.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Shark Tank.jpg" }
           ]
         },
         {
           name: "Thump Truck",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/thump truck.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Thump Truck.jpg" }
           ]
         },
         {
           name: "Crypt Crusher",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/crypt crusher.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Crypt Crusher.jpg" }
           ]
         },
         {
           name: "Tomb Buggy",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/tomb buggy.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Tomb Buggy.jpg" }
           ]
         },
         {
           name: "Stealth Stinger",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/stealth stinger.jpg" },
-            { name: "Nitro", image: "fotos/5. SuperChargers/vehicles/variants/nitro stealth stinger.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Stealth Stinger.jpg" },
+            { name: "Nitro", image: "fotos/5. SuperChargers/vehicles/variants/Nitro Stealth Stinger.jpg" }
           ]
         },
         {
           name: "Buzz Wing",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/buzz wing.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Buzz Wing.jpg" }
           ]
         },
         {
           name: "Jet Stream",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/jet stream.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Jet Stream.jpg" }
           ]
         },
         {
           name: "Sky Slicer",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/sky slicer.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Sky Slicer.jpg" }
           ]
         },
         {
           name: "Clown Cruiser",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/clown cruiser.jpg" },
-            { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/dark clown cruiser.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Clown Cruiser.jpg" },
+            { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/Dark Clown Cruiser.jpg" }
           ]
         },
         {
           name: "Dive Bomber",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/dive bomber.jpg" },
-            { name: "Spring Ahead", image: "fotos/5. SuperChargers/vehicles/variants/Spring Ahead dive bomber.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Dive Bomber.jpg" },
+            { name: "Spring Ahead", image: "fotos/5. SuperChargers/vehicles/variants/Spring Ahead Dive Bomber.jpg" }
           ]
         },
         {
           name: "Reef Ripper",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/reef ripper.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Reef Ripper.jpg" }
           ]
         },
         {
           name: "Soda Skimmer",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/soda skimmer.jpg" },
-            { name: "Nitro", image: "fotos/5. SuperChargers/vehicles/variants/nitro soda skimmer.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Soda Skimmer.jpg" },
+            { name: "Nitro", image: "fotos/5. SuperChargers/vehicles/variants/Nitro Soda Skimmer.jpg" }
           ]
         },
         {
           name: "Splatter Splasher",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/splatter splasher.jpg" },
-            { name: "Power Blue", image: "fotos/5. SuperChargers/vehicles/variants/power blue splatter splasher.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Splatter Splasher.jpg" },
+            { name: "Power Blue", image: "fotos/5. SuperChargers/vehicles/variants/Power Blue Splatter Splasher.jpg" }
           ]
         },
         {
           name: "Shield Striker",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/shield striker.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Shield Striker.jpg" }
           ]
         },
         {
           name: "Gold Rusher",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/gold rusher.jpg" },
-            { name: "Power Blue", image: "fotos/5. SuperChargers/vehicles/variants/power blue gold rusher.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Gold Rusher.jpg" },
+            { name: "Power Blue", image: "fotos/5. SuperChargers/vehicles/variants/Power Blue Gold Rusher.jpg" }
           ]
         },
         {
           name: "Barrel Blaster",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/barrel blaster.jpg" },
-            { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/dark barrel blaster.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Barrel Blaster.jpg" },
+            { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/Dark Barrel Blaster.jpg" }
           ]
         },
         {
           name: "Sea Shadow",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/sea shadow.jpg" },
-            { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/dark sea shadow.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Sea Shadow.jpg" },
+            { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/Dark Sea Shadow.jpg" }
           ]
         },
         {
           name: "Sun Runner",
           variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/sun runner.jpg" },
-            { name: "legendary", image: "fotos/5. SuperChargers/vehicles/variants/legendary sun runner.jpg" }
+            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Sun Runner.jpg" },
+            { name: "legendary", image: "fotos/5. SuperChargers/vehicles/variants/Legendary Sun Runner.jpg" }
           ]
         }
       ]
