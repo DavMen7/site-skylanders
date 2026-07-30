@@ -18,7 +18,7 @@ const CATALOG = {
           name: "Stealth Elf",
           variants: [
             { name: "Normal", image: "fotos/1. Spyro's Adventure/stealth elf.jpg" },
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/variants/Whisper Elf.jpg" }
+            { name: "Sidekick", image: "fotos/1. Spyro's Adventure/variants/Whisper Elf.jpg" }
           ]
         },
         { 
