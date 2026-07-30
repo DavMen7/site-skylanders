@@ -9,10 +9,7 @@ const CATALOG = {
       name: "originals",
       items: [
         { 
-          name: "Camo",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Camo.jpg" }
-          ]
+          name: "Camo", variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Camo.jpg" }]
         },
         { 
           name: "Stealth Elf",
@@ -23,39 +20,27 @@ const CATALOG = {
         },
         { 
           name: "Stump Smash",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Stump Smash.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Stump Smash.jpg" }]
         },
         { 
           name: "Zook",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Zook.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Zook.jpg" }]
         },
         { 
           name: "Eruptor",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Eruptor.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Eruptor.jpg" }]
         },
         { 
           name: "Flameslinger",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Flameslinger.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Flameslinger.jpg" }]
         },
         { 
           name: "Ignitor",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Ignitor.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Ignitor.jpg" }]
         },
         { 
           name: "Sunburn",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Sunburn.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Sunburn.jpg" }]
         },
         { 
           name: "Gill Grunt",
@@ -66,45 +51,31 @@ const CATALOG = {
         },
         { 
           name: "Slam Bam",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Slam Bam.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Slam Bam.jpg" }]
         },
         { 
           name: "Wham-Shell",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Wham-Shell.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Wham-Shell.jpg" }]
         },
         { 
           name: "Zap",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Zap.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Zap.jpg" }]
         },
         { 
           name: "Warnado",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Warnado.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Warnado.jpg" }]
         },
         { 
           name: "Lightning Rod",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Lightning Rod.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Lightning Rod.jpg" }]
         },
         { 
           name: "Whirlwind",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Whirlwind.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Whirlwind.jpg" }]
         },
         { 
           name: "Sonic Boom",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Sonic Boom.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Sonic Boom.jpg" }]
         },
         { 
           name: "Bash",
@@ -115,15 +86,11 @@ const CATALOG = {
         },
         { 
           name: "Dino-Rang",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Dino-Rang.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Dino-Rang.jpg" }]
         },
         { 
           name: "Prism Break",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Prism Break.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Prism Break.jpg" }]
         },
         { 
           name: "Terrafin",
@@ -134,21 +101,15 @@ const CATALOG = {
         },
         { 
           name: "Boomer",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Boomer.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Boomer.jpg" }]
         },
         { 
           name: "Drill Sergeant",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Drill Sergeant.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Drill Sergeant.jpg" }]
         },
         { 
           name: "Drobot",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Drobot.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Drobot.jpg" }]
         },
         { 
           name: "Trigger Happy",
@@ -167,27 +128,19 @@ const CATALOG = {
         },
         { 
           name: "Cynder",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Cynder.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Cynder.jpg" }]
         },
         { 
           name: "Ghost Roaster",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Ghost Roaster.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Ghost Roaster.jpg" }]
         },
         { 
           name: "Hex",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Hex.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Hex.jpg" }]
         },
         { 
           name: "Double Trouble",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Double Trouble.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Double Trouble.jpg" }]
         },
         { 
           name: "Spyro",
@@ -199,15 +152,12 @@ const CATALOG = {
         },
         { 
           name: "Voodood",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Voodood.jpg" }
-          ]
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Voodood.jpg" }]
         },
         { 
           name: "Wrecking Ball",
-          variants: [
-            { name: "Normal", image: "fotos/1. Spyro's Adventure/Wrecking Ball.jpg" }
-        ]}
+          variants: [{ name: "Normal", image: "fotos/1. Spyro's Adventure/Wrecking Ball.jpg" }]
+          }
       ]
     }
   ]
@@ -232,7 +182,7 @@ const CATALOG = {
         ]
       },
       {
-        name: "Novos Core Skylanders",
+        name: "Novos Skylanders",
         items: [
           { name: "Jet-Vac", image: "imagens/jet-vac.png", variants: ["Normal", "Legendary", "LightCore", "Turbo Jet-Vac (Swap Force)", "Full Blast Jet-Vac (Trap Team)", "Hurricane Jet-Vac (SuperChargers)"] },
           { name: "Pop Fizz", image: "imagens/pop-fizz.png", variants: ["Normal", "LightCore", "Super Gulp Pop Fizz", "Big Bubble Pop Fizz"] },
@@ -428,18 +378,8 @@ const CATALOG = {
             { name: "Dark", image: "fotos/5. SuperChargers/variants/Dark Spitfire.jpg" }
           ]
         },
-        {
-          name: "Hammer Slam Bowser",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/Hammer Slam Bowser.jpg" }
-          ]
-        },
-        {
-          name: "Stormblade",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/Stormblade.jpg" }
-          ]
-        },
+        {name: "Hammer Slam Bowser", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Hammer Slam Bowser.jpg" }]},
+        {name: "Stormblade", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Stormblade.jpg" }]},
         {
           name: "Smash Hit",
           variants: [
@@ -447,18 +387,8 @@ const CATALOG = {
             { name: "Steel Plated", image: "fotos/5. SuperChargers/variants/Steel Plated Smash Hit.jpg" }
           ]
         },
-        {
-          name: "High Volt",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/High Volt.jpg" }
-          ]
-        },
-        {
-          name: "Fiesta",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/Fiesta.jpg" }
-          ]
-        },
+        {name: "High Volt", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/High Volt.jpg" }]},
+        {name: "Fiesta", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Fiesta.jpg" }]},
         {
           name: "Splat",
           variants: [
@@ -473,12 +403,7 @@ const CATALOG = {
             { name: "Legendary", image: "fotos/5. SuperChargers/variants/Legendary Astroblast.jpg" }
           ]
         },
-        {
-          name: "Bone Bash Roller Brawl",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/Bone Bash Roller Brawl.jpg" }
-          ]
-        },
+        {name: "Bone Bash Roller Brawl", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Bone Bash Roller Brawl.jpg" }]},
         {
           name: "Dive-Clops",
           variants: [
@@ -486,47 +411,17 @@ const CATALOG = {
             { name: "Missile-Tow", image: "fotos/5. SuperChargers/variants/Missile-Tow Dive-Clops.jpg" }
           ]
         },
-        {
-          name: "Turbo Charge Donkey Kong",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/Turbo Charge Donkey Kong.jpg" }
-          ]
-        },
-        {
-          name: "Thrillipede",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/Thrillipede.jpg" }
-          ]
-        }
+        {name: "Turbo Charge Donkey Kong", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Turbo Charge Donkey Kong.jpg" }]},
+        {name: "Thrillipede", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Thrillipede.jpg" }]}
       ]
     },
     {
       name: "SuperCharger Reposes",
       items: [
-        {
-          name: "Deep Dive Gill Grunt",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/Deep Dive Gill Grunt.jpg" }
-          ]
-        },
-        {
-          name: "Double Dare Trigger Happy",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/Double Dare Trigger Happy.jpg" }
-          ]
-        },
-        {
-          name: "Lava Lance Eruptor",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/Lava Lance Eruptor.jpg" }
-          ]
-        },
-        {
-          name: "Shark Shooter Terrafin",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/Shark Shooter Terrafin.jpg" }
-          ]
-        },
+        {name: "Deep Dive Gill Grunt", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Deep Dive Gill Grunt.jpg" }]},
+        {name: "Double Dare Trigger Happy", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Double Dare Trigger Happy.jpg" }]},
+        {name: "Lava Lance Eruptor", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Lava Lance Eruptor.jpg" }]},
+        {name: "Shark Shooter Terrafin", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Shark Shooter Terrafin.jpg" }]},
         {
           name: "Super Shot Stealth Elf",
           variants: [
@@ -556,36 +451,11 @@ const CATALOG = {
             { name: "golden", image: "fotos/5. SuperChargers/vehicles/variants/Golden Hot Streak.jpg" }
           ]
         },
-        {
-          name: "Burn-Cycle",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Burn-Cycle.jpg" }
-          ]
-        },
-        {
-          name: "Shark Tank",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Shark Tank.jpg" }
-          ]
-        },
-        {
-          name: "Thump Truck",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Thump Truck.jpg" }
-          ]
-        },
-        {
-          name: "Crypt Crusher",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Crypt Crusher.jpg" }
-          ]
-        },
-        {
-          name: "Tomb Buggy",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Tomb Buggy.jpg" }
-          ]
-        },
+        {name: "Burn-Cycle", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Burn-Cycle.jpg" }]},
+        {name: "Shark Tank", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Shark Tank.jpg" }]},
+        {name: "Thump Truck", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Thump Truck.jpg" }]},
+        {name: "Crypt Crusher", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Crypt Crusher.jpg" }]},
+        {name: "Tomb Buggy", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Tomb Buggy.jpg" }]},
         {
           name: "Stealth Stinger",
           variants: [
@@ -593,24 +463,9 @@ const CATALOG = {
             { name: "Nitro", image: "fotos/5. SuperChargers/vehicles/variants/Nitro Stealth Stinger.jpg" }
           ]
         },
-        {
-          name: "Buzz Wing",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Buzz Wing.jpg" }
-          ]
-        },
-        {
-          name: "Jet Stream",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Jet Stream.jpg" }
-          ]
-        },
-        {
-          name: "Sky Slicer",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Sky Slicer.jpg" }
-          ]
-        },
+        {name: "Buzz Wing", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Buzz Wing.jpg" }]},
+        {name: "Jet Stream", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Jet Stream.jpg" }]},
+        {name: "Sky Slicer", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Sky Slicer.jpg" }]},
         {
           name: "Clown Cruiser",
           variants: [
@@ -625,12 +480,7 @@ const CATALOG = {
             { name: "Spring Ahead", image: "fotos/5. SuperChargers/vehicles/variants/Spring Ahead Dive Bomber.jpg" }
           ]
         },
-        {
-          name: "Reef Ripper",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Reef Ripper.jpg" }
-          ]
-        },
+        {name: "Reef Ripper", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Reef Ripper.jpg" }]},
         {
           name: "Soda Skimmer",
           variants: [
@@ -645,12 +495,7 @@ const CATALOG = {
             { name: "Power Blue", image: "fotos/5. SuperChargers/vehicles/variants/Power Blue Splatter Splasher.jpg" }
           ]
         },
-        {
-          name: "Shield Striker",
-          variants: [
-            { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Shield Striker.jpg" }
-          ]
-        },
+        {name: "Shield Striker", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Shield Striker.jpg" }]},
         {
           name: "Gold Rusher",
           variants: [
@@ -769,10 +614,7 @@ const CATALOG = {
             { name: "Mystical", image: "fotos/6. Imaginators/variants/Mystical Bad Juju.jpg" }
           ]
         },
-        {
-          name: "Blaster-Tron",
-          variants: [{ name: "Normal", image: "fotos/6. Imaginators/Blaster-Tron.jpg" }]
-        },
+        {name: "Blaster-Tron", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Blaster-Tron.jpg" }]},
         {
           name: "Chompy Mage",
           price: 12.0,
@@ -781,18 +623,9 @@ const CATALOG = {
             { name: "Jingle Bell", image: "fotos/6. Imaginators/variants/Jingle Bell Chompy Mage.jpg" }
           ]
         },
-        {
-          name: "Dr. Krankcase",
-          variants: [{ name: "Normal", image: "fotos/6. Imaginators/Dr. Krankcase.jpg" }]
-        },
-        {
-          name: "Golden Queen",
-          variants: [{ name: "Normal", image: "fotos/6. Imaginators/Golden Queen.jpg" }]
-        },
-        {
-          name: "Grave Clobber",
-          variants: [{ name: "Normal", image: "fotos/6. Imaginators/Grave Clobber.jpg" }]
-        },
+        {name: "Dr. Krankcase", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Dr. Krankcase.jpg" }]},
+        {name: "Golden Queen", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Golden Queen.jpg" }]},
+        {name: "Grave Clobber", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Grave Clobber.jpg" }]},
         {
           name: "Hood Sickle",
           variants: [
@@ -805,10 +638,7 @@ const CATALOG = {
           price: 10.0,
           variants: [{ name: "Normal", image: "fotos/6. Imaginators/Kaos.jpg" }]
         },
-        {
-          name: "Pain-Yatta",
-          variants: [{ name: "Normal", image: "fotos/6. Imaginators/Pain-Yatta.jpg" }]
-        },
+        {name: "Pain-Yatta",variants: [{ name: "Normal", image: "fotos/6. Imaginators/Pain-Yatta.jpg" }]},
         {
           name: "Tae Kwon Crow",
           variants: [
