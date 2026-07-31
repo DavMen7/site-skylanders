@@ -285,7 +285,7 @@ const CATALOG = {
     {name: "Slam Bam", 
       variants: [
         { name: "Series 2", image: "fotos/2. Giants/returning/Slam Bam (Series 2).jpg" },
-        { name: "Legendary", image: "fotos/2. Giants/returning/variants/Legendary Slam Bam.jpg" }
+        { name: "Legendary", image: "fotos/2. Giants/variants/Legendary Slam Bam.jpg" }
       ]
     },
     {name: "Zap", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Zap (Series 2).jpg" }]},
@@ -293,7 +293,7 @@ const CATALOG = {
     {name: "Whirlwind", 
       variants: [
         { name: "Series 2", image: "fotos/2. Giants/returning/Whirlwind (Series 2).jpg" },
-        { name: "Polar", image: "fotos/2. Giants/returning/variants/Polar Whirlwind.jpg" }
+        { name: "Polar", image: "fotos/2. Giants/variants/Polar Whirlwind.jpg" }
       ]
     },
     {name: "Sonic Boom", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Sonic Boom (Series 2).jpg" }]},
@@ -304,14 +304,14 @@ const CATALOG = {
     {name: "Double Trouble ", 
       variants: [
         { name: "Series 2", image: "fotos/2. Giants/returning/Double Trouble (Series 2).jpg" },
-        { name: "Royal", image: "fotos/2. Giants/returning/variants/Royal Double Trouble.jpg" }
+        { name: "Royal", image: "fotos/2. Giants/variants/Royal Double Trouble.jpg" }
       ]
     },
     {name: "Wrecking Ball", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Wrecking Ball (Series 2).jpg" }]},
     {name: "Stealth Elf",
       variants: [
         { name: "Series 2", image: "fotos/2. Giants/returning/Stealth Elf (Series 2).jpg" },
-        { name: "Legendary", image: "fotos/2. Giants/returning/variants/Legendary Stealth Elf.jpg" }
+        { name: "Legendary", image: "fotos/2. Giants/variants/Legendary Stealth Elf.jpg" }
       ]
     },
     {name: "Stump Smash", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Stump Smash (Series 2).jpg" }]},
