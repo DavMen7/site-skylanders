@@ -174,7 +174,8 @@ const CATALOG = {
     { name: "Tree Rex", 
       variants: [
         { name: "Normal", image: "fotos/2. Giants/Tree Rex.jpg"},
-        { name: "Gnarly", image: "fotos/2. Giants/variants/Gnarly Tree Rex.jpg"}
+        { name: "Gnarly", image: "fotos/2. Giants/variants/Gnarly Tree Rex.jpg"},
+        { name: "Sidekick", image: "fotos/2. Giants/variants/Barkley.jpg"}
       ]
     },
     { name: "Crusher", 
@@ -185,8 +186,18 @@ const CATALOG = {
     },
     { name: "Swarm", variants: [{ name: "Normal", image: "fotos/2. Giants/Swarm.jpg"}]},
     { name: "Hot Head", variants: [{ name: "Normal", image: "fotos/2. Giants/Hot Head.jpg"}]},
-    { name: "Thumpback", variants: [{ name: "Normal", image: "fotos/2. Giants/Thumpback.jpg"}]},
-    { name: "Eye-Brawl", variants: [{ name: "Normal", image: "fotos/2. Giants/Eye-Brawl.jpg"}]},
+    { name: "Thumpback", 
+      variants: [
+        { name: "Normal", image: "fotos/2. Giants/Thumpback.jpg"},
+        { name: "SideKick", image: "fotos/2. Giants/variants/Thumpling.jpg"}
+      ]
+    },
+    { name: "Eye-Brawl", 
+      variants: [
+        { name: "Normal", image: "fotos/2. Giants/Eye-Brawl.jpg"},
+        { name: "SideKick", image: "fotos/2. Giants/variants/Eye Small.jpg"}
+      ]
+    },
     { name: "Bouncer", 
       variants: [
         { name: "Normal", image: "fotos/2. Giants/Bouncer.jpg"},
@@ -196,7 +207,8 @@ const CATALOG = {
     { name: "Ninjini",
       variants: [
         { name: "Normal", image: "fotos/2. Giants/Ninjini.jpg"},
-        { name: "Scarlet", image: "fotos/2. Giants/variants/Scarlet Ninjini.jpg"}
+        { name: "Scarlet", image: "fotos/2. Giants/variants/Scarlet Ninjini.jpg"},
+        { name: "SideKick", image: "fotos/2. Giants/variants/Mini Jini.jpg"}
       ]
     }
   ]
@@ -292,7 +304,7 @@ const CATALOG = {
     {name: "Double Trouble ", 
       variants: [
         { name: "Series 2", image: "fotos/2. Giants/returning/Double Trouble (Series 2).jpg" },
-        { name: "Series 2", image: "fotos/2. Giants/returning/Double Trouble (Series 2).jpg" }
+        { name: "Royal", image: "fotos/2. Giants/returning/variants/Royal Double Trouble.jpg" }
       ]
     },
     {name: "Wrecking Ball", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Wrecking Ball (Series 2).jpg" }]},
