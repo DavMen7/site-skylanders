@@ -226,7 +226,7 @@ const CATALOG = {
     {name: "Whirlwind", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Whirlwind (Series 2).jpg" }]},
     {name: "Sonic Boom", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Sonic Boom (Series 2).jpg" }]},
     {name: "Prism Break", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Prism Break (Series 2).jpg" }]},
-    {name: "Terrafin ", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Terrafin  (Series 2).jpg" }]},
+    {name: "Terrafin", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Terrafin (Series 2).jpg" }]},
     {name: "Bash", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Bash (Series 2).jpg" }]},
     {name: "Spyro", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Spyro (Series 2).jpg" }]},
     {name: "Double Trouble ", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Double Trouble (Series 2).jpg" }]},
