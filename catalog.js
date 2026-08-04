@@ -225,7 +225,7 @@ const CATALOG = {
       {
         name: "Swap Force",
         items: [
-          { name: "Blast Zone", image: "imagens/blast-zone.png", variants: ["Normal", "Dark"] },
+          { name: "Blast Zone", image: "fotos/3. Swap Force/blast-zone.png", variants: ["Normal", "Dark"] },
           { name: "Boom Jet", image: "imagens/boom-jet.png", variants: ["Normal"] },
           { name: "Doom Stone", image: "imagens/doom-stone.png", variants: ["Normal"] },
           { name: "Fire Kraken", image: "imagens/fire-kraken.png", variants: ["Normal", "Jade"] },
@@ -368,42 +368,32 @@ const CATALOG = {
     {
       name: "Novos SuperChargers",
       items: [
-        {
-          name: "Spitfire",
-          variants: [
+        { name: "Spitfire", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/Spitfire.jpg" },
             { name: "Dark", image: "fotos/5. SuperChargers/variants/Dark Spitfire.jpg" }
           ]
         },
         {name: "Hammer Slam Bowser", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Hammer Slam Bowser.jpg" }]},
         {name: "Stormblade", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Stormblade.jpg" }]},
-        {
-          name: "Smash Hit",
-          variants: [
+        { name: "Smash Hit", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/Smash Hit.jpg" },
             { name: "Steel Plated", image: "fotos/5. SuperChargers/variants/Steel Plated Smash Hit.jpg" }
           ]
         },
         {name: "High Volt", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/High Volt.jpg" }]},
         {name: "Fiesta", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Fiesta.jpg" }]},
-        {
-          name: "Splat",
-          variants: [
+        { name: "Splat", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/Splat.jpg" },
             { name: "Power Blue", image: "fotos/5. SuperChargers/variants/Power Blue Splat.jpg" }
           ]
         },
-        {
-          name: "Astroblast",
-          variants: [
+        { name: "Astroblast", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/Astroblast.jpg" },
             { name: "Legendary", image: "fotos/5. SuperChargers/variants/Legendary Astroblast.jpg" }
           ]
         },
         {name: "Bone Bash Roller Brawl", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Bone Bash Roller Brawl.jpg" }]},
-        {
-          name: "Dive-Clops",
-          variants: [
+        { name: "Dive-Clops", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/Dive-Clops.jpg" },
             { name: "Missile-Tow", image: "fotos/5. SuperChargers/variants/Missile-Tow Dive-Clops.jpg" }
           ]
@@ -419,16 +409,12 @@ const CATALOG = {
         {name: "Double Dare Trigger Happy", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Double Dare Trigger Happy.jpg" }]},
         {name: "Lava Lance Eruptor", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Lava Lance Eruptor.jpg" }]},
         {name: "Shark Shooter Terrafin", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/Shark Shooter Terrafin.jpg" }]},
-        {
-          name: "Super Shot Stealth Elf",
-          variants: [
+        { name: "Super Shot Stealth Elf", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/Super Shot Stealth Elf.jpg" },
             { name: "Dark", image: "fotos/5. SuperChargers/variants/Dark Super Shot Stealth Elf.jpg" }
           ]
         },
-        {
-          name: "Hurricane Jet-Vac",
-          variants: [
+        { name: "Hurricane Jet-Vac", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/Hurricane Jet-Vac.jpg" },
             { name: "Legendary", image: "fotos/5. SuperChargers/variants/Legendary Hurricane Jet-Vac.jpg" }
           ]
@@ -439,9 +425,7 @@ const CATALOG = {
     {
       name: "Vehicles",
       items: [
-        {
-          name: "Hot Streak",
-          variants: [
+        { name: "Hot Streak", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Hot Streak.jpg" },
             { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/Dark Hot Streak.jpg" },
             { name: "E3", image: "fotos/5. SuperChargers/vehicles/variants/E3 Hot Streak.jpg" },
@@ -453,9 +437,7 @@ const CATALOG = {
         {name: "Thump Truck", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Thump Truck.jpg" }]},
         {name: "Crypt Crusher", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Crypt Crusher.jpg" }]},
         {name: "Tomb Buggy", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Tomb Buggy.jpg" }]},
-        {
-          name: "Stealth Stinger",
-          variants: [
+        { name: "Stealth Stinger", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Stealth Stinger.jpg" },
             { name: "Nitro", image: "fotos/5. SuperChargers/vehicles/variants/Nitro Stealth Stinger.jpg" }
           ]
@@ -463,60 +445,44 @@ const CATALOG = {
         {name: "Buzz Wing", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Buzz Wing.jpg" }]},
         {name: "Jet Stream", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Jet Stream.jpg" }]},
         {name: "Sky Slicer", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Sky Slicer.jpg" }]},
-        {
-          name: "Clown Cruiser",
-          variants: [
+        { name: "Clown Cruiser", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Clown Cruiser.jpg" },
             { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/Dark Clown Cruiser.jpg" }
           ]
         },
-        {
-          name: "Dive Bomber",
-          variants: [
+        { name: "Dive Bomber", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Dive Bomber.jpg" },
             { name: "Spring Ahead", image: "fotos/5. SuperChargers/vehicles/variants/Spring Ahead Dive Bomber.jpg" }
           ]
         },
         {name: "Reef Ripper", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Reef Ripper.jpg" }]},
-        {
-          name: "Soda Skimmer",
-          variants: [
+        { name: "Soda Skimmer", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Soda Skimmer.jpg" },
             { name: "Nitro", image: "fotos/5. SuperChargers/vehicles/variants/Nitro Soda Skimmer.jpg" }
           ]
         },
-        {
-          name: "Splatter Splasher",
-          variants: [
+        { name: "Splatter Splasher", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Splatter Splasher.jpg" },
             { name: "Power Blue", image: "fotos/5. SuperChargers/vehicles/variants/Power Blue Splatter Splasher.jpg" }
           ]
         },
         {name: "Shield Striker", variants: [{ name: "Normal", image: "fotos/5. SuperChargers/vehicles/Shield Striker.jpg" }]},
-        {
-          name: "Gold Rusher",
-          variants: [
+        { name: "Gold Rusher", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Gold Rusher.jpg" },
             { name: "Power Blue", image: "fotos/5. SuperChargers/vehicles/variants/Power Blue Gold Rusher.jpg" }
           ]
         },
-        {
-          name: "Barrel Blaster",
-          variants: [
+        { name: "Barrel Blaster", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Barrel Blaster.jpg" },
             { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/Dark Barrel Blaster.jpg" }
           ]
         },
-        {
-          name: "Sea Shadow",
-          variants: [
+        { name: "Sea Shadow", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Sea Shadow.jpg" },
             { name: "Dark", image: "fotos/5. SuperChargers/vehicles/variants/Dark Sea Shadow.jpg" }
           ]
         },
-        {
-          name: "Sun Runner",
-          variants: [
+        { name: "Sun Runner", variants: [
             { name: "Normal", image: "fotos/5. SuperChargers/vehicles/Sun Runner.jpg" },
             { name: "legendary", image: "fotos/5. SuperChargers/vehicles/variants/Legendary Sun Runner.jpg" }
           ]
@@ -536,14 +502,8 @@ const CATALOG = {
       name: "Senseis",
       items: [
         { name: "Air Strike", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Air Strike.jpg" }] },
-        {
-          name: "Wild Storm",
-          price: 15.0,
-          variants: [{ name: "Normal", image: "fotos/6. Imaginators/Wild Storm.jpg" }]
-        },
-        {
-          name: "Aurora",
-          variants: [
+        { name: "Wild Storm", price: 15.0, variants: [{ name: "Normal", image: "fotos/6. Imaginators/Wild Storm.jpg" }]},
+        { name: "Aurora", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Aurora.jpg" },
             { name: "Solar Flare", image: "fotos/6. Imaginators/variants/Solar Flare Aurora.jpg" }
           ]
@@ -551,32 +511,24 @@ const CATALOG = {
         { name: "Ambush", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Ambush.jpg" }] },
         { name: "Boom Bloom", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Boom Bloom.jpg" }] },
         { name: "Crash Bandicoot", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Crash Bandicoot.jpg" }] },
-        {
-          name: "Chopscotch",
-          variants: [
+        { name: "Chopscotch", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Chopscotch.jpg" },
             { name: "Candy-Coated", image: "fotos/6. Imaginators/variants/Candy-Coated Chopscotch.jpg" }
           ]
         },
-        {
-          name: "Pit Boss",
-          variants: [
+        { name: "Pit Boss", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Pit Boss.jpg" },
             { name: "Legendary", image: "fotos/6. Imaginators/variants/Legendary Pit Boss.jpg" }
           ]
         },
         { name: "Ember", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Ember.jpg" }] },
-        {
-          name: "Flare Wolf",
-          variants: [
+        { name: "Flare Wolf", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Flarewolf.jpg" },
             { name: "Hard-Boiled", image: "fotos/6. Imaginators/variants/Hard-Boiled Flarewolf.jpg" }
           ]
         },
         { name: "Tidepool", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Tidepool.jpg" }] },
-        {
-          name: "King Pen",
-          variants: [
+        { name: "King Pen", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/King Pen.jpg" },
             { name: "Dark", image: "fotos/6. Imaginators/variants/Dark King Pen.jpg" }
           ]
@@ -585,16 +537,10 @@ const CATALOG = {
         { name: "Mysticat", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Mysticat.jpg" }] },
         { name: "Dr. Neo Cortex", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Dr. Neo Cortex.jpg" }] },
         { name: "Chain Reaction", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Chain Reaction.jpg" }] },
-        {
-          name: "Ro-Bow",
-          price: 15.0,
-          variants: [{ name: "Normal", image: "fotos/6. Imaginators/Ro-Bow.jpg" }]
-        },
+        { name: "Ro-Bow", price: 15.0, variants: [{ name: "Normal", image: "fotos/6. Imaginators/Ro-Bow.jpg" }]},
         { name: "Starcast", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Starcast.jpg" }] },
         { name: "Barbella", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Barbella.jpg" }] },
-        {
-          name: "Tri-Tip",
-          variants: [
+        { name: "Tri-Tip", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Tri-Tip.jpg" },
             { name: "Legendary", image: "fotos/6. Imaginators/variants/Legendary Tri-Tip.jpg" }
           ]
@@ -604,18 +550,13 @@ const CATALOG = {
     {
       name: "Villains",
       items: [
-        {
-          name: "Bad Juju",
-          variants: [
+        { name: "Bad Juju", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Bad Juju.jpg" },
             { name: "Mystical", image: "fotos/6. Imaginators/variants/Mystical Bad Juju.jpg" }
           ]
         },
         {name: "Blaster-Tron", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Blaster-Tron.jpg" }]},
-        {
-          name: "Chompy Mage",
-          price: 12.0,
-          variants: [
+        { name: "Chompy Mage", price: 12.0, variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Chompy Mage.jpg" },
             { name: "Jingle Bell", image: "fotos/6. Imaginators/variants/Jingle Bell Chompy Mage.jpg" }
           ]
@@ -623,29 +564,19 @@ const CATALOG = {
         {name: "Dr. Krankcase", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Dr. Krankcase.jpg" }]},
         {name: "Golden Queen", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Golden Queen.jpg" }]},
         {name: "Grave Clobber", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Grave Clobber.jpg" }]},
-        {
-          name: "Hood Sickle",
-          variants: [
+        { name: "Hood Sickle", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Hood Sickle.jpg" },
             { name: "Steel Plated", image: "fotos/6. Imaginators/variants/Steel Plated Hood Sickle.jpg" }
           ]
         },
-        {
-          name: "Kaos",
-          price: 10.0,
-          variants: [{ name: "Normal", image: "fotos/6. Imaginators/Kaos.jpg" }]
-        },
-        {name: "Pain-Yatta",variants: [{ name: "Normal", image: "fotos/6. Imaginators/Pain-Yatta.jpg" }]},
-        {
-          name: "Tae Kwon Crow",
-          variants: [
+        { name: "Kaos", price: 10.0, variants: [{ name: "Normal", image: "fotos/6. Imaginators/Kaos.jpg" }]},
+        { name: "Pain-Yatta",variants: [{ name: "Normal", image: "fotos/6. Imaginators/Pain-Yatta.jpg" }]},
+        { name: "Tae Kwon Crow", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Tae Kwon Crow.jpg" },
             { name: "Mystical", image: "fotos/6. Imaginators/variants/Mystical Tae Kwon Crow.jpg" }
           ]
         },
-        {
-          name: "Wolfgang",
-          variants: [
+        { name: "Wolfgang", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Wolfgang.jpg" },
             { name: "Dark", image: "fotos/6. Imaginators/variants/Dark Wolfgang.jpg" }
           ]
