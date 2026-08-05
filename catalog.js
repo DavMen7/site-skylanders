@@ -292,7 +292,7 @@ const CATALOG = {
           { name: "Fryno", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Fryno.jpg" }] },
           { name: "Grim Creeper", variants: [
               { name: "Normal", image: "fotos/3. Swap Force/Grim Creeper.jpg" },
-              { name: "Legendary\nLightCore", image: "fotos/3. Swap Force/variants/Legendary Llightcore Grim Creeper.jpg" },
+              { name: "Legendary", tags: ["LightCore", "Legendary"], image: "fotos/3. Swap Force/variants/Legendary Lightcore Grim Creeper.jpg" },
               { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Grim Creeper LightCore.jpg" }
             ]
           },
@@ -314,7 +314,7 @@ const CATALOG = {
           },
           { name: "Star Strike", variants: [
               { name: "Normal", image: "fotos/3. Swap Force/Star Strike.jpg" },
-              { name: "Enchanted", image: "fotos/3. Swap Force/variants/Enchanted LightCore Star Strike.jpg" },
+              { name: "Enchanted", tags: ["LightCore", "Legendary"], image: "fotos/3. Swap Force/variants/Enchanted LightCore Star Strike.jpg" },
               { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Star Strike LightCore.jpg" }
             ]
           },

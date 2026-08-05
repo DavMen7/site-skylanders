@@ -170,11 +170,18 @@ function fmt(n){ return n.toFixed(2).replace(".", ",") + " €"; }
 
 let cart = []; // {id, name, variant, price, qty, units}
 
-function addToCart(id, name, variant, price, units){
-  units = units || 1; // nº de cartões físicos que este item representa (packs valem por vários)
+// Tabela interna: id -> {name, variant, price, image, units}
+// O botão "+" só passa o id (sempre seguro, sem espaços/aspas/acentos); os dados reais
+// (nome, variante, preço, imagem) vêm sempre daqui, nunca escritos diretamente no HTML.
+// Isto evita partir por causa de apóstrofos ou outros caracteres especiais em nomes/pastas.
+const CATALOG_INDEX = {};
+
+function addToCart(id){
+  const entry = CATALOG_INDEX[id];
+  if(!entry){ console.error("Item não encontrado no catálogo:", id); return; }
   const existing = cart.find(i => i.id === id);
   if(existing){ existing.qty++; }
-  else{ cart.push({id, name, variant, price, qty:1, units}); }
+  else{ cart.push({id, name: entry.name, variant: entry.variant, price: entry.price, qty:1, units: entry.units || 1, image: entry.image || null}); }
   renderCart();
   openCart();
 }
@@ -196,7 +203,8 @@ function renderCart(){
   } else {
     wrap.innerHTML = cart.map(i => `
       <div class="d-item">
-        <div>
+        ${i.image ? `<img class="d-thumb" src="${i.image}" alt="${i.name}">` : `<div class="d-thumb d-thumb-empty">?</div>`}
+        <div class="d-item-info">
           <div class="name">${i.name}</div>
           <div class="sub">${i.variant}</div>
           <div class="qty-ctrl">
@@ -315,28 +323,35 @@ Object.entries(CATALOG).forEach(([key, game]) => {
     let cardsHtml = "";
     group.items.forEach(item => {
       item.variants.forEach(variant => {
-        // Suporte para variantes como objeto { name, image } ou como string simples
+        // Suporte para variantes como objeto { name, image, tags? } ou como string simples
         const variantName = typeof variant === "object" ? variant.name : variant;
         const variantImg = typeof variant === "object" ? variant.image : (item.image || null);
+        // tags: permite mostrar mais que um selo (ex: "LightCore" + "Legendary" no mesmo cartão)
+        const variantTags = (typeof variant === "object" && Array.isArray(variant.tags) && variant.tags.length)
+          ? variant.tags
+          : [variantName];
 
-        const id = `${key}-${item.name}-${variantName}`.replace(/\s+/g,"_");
+        const id = `${key}-${item.name}-${variantName}`.replace(/[^a-zA-Z0-9_-]+/g,"_");
         const price = priceOf(key, group, item, variantName);
-        const rare = isRareVariant(variantName);
 
         // Se houver caminho de imagem, cria a tag <img>, senão mantém o placeholder
         const imageHtml = variantImg 
           ? `<img src="${variantImg}" alt="${item.name} (${variantName})" class="card-img">`
           : `<div class="no-photo">sem foto<br>(espaço reservado)</div>`;
 
+        const badgesHtml = variantTags.map(t => `<span class="badge ${isRareVariant(t) ? 'rare':''}">${t}</span>`).join("");
+
+        CATALOG_INDEX[id] = { name: item.name, variant: variantName, price, image: variantImg, units: 1 };
+
         cardsHtml += `
           <div class="card" style="--accent:${game.color}">
             <div class="card-top"></div>
             ${imageHtml}
-            <span class="badge ${rare ? 'rare':''}">${variantName}</span>
+            <div class="badge-row">${badgesHtml}</div>
             <h4>${item.name}</h4>
             <div class="card-foot">
               <span class="price">${fmt(price)}</span>
-              <button class="add-btn" onclick="addToCart('${id}', '${item.name.replace(/'/g,"\'")}', '${variantName.replace(/'/g,"\'")}', ${price})">+</button>
+              <button class="add-btn" onclick="addToCart('${id}')">+</button>
             </div>
           </div>`;
       });
@@ -359,6 +374,7 @@ const tm = CATALOG["trap-team"].groups.find(g => g.name === "Trap Masters");
 const tmPriceEach = PRICES.trapmaster;
 const tmSum = tm.items.length * tmPriceEach; // 18 normais
 const packPrice = Math.round(tmSum * PACK_DISCOUNT * 100) / 100;
+CATALOG_INDEX["pack-trapmasters-full"] = { name: "Pack Trap Masters Completo", variant: "18 cartões", price: packPrice, image: "trapmasters.jpeg", units: 18 };
 document.getElementById("packSection").innerHTML = `
   <div class="group-title" style="margin-top:0;">Packs completos</div>
   <div class="pack-card">
@@ -371,7 +387,7 @@ document.getElementById("packSection").innerHTML = `
         <span class="pack-old">${fmt(tmSum)}</span>
         <span class="pack-new">${fmt(packPrice)}</span>
       </div>
-      <button class="buy-pack" onclick="addToCart('pack-trapmasters-full','Pack Trap Masters Completo','18 cartões',${packPrice},18)">Adicionar pack ao carrinho</button>
+      <button class="buy-pack" onclick="addToCart('pack-trapmasters-full')">Adicionar pack ao carrinho</button>
     </div>
   </div>`;
 
