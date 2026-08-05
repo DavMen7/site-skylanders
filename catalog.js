@@ -225,57 +225,123 @@ const CATALOG = {
       {
         name: "Swap Force",
         items: [
-          { name: "Blast Zone", image: "fotos/3. Swap Force/blast-zone.png", variants: ["Normal", "Dark"] },
-          { name: "Boom Jet", image: "imagens/boom-jet.png", variants: ["Normal"] },
-          { name: "Doom Stone", image: "imagens/doom-stone.png", variants: ["Normal"] },
-          { name: "Fire Kraken", image: "imagens/fire-kraken.png", variants: ["Normal", "Jade"] },
-          { name: "Free Ranger", image: "imagens/free-ranger.png", variants: ["Normal", "Legendary"] },
-          { name: "Freeze Blade", image: "imagens/freeze-blade.png", variants: ["Normal", "Nitro"] },
-          { name: "Grilla Drilla", image: "imagens/grilla-drilla.png", variants: ["Normal"] },
-          { name: "Hoot Loop", image: "imagens/hoot-loop.png", variants: ["Normal", "Enchanted"] },
-          { name: "Magna Charge", image: "imagens/magna-charge.png", variants: ["Normal", "Nitro"] },
-          { name: "Night Shift", image: "imagens/night-shift.png", variants: ["Normal", "Legendary"] },
-          { name: "Rattle Shake", image: "imagens/rattle-shake.png", variants: ["Normal"] },
-          { name: "Rubble Rouser", image: "imagens/rubble-rouser.png", variants: ["Normal"] },
-          { name: "Spy Rise", image: "imagens/spy-rise.png", variants: ["Normal"] },
-          { name: "Stink Bomb", image: "imagens/stink-bomb.png", variants: ["Normal"] },
-          { name: "Trap Shadow", image: "imagens/trap-shadow.png", variants: ["Normal"] },
-          { name: "Wash Buckler", image: "imagens/wash-buckler.png", variants: ["Normal", "Dark"] }
+          { name: "Blas Zone", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Blas Zone.png" },
+              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Blas Zone.png" }
+            ]
+          },
+          { name: "Boom Jet", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Boom Jet.png" }] },
+          { name: "Doom Stone", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Doom Stone.png" }] },
+          { name: "Fire Kraken", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Fire Kraken.png" },
+              { name: "Jade", image: "fotos/3. Swap Force/variants/Jade Fire Kraken.png" }
+            ]
+          },
+          { name: "Free Ranger", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Free Ranger.png" },
+              { name: "Legendary", image: "fotos/3. Swap Force/variants/Legendary Free Ranger.png" }
+            ]
+          },
+          { name: "Freeze Blade", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Freeze Blade.png" },
+              { name: "Nitro", image: "fotos/3. Swap Force/variants/Nitro Freeze Blade.png" }
+            ]
+          },
+          { name: "Grilla Drilla", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Grilla Drilla.png" }] },
+          { name: "Hoot Loop", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Hoot Loop.png" },
+              { name: "Enchanted", image: "fotos/3. Swap Force/variants/Enchanted Hoot Loop.png" }
+            ]
+          },
+          { name: "Magna Charge", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Magna Charge.png" },
+              { name: "Nitro", image: "fotos/3. Swap Force/variants/Nitro Magna Charge.png" }
+            ]
+          },
+          { name: "Night Shift", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Night Shift.png" },
+              { name: "Legendary", image: "fotos/3. Swap Force/variants/Legendary Night Shift.png" }
+            ]
+          },
+          { name: "Rattle Shake", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Rattle Shake.png" }] },
+          { name: "Rubble Rouser", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Rubble Rouser.png" }] },
+          { name: "Spy Rise", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Spy Rise.png" }] },
+          { name: "Stink Bomb", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Stink Bomb.png" }] },
+          { name: "Trap Shadow", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Trap Shadow.png" }] },
+          { name: "Wash Buckler", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Wash Buckler.png" },
+              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Wash Buckler.png" }
+            ]
+          }
         ]
       },
       {
         name: "Novos Core",
         items: [
-          { name: "Bumble Blast", image: "imagens/bumble-blast.png", variants: ["Normal", "LightCore"] },
-          { name: "Countdown", image: "imagens/countdown.png", variants: ["Normal", "LightCore"] },
-          { name: "Dune Bug", image: "imagens/dune-bug.png", variants: ["Normal"] },
-          { name: "Fryno", image: "imagens/fryno.png", variants: ["Normal"] },
-          { name: "Grim Creeper", image: "imagens/grim-creeper.png", variants: ["Normal", "Legendary", "LightCore"] },
-          { name: "Pop Thorn", image: "imagens/pop-thorn.png", variants: ["Normal"] },
-          { name: "Punk Shock", image: "imagens/punk-shock.png", variants: ["Normal"] },
-          { name: "Rip Tide", image: "imagens/rip-tide.png", variants: ["Normal"] },
-          { name: "Roller Brawl", image: "imagens/roller-brawl.png", variants: ["Normal"] },
-          { name: "Scratch", image: "imagens/scratch.png", variants: ["Normal"] },
-          { name: "Scorp", image: "imagens/scorp.png", variants: ["Normal"] },
-          { name: "Slobber Tooth", image: "imagens/slobber-tooth.png", variants: ["Normal", "Dark"] },
-          { name: "Smolderdash", image: "imagens/smolderdash.png", variants: ["Normal", "LightCore"] },
-          { name: "Star Strike", image: "imagens/star-strike.png", variants: ["Normal", "Enchanted", "LightCore"] },
-          { name: "Zoo Lou", image: "imagens/zoo-lou.png", variants: ["Normal", "Legendary"] }
+          { name: "Bumble Blast", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Bumble Blast.png" },
+              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Bumble Blast LightCore.png" }
+            ]
+          },
+          { name: "Countdown", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Countdown.png" },
+              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Countdown LightCore.png" }
+            ]
+          },
+          { name: "Dune Bug", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Dune Bug.png" }] },
+          { name: "Fryno", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Fryno.png" }] },
+          { name: "Grim Creeper", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Grim Creeper.png" },
+              { name: "Legendary", image: "fotos/3. Swap Force/variants/Legendary Grim Creeper.png" },
+              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Grim Creeper LightCore.png" }
+            ]
+          },
+          { name: "Pop Thorn", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Pop Thorn.png" }] },
+          { name: "Punk Shock", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Punk Shock.png" }] },
+          { name: "Rip Tide", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Rip Tide.png" }] },
+          { name: "Roller Brawl", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Roller Brawl.png" }] },
+          { name: "Scratch", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Scratch.png" }] },
+          { name: "Scorp", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Scorp.png" }] },
+          { name: "Slobber Tooth", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Slobber Tooth.png" },
+              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Slobber Tooth.png" }
+            ]
+          },
+          { name: "Smolderdash", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Smolderdash.png" },
+              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Smolderdash LightCore.png" }
+            ]
+          },
+          { name: "Star Strike", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Star Strike.png" },
+              { name: "Enchanted", image: "fotos/3. Swap Force/variants/Enchanted Star Strike.png" },
+              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Star Strike LightCore.png" }
+            ]
+          },
+          { name: "Zoo Lou", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Zoo Lou.png" },
+              { name: "Legendary", image: "fotos/3. Swap Force/variants/Legendary Zoo Lou.png" }
+            ]
+          }
         ]
       },
       {
         name: "Series 3",
         items: [
-          { name: "Anchors Away Gill Grunt", image: "imagens/anchors-away-gill-grunt.png", variants: ["Normal"] },
-          { name: "Hyper Beam Prism Break", image: "imagens/hyper-beam-prism-break.png", variants: ["Normal"] },
-          { name: "Horn Blast Whirlwind", image: "imagens/horn-blast-whirlwind.png", variants: ["Normal"] },
-          { name: "Mega Ram Spyro", image: "imagens/mega-ram-spyro.png", variants: ["Normal", "Dark"] },
-          { name: "Phantom Cynder", image: "imagens/phantom-cynder.png", variants: ["Normal"] },
-          { name: "Super Gulp Pop Fizz", image: "imagens/super-gulp-pop-fizz.png", variants: ["Normal"] },
-          { name: "Twin Blade Chop Chop", image: "imagens/twin-blade-chop-chop.png", variants: ["Normal"] },
-          { name: "Turbo Jet-Vac", image: "imagens/turbo-jet-vac.png", variants: ["Normal"] },
-          { name: "Volcanic Eruptor", image: "imagens/volcanic-eruptor.png", variants: ["Normal"] },
-          { name: "Heavy Duty Sprocket", image: "imagens/heavy-duty-sprocket.png", variants: ["Normal"] }
+          { name: "Anchors Away Gill Grunt", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Anchors Away Gill Grunt.png" }] },
+          { name: "Hyper Beam Prism Break", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Hyper Beam Prism Break.png" }] },
+          { name: "Horn Blast Whirlwind", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Horn Blast Whirlwind.png" }] },
+          { name: "Mega Ram Spyro", variants: [
+              { name: "Series 3", image: "fotos/3. Swap Force/returning/Mega Ram Spyro.png" },
+              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Mega Ram Spyro.png" }
+            ]
+          },
+          { name: "Phantom Cynder", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Phantom Cynder.png" }] },
+          { name: "Super Gulp Pop Fizz", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Super Gulp Pop Fizz.png" }] },
+          { name: "Twin Blade Chop Chop", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Twin Blade Chop Chop.png" }] },
+          { name: "Turbo Jet-Vac", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Turbo Jet-Vac.png" }] },
+          { name: "Volcanic Eruptor", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Volcanic Eruptor.png" }] },
+          { name: "Heavy Duty Sprocket", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Heavy Duty Sprocket.png" }] }
         ]
       }
     ]
