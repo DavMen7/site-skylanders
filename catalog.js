@@ -346,7 +346,7 @@ const CATALOG = {
           { name: "Turbo Jet-Vac", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Turbo Jet-Vac (Series 2).jpg" }] },
           { name: "Heavy Duty Sprocket", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Heavy Duty Sprocket (Series 2).jpg" }] },
           { name: "Thorn Horn Camo", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Thorn Horn Camo (Series 2).jpg" }] },
-          { name: "Thorn Horn Camo", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Thorn Horn Camo (Series 2).jpg" }] },
+          { name: "Fire Bone Hot Dog", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Fire Bone Hot Dog (Series 2).jpg" }] },
         ]
       }
     ]
