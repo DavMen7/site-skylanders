@@ -279,7 +279,7 @@ const CATALOG = {
         name: "Novos Core",
         items: [
           { name: "Bumble Blast", variants: [
-              { name: "Normal", image: "fotos/3. Swap Force/Bumble Blast.png" },
+              { name: "Normal", image: "fotos/3. Swap Force/Bumble Blast.jpg" },
               { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Bumble Blast LightCore.jpg" }
             ]
           },
@@ -292,7 +292,7 @@ const CATALOG = {
           { name: "Fryno", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Fryno.jpg" }] },
           { name: "Grim Creeper", variants: [
               { name: "Normal", image: "fotos/3. Swap Force/Grim Creeper.jpg" },
-              { name: "Legendary", image: "fotos/3. Swap Force/variants/Legendary Grim Creeper.jpg" },
+              { name: "Legendary\nLightCore", image: "fotos/3. Swap Force/variants/Legendary Llightcore Grim Creeper.jpg" },
               { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Grim Creeper LightCore.jpg" }
             ]
           },
@@ -314,7 +314,7 @@ const CATALOG = {
           },
           { name: "Star Strike", variants: [
               { name: "Normal", image: "fotos/3. Swap Force/Star Strike.jpg" },
-              { name: "Enchanted", image: "fotos/3. Swap Force/variants/Enchanted Star Strike.jpg" },
+              { name: "Enchanted", image: "fotos/3. Swap Force/variants/Enchanted LightCore Star Strike.jpg" },
               { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Star Strike LightCore.jpg" }
             ]
           },
@@ -328,20 +328,25 @@ const CATALOG = {
       {
         name: "Series 2 and Series 3",
         items: [
-          { name: "Anchors Away Gill Grunt", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Anchors Away Gill Grunt.jpg" }] },
-          { name: "Hyper Beam Prism Break", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Hyper Beam Prism Break.jpg" }] },
-          { name: "Horn Blast Whirlwind", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Horn Blast Whirlwind.jpg" }] },
+          { name: "Anchors Away Gill Grunt", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Anchors Away Gill Grunt (Series 3).jpg" }] },
+          { name: "Big Bang Trigger Happy", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Big Bang Trigger Happy (Series 3).jpg" }] },
+          { name: "Hyper Beam Prism Break", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Hyper Beam Prism Break (Series 3).jpg" }] },
+          { name: "Horn Blast Whirlwind", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Horn Blast Whirlwind (Series 3).jpg" }] },
           { name: "Mega Ram Spyro", variants: [
-              { name: "Series 3", image: "fotos/3. Swap Force/returning/Mega Ram Spyro.jpg" },
-              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Mega Ram Spyro.jpg" }
+              { name: "Series 3", image: "fotos/3. Swap Force/returning/Mega Ram Spyro (Series 3).jpg" },
+              { name: "Dark", image: "fotos/3. Swap Force/variants/Mega Ram Dark Spyro.jpg" }
             ]
           },
-          { name: "Phantom Cynder", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Phantom Cynder.jpg" }] },
-          { name: "Super Gulp Pop Fizz", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Super Gulp Pop Fizz.jpg" }] },
-          { name: "Twin Blade Chop Chop", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Twin Blade Chop Chop.jpg" }] },
-          { name: "Turbo Jet-Vac", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Turbo Jet-Vac.jpg" }] },
-          { name: "Volcanic Eruptor", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Volcanic Eruptor.jpg" }] },
-          { name: "Heavy Duty Sprocket", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Heavy Duty Sprocket.jpg" }] }
+          { name: "Knockout Terrafin", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Knockout Terrafin (Series 3).jpg" }] },
+          { name: "Volcanic Eruptor", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Lava Barf Eruptor (Series 3).jpg" }] },
+          { name: "Ninja Stealth Elf", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Ninja Stealth Elf (Series 3).jpg" }] },
+          { name: "Phantom Cynder", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Phantom Cynder (Series 3).jpg" }] },
+          { name: "Twin Blade Chop Chop", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Twin Blade Chop Chop (Series 3).jpg" }] },
+          { name: "Super Gulp Pop Fizz", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Super Gulp Pop Fizz (Series 2).jpg" }] },
+          { name: "Turbo Jet-Vac", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Turbo Jet-Vac (Series 2).jpg" }] },
+          { name: "Heavy Duty Sprocket", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Heavy Duty Sprocket (Series 2).jpg" }] },
+          { name: "Thorn Horn Camo", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Thorn Horn Camo (Series 2).jpg" }] },
+          { name: "Thorn Horn Camo", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Thorn Horn Camo (Series 2).jpg" }] },
         ]
       }
     ]
