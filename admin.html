@@ -148,10 +148,11 @@
 <div id="loginGate">
   <div class="brand-ring"></div>
   <h1>Painel Skylanders Collection</h1>
-  <input id="pwInput" type="password" placeholder="palavra-passe" autocomplete="off">
+  <input id="emailInput" type="email" placeholder="email" autocomplete="username" style="margin-bottom:2px;">
+  <input id="pwInput" type="password" placeholder="palavra-passe" autocomplete="current-password">
   <button class="btn primary" onclick="tryLogin()">Entrar</button>
   <div id="loginError"></div>
-  <div class="warn">Esta página é só para uso pessoal. Não a partilhes nem a ligues a partir do site público — a proteção aqui é apenas para evitar acessos casuais, não é segurança de nível bancário.</div>
+  <div class="warn">Só a conta criada no Firebase Authentication consegue entrar.</div>
 </div>
 
 <!-- ======= PAINEL ======= -->
@@ -310,14 +311,10 @@
 <!-- Base de dados (Firebase) — tem de vir ANTES do catalog.js -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
 <script src="catalog.js"></script>
 <script>
-/* =========================================================
-   PALAVRA-PASSE — muda isto antes de colocares o ficheiro online
-   ========================================================= */
-const ADMIN_PASSWORD = "sky123";
-/* ========================================================= */
 
 /* ---- base de dados: cola aqui A MESMA configuração usada no index.html ---- */
 const firebaseConfig = {
@@ -331,26 +328,23 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-const SESSION_KEY = "sk_admin_session";
 let ordersCache = [];       // cópia local, mantida em sincronia pelo listener em tempo real
 let unsubscribeListener = null;
 
 function tryLogin(){
-  const val = document.getElementById("pwInput").value;
-  if(val === ADMIN_PASSWORD){
-    sessionStorage.setItem(SESSION_KEY, "1");
-    showApp();
-  } else {
-    document.getElementById("loginError").textContent = "Palavra-passe incorreta.";
-  }
+  document.getElementById("loginError").textContent = "";
+  const email = document.getElementById("emailInput").value.trim();
+  const pass = document.getElementById("pwInput").value;
+  firebase.auth().signInWithEmailAndPassword(email, pass).catch(err => {
+    console.error(err);
+    document.getElementById("loginError").textContent = "Email ou palavra-passe incorretos.";
+  });
 }
 document.getElementById("pwInput").addEventListener("keydown", e => { if(e.key === "Enter") tryLogin(); });
+document.getElementById("emailInput").addEventListener("keydown", e => { if(e.key === "Enter") tryLogin(); });
 
 function logout(){
-  sessionStorage.removeItem(SESSION_KEY);
-  document.getElementById("adminApp").style.display = "none";
-  document.getElementById("loginGate").style.display = "flex";
-  document.getElementById("pwInput").value = "";
+  firebase.auth().signOut();
 }
 
 function showApp(){
@@ -360,7 +354,22 @@ function showApp(){
   startRealtimeListener();
 }
 
-if(sessionStorage.getItem(SESSION_KEY) === "1") showApp();
+function showLoginGate(msg){
+  if(unsubscribeListener){ unsubscribeListener(); unsubscribeListener = null; }
+  document.getElementById("adminApp").style.display = "none";
+  document.getElementById("loginGate").style.display = "flex";
+  document.getElementById("pwInput").value = "";
+  document.getElementById("loginError").textContent = msg || "";
+}
+
+/* onAuthStateChanged é a única fonte de verdade — decide sempre quem vê o quê */
+firebase.auth().onAuthStateChanged(user => {
+  if(user){
+    showApp();
+  } else {
+    showLoginGate();
+  }
+});
 
 /* ---------------- preço / catálogo (mesma lógica do index.html) ---------------- */
 const PRICES = { normal:4.0, trapmaster:5.5, mini:3.0, Senseis:5.0, Villain:5.0, supercharger:5.0, vehicles:2.0 };
