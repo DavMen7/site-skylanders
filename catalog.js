@@ -225,9 +225,9 @@ const CATALOG = {
       {
         name: "Swap Force",
         items: [
-          { name: "Blas Zone", variants: [
-              { name: "Normal", image: "fotos/3. Swap Force/Blas Zone.png" },
-              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Blas Zone.png" }
+          { name: "Blast Zone", variants: [
+              { name: "Normal", image: "fotos/3. Swap Force/Blast Zone.png" },
+              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Blast Zone.png" }
             ]
           },
           { name: "Boom Jet", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Boom Jet.png" }] },
@@ -326,7 +326,7 @@ const CATALOG = {
         ]
       },
       {
-        name: "Series 3",
+        name: "Series 2 and Series 3",
         items: [
           { name: "Anchors Away Gill Grunt", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Anchors Away Gill Grunt.png" }] },
           { name: "Hyper Beam Prism Break", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Hyper Beam Prism Break.png" }] },
