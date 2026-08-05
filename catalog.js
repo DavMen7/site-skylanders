@@ -573,7 +573,7 @@ const CATALOG = {
       name: "Senseis",
       items: [
         { name: "Air Strike", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Air Strike.jpg" }] },
-        { name: "Wild Storm", price: 15.0, variants: [{ name: "Normal", image: "fotos/6. Imaginators/Wild Storm.jpg" }]},
+        { name: "Wild Storm", price: 7.0, variants: [{ name: "Normal", image: "fotos/6. Imaginators/Wild Storm.jpg" }]},
         { name: "Aurora", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Aurora.jpg" },
             { name: "Solar Flare", image: "fotos/6. Imaginators/variants/Solar Flare Aurora.jpg" }
@@ -608,7 +608,7 @@ const CATALOG = {
         { name: "Mysticat", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Mysticat.jpg" }] },
         { name: "Dr. Neo Cortex", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Dr. Neo Cortex.jpg" }] },
         { name: "Chain Reaction", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Chain Reaction.jpg" }] },
-        { name: "Ro-Bow", price: 15.0, variants: [{ name: "Normal", image: "fotos/6. Imaginators/Ro-Bow.jpg" }]},
+        { name: "Ro-Bow", price: 7.0, variants: [{ name: "Normal", image: "fotos/6. Imaginators/Ro-Bow.jpg" }]},
         { name: "Starcast", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Starcast.jpg" }] },
         { name: "Barbella", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Barbella.jpg" }] },
         { name: "Tri-Tip", variants: [
@@ -627,7 +627,7 @@ const CATALOG = {
           ]
         },
         {name: "Blaster-Tron", variants: [{ name: "Normal", image: "fotos/6. Imaginators/Blaster-Tron.jpg" }]},
-        { name: "Chompy Mage", price: 12.0, variants: [
+        { name: "Chompy Mage", price: 7.0, variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Chompy Mage.jpg" },
             { name: "Jingle Bell", image: "fotos/6. Imaginators/variants/Jingle Bell Chompy Mage.jpg" }
           ]
@@ -640,7 +640,7 @@ const CATALOG = {
             { name: "Steel Plated", image: "fotos/6. Imaginators/variants/Steel Plated Hood Sickle.jpg" }
           ]
         },
-        { name: "Kaos", price: 10.0, variants: [{ name: "Normal", image: "fotos/6. Imaginators/Kaos.jpg" }]},
+        { name: "Kaos", price: 7.0, variants: [{ name: "Normal", image: "fotos/6. Imaginators/Kaos.jpg" }]},
         { name: "Pain-Yatta",variants: [{ name: "Normal", image: "fotos/6. Imaginators/Pain-Yatta.jpg" }]},
         { name: "Tae Kwon Crow", variants: [
             { name: "Normal", image: "fotos/6. Imaginators/Tae Kwon Crow.jpg" },

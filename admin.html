@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel · Skylanders Collection</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ---------- Extras só para o painel (usa as variáveis de style.css) ---------- */
+  body{ min-height:100vh; }
+  .admin-shell{ max-width:1200px; margin:0 auto; padding:28px; }
+
+  /* login gate */
+  #loginGate{
+    min-height:100vh; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:18px;
+    text-align:center; padding:20px;
+  }
+  #loginGate .brand-ring{ width:44px;height:44px; margin-bottom:6px; }
+  #loginGate h1{ margin:0; font-size:1.5rem; }
+  #loginGate input{
+    background:var(--bg-panel2); border:1px solid var(--line); color:var(--ink);
+    padding:12px 16px; border-radius:10px; font-family:'JetBrains Mono'; font-size:1rem;
+    width:260px; text-align:center; outline:none;
+  }
+  #loginGate input:focus{ border-color:var(--cyan); }
+  #loginGate button{
+    background:linear-gradient(135deg,var(--cyan),var(--violet)); border:none; color:#0b0c1e;
+    font-weight:800; padding:12px 26px; border-radius:999px; cursor:pointer;
+  }
+  #loginError{ color:var(--danger); font-size:.82rem; min-height:1.2em; }
+  #loginGate .warn{ max-width:400px; color:var(--ink-muted); font-size:.76rem; line-height:1.5; }
+
+  /* top header do painel */
+  .admin-head{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:26px; }
+  .admin-head h1{ margin:0; font-size:1.4rem; }
+  .admin-actions{ display:flex; gap:8px; flex-wrap:wrap; }
+  .btn{
+    background:var(--bg-panel2); border:1px solid var(--line); color:var(--ink);
+    padding:9px 16px; border-radius:999px; font-weight:700; font-size:.82rem; cursor:pointer; font-family:'Manrope';
+  }
+  .btn:hover{ border-color:var(--cyan); }
+  .btn.primary{ background:linear-gradient(135deg,var(--cyan),var(--violet)); color:#0b0c1e; border:none; }
+  .btn.danger{ color:var(--danger); border-color:rgba(239,68,68,.4); }
+
+  /* dashboard cards */
+  .stat-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; margin-bottom:28px; }
+  .stat-card{ background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius); padding:18px; }
+  .stat-card .label{ font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-muted); font-weight:700; }
+  .stat-card .value{ font-family:'JetBrains Mono'; font-size:1.5rem; font-weight:700; margin-top:6px; }
+  .stat-card.gold .value{ color:var(--gold); }
+  .stat-card.cyan .value{ color:var(--cyan); }
+
+  /* toolbar */
+  .toolbar{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:16px; }
+  .toolbar input[type=text], .toolbar select{
+    background:var(--bg-panel2); border:1px solid var(--line); color:var(--ink);
+    padding:9px 12px; border-radius:8px; font-family:'Manrope'; font-size:.85rem; outline:none;
+  }
+  .toolbar input[type=text]{ flex:1; min-width:160px; }
+
+  /* tabela */
+  .table-wrap{ background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius); overflow-x:auto; }
+  table{ width:100%; border-collapse:collapse; font-size:.85rem; min-width:760px; }
+  thead th{
+    text-align:left; padding:12px 14px; color:var(--ink-muted); font-size:.72rem; text-transform:uppercase;
+    letter-spacing:.06em; border-bottom:1px solid var(--line); white-space:nowrap;
+  }
+  tbody td{ padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tbody tr:last-child td{ border-bottom:none; }
+  tbody tr:hover{ background:rgba(255,255,255,.02); }
+  .cliente-cell .nome{ font-weight:700; }
+  .cliente-cell .contacto{ color:var(--ink-muted); font-size:.76rem; }
+  .itens-cell{ max-width:260px; font-size:.78rem; color:var(--ink-muted); line-height:1.5; }
+  .total-cell{ font-family:'JetBrains Mono'; font-weight:700; white-space:nowrap; }
+  .row-actions{ display:flex; gap:6px; }
+  .row-actions button{
+    background:var(--bg-panel2); border:1px solid var(--line); color:var(--ink);
+    width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:.85rem;
+  }
+  .estado-select{
+    background:var(--bg-panel2); border:1px solid var(--line); color:var(--ink);
+    padding:5px 8px; border-radius:999px; font-size:.72rem; font-weight:700; cursor:pointer;
+  }
+  .estado-select.pendente{ color:var(--gold); border-color:rgba(245,196,81,.4); }
+  .estado-select.pago{ color:var(--cyan); border-color:rgba(34,211,238,.4); }
+  .estado-select.enviado{ color:var(--violet); border-color:rgba(168,85,247,.4); }
+  .estado-select.entregue{ color:#4ade80; border-color:rgba(74,222,128,.4); }
+  .estado-select.cancelado{ color:var(--danger); border-color:rgba(239,68,68,.4); }
+  .empty-state{ text-align:center; padding:50px 20px; color:var(--ink-muted); }
+
+  /* modal */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(4,5,15,.7); backdrop-filter:blur(3px);
+    display:none; align-items:flex-start; justify-content:center; z-index:200; padding:30px 16px; overflow-y:auto;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:16px; width:100%; max-width:640px;
+    padding:26px; margin-bottom:40px;
+  }
+  .modal h3{ margin:0 0 18px; }
+  .field-label{ display:block; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-muted); margin:14px 0 6px; }
+  .field-label:first-of-type{ margin-top:0; }
+  .modal input[type=text], .modal input[type=number], .modal textarea, .modal select{
+    width:100%; background:var(--bg-panel2); border:1px solid var(--line); color:var(--ink);
+    padding:10px 12px; border-radius:8px; font-family:'Manrope'; font-size:.88rem; outline:none;
+  }
+  .modal textarea{ font-family:'JetBrains Mono'; font-size:.78rem; min-height:90px; resize:vertical; }
+  .modal input:focus, .modal select:focus, .modal textarea:focus{ border-color:var(--cyan); }
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .paste-box{ background:var(--bg-panel2); border:1px dashed var(--line); border-radius:10px; padding:14px; margin-bottom:6px; }
+  .paste-box .btn{ margin-top:8px; }
+  .item-picker{ display:flex; gap:8px; align-items:flex-end; flex-wrap:wrap; margin-top:6px; }
+  .item-picker > div{ flex:1; min-width:160px; }
+  .item-picker .qtd{ width:70px; flex:none; }
+  .itens-list{ margin-top:12px; display:flex; flex-direction:column; gap:6px; }
+  .itens-list .li{
+    display:flex; justify-content:space-between; align-items:center; background:var(--bg-panel2);
+    border:1px solid var(--line); border-radius:8px; padding:8px 10px; font-size:.82rem;
+  }
+  .itens-list .li button{ background:none; border:none; color:var(--danger); cursor:pointer; font-size:.9rem; }
+  .modal-total-row{ display:flex; justify-content:space-between; font-weight:800; font-size:1.05rem; margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+  .modal-foot{ display:flex; justify-content:flex-end; gap:10px; margin-top:20px; }
+  #topItemsList{ font-size:.78rem; color:var(--ink-muted); line-height:1.7; }
+  .hint{ font-size:.72rem; color:var(--ink-muted); margin-top:4px; }
+
+  @media(max-width:640px){
+    .admin-shell{ padding:16px; }
+    .two-col{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= LOGIN ======= -->
+<div id="loginGate">
+  <div class="brand-ring"></div>
+  <h1>Painel Skylanders Collection</h1>
+  <input id="pwInput" type="password" placeholder="palavra-passe" autocomplete="off">
+  <button class="btn primary" onclick="tryLogin()">Entrar</button>
+  <div id="loginError"></div>
+  <div class="warn">Esta página é só para uso pessoal. Não a partilhes nem a ligues a partir do site público — a proteção aqui é apenas para evitar acessos casuais, não é segurança de nível bancário.</div>
+</div>
+
+<!-- ======= PAINEL ======= -->
+<div class="admin-shell" id="adminApp" style="display:none;">
+
+  <div class="admin-head">
+    <h1>📋 Painel de Encomendas</h1>
+    <div class="admin-actions">
+      <button class="btn primary" onclick="openOrderModal()">+ Nova encomenda</button>
+      <button class="btn" onclick="exportJSON()">Exportar (backup)</button>
+      <button class="btn" onclick="document.getElementById('importFile').click()">Importar</button>
+      <button class="btn" onclick="exportCSV()">Exportar CSV</button>
+      <button class="btn danger" onclick="logout()">Sair</button>
+      <input type="file" id="importFile" accept=".json" style="display:none" onchange="importJSON(event)">
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card gold">
+      <div class="label">Vendas este mês</div>
+      <div class="value" id="statMes">0,00 €</div>
+      <div class="hint">Pago, enviado ou entregue</div>
+    </div>
+    <div class="stat-card cyan">
+      <div class="label">Pendente a receber</div>
+      <div class="value" id="statPendente">0,00 €</div>
+      <div class="hint">Encomendas ainda em "Pendente"</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Total de encomendas</div>
+      <div class="value" id="statNumEncomendas">0</div>
+      <div class="hint">Todos os estados, inclui canceladas</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Total faturado (histórico)</div>
+      <div class="value" id="statTotalHistorico">0,00 €</div>
+      <div class="hint">Pago, enviado ou entregue</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" id="searchInput" placeholder="Procurar por cliente, contacto ou artigo..." oninput="renderTable()">
+    <select id="filterEstado" onchange="renderTable()">
+      <option value="">Todos os estados</option>
+      <option value="pendente">Pendente</option>
+      <option value="pago">Pago</option>
+      <option value="enviado">Enviado</option>
+      <option value="entregue">Entregue</option>
+      <option value="cancelado">Cancelado</option>
+    </select>
+    <select id="sortOrder" onchange="renderTable()">
+      <option value="desc">Mais recentes primeiro</option>
+      <option value="asc">Mais antigas primeiro</option>
+    </select>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ref.</th><th>Data</th><th>Cliente</th><th>Artigos</th><th>Estado</th><th>Total</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="ordersBody"></tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:34px;">
+    <div class="group-title" style="margin:0 0 10px;">Artigos mais vendidos</div>
+    <div id="topItemsList" class="table-wrap" style="padding:16px 18px;">—</div>
+  </div>
+</div>
+
+<!-- ======= MODAL NOVA / EDITAR ENCOMENDA ======= -->
+<div class="modal-overlay" id="orderModalOverlay">
+  <div class="modal">
+    <h3 id="modalTitle">Nova encomenda</h3>
+
+    <div class="paste-box">
+      <label class="field-label" style="margin-top:0;">Colar mensagem do WhatsApp (opcional)</label>
+      <textarea id="pasteArea" placeholder="Cola aqui a mensagem que o cliente enviou pelo site..."></textarea>
+      <button class="btn" onclick="parsePaste()">Preencher automaticamente</button>
+      <div class="hint">Reconhece o formato exato gerado pelo botão "Finalizar por WhatsApp" do site.</div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <label class="field-label">Nome do cliente</label>
+        <input type="text" id="fCliente" placeholder="Ex: Ana Costa">
+      </div>
+      <div>
+        <label class="field-label">Contacto (telemóvel/WhatsApp)</label>
+        <input type="text" id="fContacto" placeholder="Ex: 9xxxxxxxx">
+      </div>
+    </div>
+
+    <label class="field-label">Morada de entrega</label>
+    <input type="text" id="fMorada" placeholder="Rua, código postal, localidade, país">
+
+    <label class="field-label">Adicionar artigo</label>
+    <div class="item-picker">
+      <div>
+        <input type="text" id="fItemInput" list="itemOptions" placeholder="Procurar artigo do catálogo...">
+        <datalist id="itemOptions"></datalist>
+      </div>
+      <div class="qtd">
+        <input type="number" id="fItemQtd" value="1" min="1">
+      </div>
+      <div style="flex:none;">
+        <button class="btn" onclick="addItemToOrder()" style="height:38px;">Adicionar</button>
+      </div>
+    </div>
+    <div class="itens-list" id="orderItemsList"></div>
+
+    <div class="two-col" style="margin-top:14px;">
+      <div>
+        <label class="field-label">Portes de envio (€)</label>
+        <input type="number" step="0.01" id="fPortes" value="0" oninput="recalcModalTotal()">
+      </div>
+      <div>
+        <label class="field-label">Estado</label>
+        <select id="fEstado">
+          <option value="pendente">Pendente</option>
+          <option value="pago">Pago</option>
+          <option value="enviado">Enviado</option>
+          <option value="entregue">Entregue</option>
+          <option value="cancelado">Cancelado</option>
+        </select>
+      </div>
+    </div>
+
+    <label class="field-label">Notas</label>
+    <input type="text" id="fNotas" placeholder="Notas internas (opcional)">
+
+    <div class="modal-total-row"><span>Total</span><span class="mono" id="modalTotalDisplay">0,00 €</span></div>
+
+    <div class="modal-foot">
+      <button class="btn" onclick="closeOrderModal()">Cancelar</button>
+      <button class="btn primary" onclick="saveOrder()">Guardar encomenda</button>
+    </div>
+  </div>
+</div>
+
+<!-- Base de dados (Firebase) — tem de vir ANTES do catalog.js -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="catalog.js"></script>
+<script>
+/* =========================================================
+   PALAVRA-PASSE — muda isto antes de colocares o ficheiro online
+   ========================================================= */
+const ADMIN_PASSWORD = "trocaesta123";
+/* ========================================================= */
+
+/* ---- base de dados: cola aqui A MESMA configuração usada no index.html ---- */
+const firebaseConfig = {
+  apiKey: "AIzaSyB74HzChHABbGxOGUfMV0mHfXWfve5Xt7E",
+  authDomain: "skylander-collection.firebaseapp.com",
+  projectId: "skylander-collection",
+  storageBucket: "skylander-collection.firebasestorage.app",
+  messagingSenderId: "20311660306",
+  appId: "1:20311660306:web:5caf4ce7eb28873f7a45cb"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const SESSION_KEY = "sk_admin_session";
+let ordersCache = [];       // cópia local, mantida em sincronia pelo listener em tempo real
+let unsubscribeListener = null;
+
+function tryLogin(){
+  const val = document.getElementById("pwInput").value;
+  if(val === ADMIN_PASSWORD){
+    sessionStorage.setItem(SESSION_KEY, "1");
+    showApp();
+  } else {
+    document.getElementById("loginError").textContent = "Palavra-passe incorreta.";
+  }
+}
+document.getElementById("pwInput").addEventListener("keydown", e => { if(e.key === "Enter") tryLogin(); });
+
+function logout(){
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById("adminApp").style.display = "none";
+  document.getElementById("loginGate").style.display = "flex";
+  document.getElementById("pwInput").value = "";
+}
+
+function showApp(){
+  document.getElementById("loginGate").style.display = "none";
+  document.getElementById("adminApp").style.display = "block";
+  buildItemIndex();
+  startRealtimeListener();
+}
+
+if(sessionStorage.getItem(SESSION_KEY) === "1") showApp();
+
+/* ---------------- preço / catálogo (mesma lógica do index.html) ---------------- */
+const PRICES = { normal:4.0, trapmaster:5.5, mini:3.0, Senseis:5.0, Villain:5.0, supercharger:5.0, vehicles:2.0 };
+const RARE_SURCHARGE = 1.5;
+function isRareVariant(v){ if(v === "Normal") return false; if(v.startsWith("Series")) return false; return true; }
+function tierOf(gameKey, group){ return group.special_tier || CATALOG[gameKey].tier; }
+function priceOf(gameKey, group, item, variant){
+  const base = item?.price ?? (PRICES[tierOf(gameKey, group)] ?? PRICES.normal);
+  return base + (isRareVariant(variant) ? RARE_SURCHARGE : 0);
+}
+function fmt(n){ return (Math.round(n*100)/100).toFixed(2).replace(".", ",") + " €"; }
+function parseMoney(str){
+  if(!str) return 0;
+  const cleaned = String(str).replace(/[^\d,.-]/g,"").replace(",", ".");
+  const n = parseFloat(cleaned);
+  return isNaN(n) ? 0 : n;
+}
+
+// artigo -> {label, jogo, nome, variante, preco}
+let ITEM_INDEX = {};
+function buildItemIndex(){
+  ITEM_INDEX = {};
+  const dl = document.getElementById("itemOptions");
+  dl.innerHTML = "";
+  Object.entries(CATALOG).forEach(([key, game]) => {
+    game.groups.forEach(group => {
+      group.items.forEach(item => {
+        item.variants.forEach(variant => {
+          const variantName = typeof variant === "object" ? variant.name : variant;
+          const price = priceOf(key, group, item, variantName);
+          const label = `${item.name} (${variantName}) — ${game.title}`;
+          ITEM_INDEX[label] = { jogo: game.title, nome: item.name, variante: variantName, preco: price };
+          const opt = document.createElement("option");
+          opt.value = label;
+          dl.appendChild(opt);
+        });
+      });
+    });
+  });
+}
+
+/* ---------------- armazenamento (Firestore, tempo real) ---------------- */
+function toISO(criadoEm){
+  // Firestore Timestamp -> string ISO; se ainda não sincronizou (escrita pendente), usa agora.
+  if(criadoEm && typeof criadoEm.toDate === "function") return criadoEm.toDate().toISOString();
+  return new Date().toISOString();
+}
+
+function startRealtimeListener(){
+  if(unsubscribeListener) unsubscribeListener();
+  unsubscribeListener = db.collection("encomendas").onSnapshot(snapshot => {
+    const list = snapshot.docs.map(doc => {
+      const d = doc.data();
+      return {
+        id: doc.id,
+        data: toISO(d.criadoEm),
+        cliente: d.cliente || "",
+        contacto: d.contacto || "",
+        morada: typeof d.morada === "string" ? d.morada
+          : [d.morada?.rua, d.morada?.codigoPostal, d.morada?.cidade, d.morada?.pais].filter(Boolean).join(", "),
+        itens: (d.itens || []).map(i => ({ nome:i.nome, variante:i.variante, preco:i.preco, qtd:i.qtd })),
+        subtotal: d.subtotal ?? (d.itens||[]).reduce((s,i)=>s+i.preco*i.qtd,0),
+        portes: d.portes || 0,
+        total: d.total ?? 0,
+        estado: d.estado || "pendente",
+        notas: d.notas || ""
+      };
+    });
+    // ref legível (SK-0001...) atribuída pela ordem cronológica de criação, não guardada na BD
+    const ascOrder = [...list].sort((a,b)=> new Date(a.data) - new Date(b.data));
+    const refById = {};
+    ascOrder.forEach((o,idx) => refById[o.id] = "SK-" + String(idx+1).padStart(4,"0"));
+    list.forEach(o => o.ref = refById[o.id]);
+
+    ordersCache = list;
+    renderTable();
+    renderStats();
+  }, err => {
+    console.error("Erro a ligar à base de dados:", err);
+    document.getElementById("ordersBody").innerHTML =
+      `<tr><td colspan="7"><div class="empty-state">Não foi possível ligar à base de dados.<br>Confirma a configuração do Firebase no topo do ficheiro.</div></td></tr>`;
+  });
+}
+
+function loadOrders(){ return ordersCache; }
+
+/* ---------------- modal: nova / editar encomenda ---------------- */
+let currentOrderItems = [];
+let editingId = null;
+
+function openOrderModal(order){
+  editingId = order ? order.id : null;
+  document.getElementById("modalTitle").textContent = order ? `Editar encomenda ${order.ref}` : "Nova encomenda";
+  document.getElementById("pasteArea").value = "";
+  document.getElementById("fCliente").value = order?.cliente || "";
+  document.getElementById("fContacto").value = order?.contacto || "";
+  document.getElementById("fMorada").value = order?.morada || "";
+  document.getElementById("fPortes").value = order?.portes ?? 0;
+  document.getElementById("fEstado").value = order?.estado || "pendente";
+  document.getElementById("fNotas").value = order?.notas || "";
+  currentOrderItems = order ? JSON.parse(JSON.stringify(order.itens)) : [];
+  renderOrderItemsList();
+  recalcModalTotal();
+  document.getElementById("orderModalOverlay").classList.add("open");
+}
+function closeOrderModal(){ document.getElementById("orderModalOverlay").classList.remove("open"); }
+
+function addItemToOrder(){
+  const input = document.getElementById("fItemInput");
+  const qtd = parseInt(document.getElementById("fItemQtd").value, 10) || 1;
+  const entry = ITEM_INDEX[input.value];
+  if(!entry){ alert("Escolhe um artigo válido da lista do catálogo."); return; }
+  const existing = currentOrderItems.find(i => i.nome === entry.nome && i.variante === entry.variante);
+  if(existing){ existing.qtd += qtd; }
+  else { currentOrderItems.push({ ...entry, qtd }); }
+  input.value = "";
+  document.getElementById("fItemQtd").value = 1;
+  renderOrderItemsList();
+  recalcModalTotal();
+}
+function removeOrderItem(idx){ currentOrderItems.splice(idx,1); renderOrderItemsList(); recalcModalTotal(); }
+
+function renderOrderItemsList(){
+  const wrap = document.getElementById("orderItemsList");
+  if(currentOrderItems.length === 0){ wrap.innerHTML = '<div class="hint">Ainda sem artigos adicionados.</div>'; return; }
+  wrap.innerHTML = currentOrderItems.map((i,idx) => `
+    <div class="li">
+      <span>${i.qtd}x ${i.nome} (${i.variante}) — ${fmt(i.preco*i.qtd)}</span>
+      <button onclick="removeOrderItem(${idx})">✕</button>
+    </div>`).join("");
+}
+function recalcModalTotal(){
+  const subtotal = currentOrderItems.reduce((s,i)=> s + i.preco*i.qtd, 0);
+  const portes = parseFloat(document.getElementById("fPortes").value) || 0;
+  document.getElementById("modalTotalDisplay").textContent = fmt(subtotal + portes);
+}
+
+async function saveOrder(){
+  if(currentOrderItems.length === 0){ alert("Adiciona pelo menos um artigo à encomenda."); return; }
+  const cliente = document.getElementById("fCliente").value.trim();
+  if(!cliente){ alert("Indica o nome do cliente."); return; }
+
+  const subtotal = currentOrderItems.reduce((s,i)=> s + i.preco*i.qtd, 0);
+  const portes = parseFloat(document.getElementById("fPortes").value) || 0;
+  const payload = {
+    cliente, contacto: document.getElementById("fContacto").value.trim(),
+    morada: document.getElementById("fMorada").value.trim(),
+    itens: currentOrderItems, subtotal, portes,
+    total: subtotal + portes,
+    estado: document.getElementById("fEstado").value,
+    notas: document.getElementById("fNotas").value.trim(),
+  };
+
+  try{
+    if(editingId){
+      await db.collection("encomendas").doc(editingId).update(payload);
+    } else {
+      await db.collection("encomendas").add({ ...payload, criadoEm: firebase.firestore.FieldValue.serverTimestamp() });
+    }
+    closeOrderModal();
+  }catch(err){
+    console.error(err);
+    alert("Não foi possível guardar na base de dados. Tenta novamente.");
+  }
+}
+
+async function deleteOrder(id){
+  if(!confirm("Eliminar esta encomenda? Esta ação não pode ser desfeita.")) return;
+  try{ await db.collection("encomendas").doc(id).delete(); }
+  catch(err){ console.error(err); alert("Não foi possível eliminar. Tenta novamente."); }
+}
+function editOrder(id){
+  const order = loadOrders().find(o => o.id === id);
+  if(order) openOrderModal(order);
+}
+async function changeEstadoInline(id, novoEstado){
+  try{ await db.collection("encomendas").doc(id).update({ estado: novoEstado }); }
+  catch(err){ console.error(err); alert("Não foi possível atualizar o estado. Tenta novamente."); renderTable(); }
+}
+
+/* ---------------- parser: colar mensagem do WhatsApp ---------------- */
+function parsePaste(){
+  const raw = document.getElementById("pasteArea").value;
+  if(!raw.trim()){ alert("Cola primeiro o texto da mensagem."); return; }
+
+  // itens: "• 2x Spyro (Legendary) — 11,00 €"
+  const itemRegex = /•\s*(\d+)x\s*(.+?)\s*\((.+?)\)\s*—\s*([\d.,]+)\s*€/g;
+  let m;
+  const found = [];
+  while((m = itemRegex.exec(raw)) !== null){
+    const qtd = parseInt(m[1],10);
+    const nome = m[2].trim();
+    const variante = m[3].trim();
+    const totalLinha = parseMoney(m[4]);
+    const preco = qtd > 0 ? totalLinha / qtd : totalLinha;
+    found.push({ jogo:"", nome, variante, preco, qtd });
+  }
+  if(found.length){ currentOrderItems = found; renderOrderItemsList(); }
+
+  const paisM = raw.match(/País:\s*(.+)/);
+  const moradaM = raw.match(/Morada:\s*(.+)/);
+  const cepCidadeM = raw.match(/\n([A-Z0-9\- ]{3,10})\s+([^\n]+)\n\(Peso/);
+  let moradaCompleta = "";
+  if(moradaM) moradaCompleta += moradaM[1].trim();
+  if(cepCidadeM) moradaCompleta += (moradaCompleta ? ", " : "") + cepCidadeM[1].trim() + " " + cepCidadeM[2].trim();
+  if(paisM) moradaCompleta += (moradaCompleta ? " — " : "") + paisM[1].trim();
+  if(moradaCompleta) document.getElementById("fMorada").value = moradaCompleta;
+
+  const portesM = raw.match(/Portes de envio:\s*([\d.,]+)\s*€/);
+  if(portesM) document.getElementById("fPortes").value = parseMoney(portesM[1]);
+
+  recalcModalTotal();
+  if(!found.length) alert("Não encontrei artigos no formato esperado — confirma o texto colado, ou adiciona os artigos manualmente.");
+}
+
+/* ---------------- tabela ---------------- */
+function renderTable(){
+  const list = loadOrders();
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const filtroEstado = document.getElementById("filterEstado").value;
+  const ordem = document.getElementById("sortOrder").value;
+
+  let filtered = list.filter(o => {
+    if(filtroEstado && o.estado !== filtroEstado) return false;
+    if(!search) return true;
+    const haystack = [o.cliente, o.contacto, ...(o.itens||[]).map(i=>i.nome)].join(" ").toLowerCase();
+    return haystack.includes(search);
+  });
+  filtered.sort((a,b) => ordem === "asc" ? new Date(a.data)-new Date(b.data) : new Date(b.data)-new Date(a.data));
+
+  const body = document.getElementById("ordersBody");
+  if(filtered.length === 0){
+    body.innerHTML = `<tr><td colspan="7"><div class="empty-state">Sem encomendas para mostrar.<br>Clica em "+ Nova encomenda" para começar.</div></td></tr>`;
+    return;
+  }
+  body.innerHTML = filtered.map(o => `
+    <tr>
+      <td class="mono">${o.ref}</td>
+      <td>${new Date(o.data).toLocaleDateString("pt-PT")}</td>
+      <td class="cliente-cell">
+        <div class="nome">${o.cliente}</div>
+        <div class="contacto">${o.contacto || ""}</div>
+      </td>
+      <td class="itens-cell">${(o.itens||[]).map(i=>`${i.qtd}x ${i.nome} (${i.variante})`).join("<br>")}</td>
+      <td>
+        <select class="estado-select ${o.estado}" onchange="changeEstadoInline('${o.id}', this.value)">
+          <option value="pendente" ${o.estado==='pendente'?'selected':''}>Pendente</option>
+          <option value="pago" ${o.estado==='pago'?'selected':''}>Pago</option>
+          <option value="enviado" ${o.estado==='enviado'?'selected':''}>Enviado</option>
+          <option value="entregue" ${o.estado==='entregue'?'selected':''}>Entregue</option>
+          <option value="cancelado" ${o.estado==='cancelado'?'selected':''}>Cancelado</option>
+        </select>
+      </td>
+      <td class="total-cell">${fmt(o.total)}</td>
+      <td>
+        <div class="row-actions">
+          <button title="Editar" onclick="editOrder('${o.id}')">✎</button>
+          <button title="Eliminar" onclick="deleteOrder('${o.id}')">🗑</button>
+        </div>
+      </td>
+    </tr>`).join("");
+}
+
+/* ---------------- dashboard ---------------- */
+const ESTADOS_CONFIRMADOS = ["pago", "enviado", "entregue"];
+
+function renderStats(){
+  const list = loadOrders();
+  const now = new Date();
+  const mesAtual = list.filter(o => {
+    const d = new Date(o.data);
+    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear() && ESTADOS_CONFIRMADOS.includes(o.estado);
+  }).reduce((s,o)=> s + o.total, 0);
+
+  const pendente = list.filter(o => o.estado === "pendente").reduce((s,o)=> s + o.total, 0);
+  const totalHistorico = list.filter(o => ESTADOS_CONFIRMADOS.includes(o.estado)).reduce((s,o)=> s + o.total, 0);
+
+  document.getElementById("statMes").textContent = fmt(mesAtual);
+  document.getElementById("statPendente").textContent = fmt(pendente);
+  document.getElementById("statNumEncomendas").textContent = list.length;
+  document.getElementById("statTotalHistorico").textContent = fmt(totalHistorico);
+
+  const counts = {};
+  list.forEach(o => (o.itens||[]).forEach(i => {
+    const key = `${i.nome} (${i.variante})`;
+    counts[key] = (counts[key]||0) + i.qtd;
+  }));
+  const top = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  const topEl = document.getElementById("topItemsList");
+  topEl.innerHTML = top.length
+    ? top.map(([nome,qtd]) => `<div>${nome} — <strong>${qtd}</strong> unid.</div>`).join("")
+    : "Ainda sem dados suficientes.";
+}
+
+/* ---------------- exportar / importar ---------------- */
+function exportJSON(){
+  const data = JSON.stringify(loadOrders(), null, 2);
+  const blob = new Blob([data], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `skylanders-encomendas-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+}
+function importJSON(evt){
+  const file = evt.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = async () => {
+    try{
+      const imported = JSON.parse(reader.result);
+      if(!Array.isArray(imported)) throw new Error("formato inválido");
+      const batch = db.batch();
+      imported.forEach(o => {
+        const ref = db.collection("encomendas").doc(); // novo id, evita conflitos
+        batch.set(ref, {
+          criadoEm: o.data ? firebase.firestore.Timestamp.fromDate(new Date(o.data)) : firebase.firestore.FieldValue.serverTimestamp(),
+          cliente: o.cliente || "", contacto: o.contacto || "", morada: o.morada || "",
+          itens: o.itens || [], subtotal: o.subtotal || 0, portes: o.portes || 0,
+          total: o.total || 0, estado: o.estado || "pendente", notas: o.notas || ""
+        });
+      });
+      await batch.commit();
+      alert(`Importadas ${imported.length} encomendas para a base de dados.`);
+    }catch(e){ console.error(e); alert("Não foi possível ler ou importar este ficheiro."); }
+  };
+  reader.readAsText(file);
+  evt.target.value = "";
+}
+function exportCSV(){
+  const list = loadOrders();
+  const rows = [["Ref","Data","Cliente","Contacto","Morada","Artigos","Subtotal","Portes","Total","Estado","Notas"]];
+  list.forEach(o => {
+    rows.push([
+      o.ref, new Date(o.data).toLocaleDateString("pt-PT"), o.cliente, o.contacto || "", o.morada || "",
+      (o.itens||[]).map(i=>`${i.qtd}x ${i.nome} (${i.variante})`).join(" | "),
+      o.subtotal.toFixed(2), o.portes.toFixed(2), o.total.toFixed(2), o.estado, o.notas || ""
+    ]);
+  });
+  const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(";")).join("\n");
+  const blob = new Blob(["\uFEFF" + csv], {type:"text/csv;charset=utf-8;"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `skylanders-encomendas-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+</script>
+</body>
+</html>

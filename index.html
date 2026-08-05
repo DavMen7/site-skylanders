@@ -44,6 +44,10 @@
   <div class="drawer-items" id="drawerItems"></div>
   <div class="drawer-foot">
     <div class="address-block">
+      <label class="addr-label">O teu nome *</label>
+      <input id="custName" type="text" placeholder="Ex: Ana Costa" oninput="onAddressChange()">
+      <label class="addr-label">O teu contacto (WhatsApp) *</label>
+      <input id="custPhone" type="text" placeholder="Ex: 9xxxxxxxx" oninput="onAddressChange()">
       <label class="addr-label">País de entrega *</label>
       <select id="countrySelect" onchange="onAddressChange()">
         <option value="">— Seleciona o país —</option>
@@ -100,6 +104,10 @@
   </div>
 </div>
 
+<!-- Base de dados (Firebase) — tem de vir ANTES do catalog.js -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
 <!--carregar Skylander-->
 <script src="catalog.js"></script>
 
@@ -138,6 +146,18 @@ const SHIPPING_TABLE = [
 */
 
 const EUROPE_CODES = new Set(["ES","FR","DE","IT","GB","IE","NL","BE","LU","AT","CH","LI","DK","SE","NO","FI","IS","PL","CZ","SK","HU","RO","BG","GR","HR","SI","EE","LV","LT","MT","CY","MC","AD"]);
+
+/* ---- base de dados: cola aqui a tua configuração do Firebase ---- */
+const firebaseConfig = {
+  apiKey: "AIzaSyB74HzChHABbGxOGUfMV0mHfXWfve5Xt7E",
+  authDomain: "skylander-collection.firebaseapp.com",
+  projectId: "skylander-collection",
+  storageBucket: "skylander-collection.firebasestorage.app",
+  messagingSenderId: "20311660306",
+  appId: "1:20311660306:web:5caf4ce7eb28873f7a45cb"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 function zoneOf(countryCode){
   if(countryCode === "PT") return "pt";
@@ -273,8 +293,16 @@ function onAddressChange(){ updateTotals(); }
 function openCart(){ document.getElementById("drawer").classList.add("open"); document.getElementById("overlay").classList.add("open"); }
 function closeCart(){ document.getElementById("drawer").classList.remove("open"); document.getElementById("overlay").classList.remove("open"); }
 
-function checkout(){
+async function checkout(){
   if(cart.length === 0){ alert("O carrinho está vazio."); return; }
+
+  const custName = document.getElementById("custName").value.trim();
+  const custPhone = document.getElementById("custPhone").value.trim();
+  if(!custName || !custPhone){
+    alert("Indica o teu nome e contacto antes de finalizar.");
+    return;
+  }
+
   const countrySelect = document.getElementById("countrySelect");
   const countryCode = countrySelect.value;
   if(!countryCode){
@@ -289,11 +317,36 @@ function checkout(){
   const street = document.getElementById("addrStreet").value.trim();
   const zip = document.getElementById("addrZip").value.trim();
   const city = document.getElementById("addrCity").value.trim();
-
-  let msg = "Olá! Gostava de encomendar estes cartões NFC Skylanders:%0A%0A";
-  cart.forEach(i => { msg += `• ${i.qty}x ${i.name} (${i.variant}) — ${fmt(i.price*i.qty)}%0A`; });
   const itemsTotal = cart.reduce((s,i)=> s + i.price*i.qty, 0);
 
+  // ---- 1. Regista a encomenda automaticamente na base de dados, estado "pendente" ----
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  checkoutBtn.disabled = true;
+  checkoutBtn.textContent = "A registar encomenda...";
+  try{
+    await db.collection("encomendas").add({
+      criadoEm: firebase.firestore.FieldValue.serverTimestamp(),
+      cliente: custName,
+      contacto: custPhone,
+      itens: cart.map(i => ({ nome: i.name, variante: i.variant, preco: i.price, qtd: i.qty })),
+      morada: { pais: countryName, rua: street, codigoPostal: zip, cidade: city },
+      subtotal: itemsTotal,
+      portes: shippingCost,
+      total: itemsTotal + (shippingCost || 0),
+      estado: "pendente"
+    });
+  }catch(err){
+    console.error("Não foi possível registar a encomenda na base de dados:", err);
+    // Não bloqueia o cliente — a encomenda ainda segue por WhatsApp normalmente.
+  }
+  checkoutBtn.disabled = false;
+  checkoutBtn.textContent = "Finalizar por WhatsApp →";
+
+  // ---- 2. Abre o WhatsApp normalmente (mantém-se enquanto não há botão de pagamento) ----
+  let msg = "Olá! Gostava de encomendar estes cartões NFC Skylanders:%0A%0A";
+  cart.forEach(i => { msg += `• ${i.qty}x ${i.name} (${i.variant}) — ${fmt(i.price*i.qty)}%0A`; });
+
+  msg += `%0ACliente: ${custName} (${custPhone})%0A`;
   msg += `%0AMorada de entrega:%0A`;
   msg += `País: ${countryName}%0A`;
   if(street) msg += `Morada: ${street}%0A`;
