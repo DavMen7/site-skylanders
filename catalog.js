@@ -280,47 +280,47 @@ const CATALOG = {
         items: [
           { name: "Bumble Blast", variants: [
               { name: "Normal", image: "fotos/3. Swap Force/Bumble Blast.png" },
-              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Bumble Blast LightCore.png" }
+              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Bumble Blast LightCore.jpg" }
             ]
           },
           { name: "Countdown", variants: [
-              { name: "Normal", image: "fotos/3. Swap Force/Countdown.png" },
-              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Countdown LightCore.png" }
+              { name: "Normal", image: "fotos/3. Swap Force/Countdown.jpg" },
+              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Countdown LightCore.jpg" }
             ]
           },
-          { name: "Dune Bug", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Dune Bug.png" }] },
-          { name: "Fryno", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Fryno.png" }] },
+          { name: "Dune Bug", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Dune Bug.jpg" }] },
+          { name: "Fryno", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Fryno.jpg" }] },
           { name: "Grim Creeper", variants: [
-              { name: "Normal", image: "fotos/3. Swap Force/Grim Creeper.png" },
-              { name: "Legendary", image: "fotos/3. Swap Force/variants/Legendary Grim Creeper.png" },
-              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Grim Creeper LightCore.png" }
+              { name: "Normal", image: "fotos/3. Swap Force/Grim Creeper.jpg" },
+              { name: "Legendary", image: "fotos/3. Swap Force/variants/Legendary Grim Creeper.jpg" },
+              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Grim Creeper LightCore.jpg" }
             ]
           },
-          { name: "Pop Thorn", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Pop Thorn.png" }] },
-          { name: "Punk Shock", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Punk Shock.png" }] },
-          { name: "Rip Tide", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Rip Tide.png" }] },
-          { name: "Roller Brawl", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Roller Brawl.png" }] },
-          { name: "Scratch", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Scratch.png" }] },
-          { name: "Scorp", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Scorp.png" }] },
+          { name: "Pop Thorn", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Pop Thorn.jpg" }] },
+          { name: "Punk Shock", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Punk Shock.jpg" }] },
+          { name: "Rip Tide", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Rip Tide.jpg" }] },
+          { name: "Roller Brawl", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Roller Brawl.jpg" }] },
+          { name: "Scratch", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Scratch.jpg" }] },
+          { name: "Scorp", variants: [{ name: "Normal", image: "fotos/3. Swap Force/Scorp.jpg" }] },
           { name: "Slobber Tooth", variants: [
-              { name: "Normal", image: "fotos/3. Swap Force/Slobber Tooth.png" },
-              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Slobber Tooth.png" }
+              { name: "Normal", image: "fotos/3. Swap Force/Slobber Tooth.jpg" },
+              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Slobber Tooth.jpg" }
             ]
           },
           { name: "Smolderdash", variants: [
-              { name: "Normal", image: "fotos/3. Swap Force/Smolderdash.png" },
-              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Smolderdash LightCore.png" }
+              { name: "Normal", image: "fotos/3. Swap Force/Smolderdash.jpg" },
+              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Smolderdash LightCore.jpg" }
             ]
           },
           { name: "Star Strike", variants: [
-              { name: "Normal", image: "fotos/3. Swap Force/Star Strike.png" },
-              { name: "Enchanted", image: "fotos/3. Swap Force/variants/Enchanted Star Strike.png" },
-              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Star Strike LightCore.png" }
+              { name: "Normal", image: "fotos/3. Swap Force/Star Strike.jpg" },
+              { name: "Enchanted", image: "fotos/3. Swap Force/variants/Enchanted Star Strike.jpg" },
+              { name: "LightCore", image: "fotos/3. Swap Force/lightcore/Star Strike LightCore.jpg" }
             ]
           },
           { name: "Zoo Lou", variants: [
-              { name: "Normal", image: "fotos/3. Swap Force/Zoo Lou.png" },
-              { name: "Legendary", image: "fotos/3. Swap Force/variants/Legendary Zoo Lou.png" }
+              { name: "Normal", image: "fotos/3. Swap Force/Zoo Lou.jpg" },
+              { name: "Legendary", image: "fotos/3. Swap Force/variants/Legendary Zoo Lou.jpg" }
             ]
           }
         ]
@@ -328,20 +328,20 @@ const CATALOG = {
       {
         name: "Series 2 and Series 3",
         items: [
-          { name: "Anchors Away Gill Grunt", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Anchors Away Gill Grunt.png" }] },
-          { name: "Hyper Beam Prism Break", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Hyper Beam Prism Break.png" }] },
-          { name: "Horn Blast Whirlwind", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Horn Blast Whirlwind.png" }] },
+          { name: "Anchors Away Gill Grunt", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Anchors Away Gill Grunt.jpg" }] },
+          { name: "Hyper Beam Prism Break", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Hyper Beam Prism Break.jpg" }] },
+          { name: "Horn Blast Whirlwind", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Horn Blast Whirlwind.jpg" }] },
           { name: "Mega Ram Spyro", variants: [
-              { name: "Series 3", image: "fotos/3. Swap Force/returning/Mega Ram Spyro.png" },
-              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Mega Ram Spyro.png" }
+              { name: "Series 3", image: "fotos/3. Swap Force/returning/Mega Ram Spyro.jpg" },
+              { name: "Dark", image: "fotos/3. Swap Force/variants/Dark Mega Ram Spyro.jpg" }
             ]
           },
-          { name: "Phantom Cynder", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Phantom Cynder.png" }] },
-          { name: "Super Gulp Pop Fizz", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Super Gulp Pop Fizz.png" }] },
-          { name: "Twin Blade Chop Chop", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Twin Blade Chop Chop.png" }] },
-          { name: "Turbo Jet-Vac", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Turbo Jet-Vac.png" }] },
-          { name: "Volcanic Eruptor", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Volcanic Eruptor.png" }] },
-          { name: "Heavy Duty Sprocket", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Heavy Duty Sprocket.png" }] }
+          { name: "Phantom Cynder", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Phantom Cynder.jpg" }] },
+          { name: "Super Gulp Pop Fizz", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Super Gulp Pop Fizz.jpg" }] },
+          { name: "Twin Blade Chop Chop", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Twin Blade Chop Chop.jpg" }] },
+          { name: "Turbo Jet-Vac", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Turbo Jet-Vac.jpg" }] },
+          { name: "Volcanic Eruptor", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Volcanic Eruptor.jpg" }] },
+          { name: "Heavy Duty Sprocket", variants: [{ name: "Series 3", image: "fotos/3. Swap Force/returning/Heavy Duty Sprocket.jpg" }] }
         ]
       }
     ]
