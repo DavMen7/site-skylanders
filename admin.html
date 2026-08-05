@@ -127,6 +127,15 @@
   #topItemsList{ font-size:.78rem; color:var(--ink-muted); line-height:1.7; }
   .hint{ font-size:.72rem; color:var(--ink-muted); margin-top:4px; }
 
+  /* modal de consulta (só leitura) */
+  .view-row{ display:grid; grid-template-columns:130px 1fr; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); font-size:.88rem; }
+  .view-row:last-child{ border-bottom:none; }
+  .view-row .k{ color:var(--ink-muted); font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; font-weight:700; padding-top:2px; }
+  .view-row .v{ line-height:1.5; }
+  .view-itens{ display:flex; flex-direction:column; gap:4px; }
+  .view-total{ font-family:'JetBrains Mono'; font-weight:800; font-size:1.1rem; }
+  .estado-tag{ display:inline-block; padding:3px 10px; border-radius:999px; font-size:.74rem; font-weight:700; }
+
   @media(max-width:640px){
     .admin-shell{ padding:16px; }
     .two-col{ grid-template-columns:1fr; }
@@ -282,6 +291,18 @@
     <div class="modal-foot">
       <button class="btn" onclick="closeOrderModal()">Cancelar</button>
       <button class="btn primary" onclick="saveOrder()">Guardar encomenda</button>
+    </div>
+  </div>
+</div>
+
+<!-- ======= MODAL CONSULTAR (só leitura) ======= -->
+<div class="modal-overlay" id="viewModalOverlay">
+  <div class="modal">
+    <h3 id="viewModalTitle">Encomenda</h3>
+    <div id="viewModalBody"></div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeViewModal()">Fechar</button>
+      <button class="btn primary" id="viewModalEditBtn">Editar esta encomenda</button>
     </div>
   </div>
 </div>
@@ -447,6 +468,33 @@ function openOrderModal(order){
 }
 function closeOrderModal(){ document.getElementById("orderModalOverlay").classList.remove("open"); }
 
+/* ---------------- modal: consultar (só leitura) ---------------- */
+const ESTADO_LABEL = { pendente:"Pendente", pago:"Pago", enviado:"Enviado", entregue:"Entregue", cancelado:"Cancelado" };
+
+function viewOrder(id){
+  const o = loadOrders().find(o => o.id === id);
+  if(!o) return;
+
+  document.getElementById("viewModalTitle").textContent = `Encomenda ${o.ref}`;
+  document.getElementById("viewModalBody").innerHTML = `
+    <div class="view-row"><div class="k">Data</div><div class="v">${new Date(o.data).toLocaleDateString("pt-PT")}</div></div>
+    <div class="view-row"><div class="k">Cliente</div><div class="v">${o.cliente || "—"}</div></div>
+    <div class="view-row"><div class="k">Contacto</div><div class="v">${o.contacto || "—"}</div></div>
+    <div class="view-row"><div class="k">Morada</div><div class="v">${o.morada || "—"}</div></div>
+    <div class="view-row"><div class="k">Artigos</div><div class="v view-itens">${
+      (o.itens||[]).map(i => `<span>${i.qtd}x ${i.nome} (${i.variante}) — ${fmt(i.preco*i.qtd)}</span>`).join("") || "—"
+    }</div></div>
+    <div class="view-row"><div class="k">Subtotal</div><div class="v mono">${fmt(o.subtotal)}</div></div>
+    <div class="view-row"><div class="k">Portes</div><div class="v mono">${fmt(o.portes)}</div></div>
+    <div class="view-row"><div class="k">Total</div><div class="v view-total">${fmt(o.total)}</div></div>
+    <div class="view-row"><div class="k">Estado</div><div class="v"><span class="estado-tag estado-select ${o.estado}">${ESTADO_LABEL[o.estado] || o.estado}</span></div></div>
+    <div class="view-row"><div class="k">Notas</div><div class="v">${o.notas || "—"}</div></div>
+  `;
+  document.getElementById("viewModalEditBtn").onclick = () => { closeViewModal(); editOrder(id); };
+  document.getElementById("viewModalOverlay").classList.add("open");
+}
+function closeViewModal(){ document.getElementById("viewModalOverlay").classList.remove("open"); }
+
 function addItemToOrder(){
   const input = document.getElementById("fItemInput");
   const qtd = parseInt(document.getElementById("fItemQtd").value, 10) || 1;
@@ -596,6 +644,7 @@ function renderTable(){
       <td class="total-cell">${fmt(o.total)}</td>
       <td>
         <div class="row-actions">
+          <button title="Consultar" onclick="viewOrder('${o.id}')">👁</button>
           <button title="Editar" onclick="editOrder('${o.id}')">✎</button>
           <button title="Eliminar" onclick="deleteOrder('${o.id}')">🗑</button>
         </div>
