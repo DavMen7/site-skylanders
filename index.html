@@ -290,6 +290,23 @@ function updateTotals(){
 
 function onAddressChange(){ updateTotals(); }
 
+/* Regras específicas para os países que existem na lista de seleção.
+   Países sem entrada aqui (ex: dentro de "Outro país") usam o fallback genérico. */
+const PHONE_RULES = {
+  PT: { re: /^9\d{8}$/,  label: "9 dígitos, começado em 9" },
+  ES: { re: /^\d{9}$/,   label: "9 dígitos" },
+  FR: { re: /^0?\d{9}$/, label: "10 dígitos (ou 9 sem o 0 inicial)" },
+  DE: { min: 10, max: 13, label: "entre 10 e 13 dígitos" },
+  GB: { min: 10, max: 11, label: "10 ou 11 dígitos" },
+};
+const POSTAL_RULES = {
+  PT: { re: /^(\d{4})-?(\d{3})$/, label: "formato 0000-000" },
+  ES: { re: /^\d{5}$/, label: "5 dígitos" },
+  FR: { re: /^\d{5}$/, label: "5 dígitos" },
+  DE: { re: /^\d{5}$/, label: "5 dígitos" },
+  GB: { re: /^[A-Za-z]{1,2}\d[A-Za-z\d]?\s?\d[A-Za-z]{2}$/, label: "formato tipo SW1A 1AA" },
+};
+
 function openCart(){ document.getElementById("drawer").classList.add("open"); document.getElementById("overlay").classList.add("open"); }
 function closeCart(){ document.getElementById("drawer").classList.remove("open"); document.getElementById("overlay").classList.remove("open"); }
 
@@ -297,9 +314,10 @@ async function checkout(){
   if(cart.length === 0){ alert("O carrinho está vazio."); return; }
 
   const custName = document.getElementById("custName").value.trim();
-  const custPhone = document.getElementById("custPhone").value.trim();
-  if(!custName || !custPhone){
-    alert("Indica o teu nome e contacto antes de finalizar.");
+  const nameRe = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)+$/; // pelo menos nome + apelido
+  if(!custName || !nameRe.test(custName)){
+    alert("Indica o teu nome completo (nome e apelido).");
+    document.getElementById("custName").focus();
     return;
   }
 
@@ -312,15 +330,55 @@ async function checkout(){
   }
   const countryName = countrySelect.options[countrySelect.selectedIndex].text;
   const zone = zoneOf(countryCode);
+
+  const custPhoneRaw = document.getElementById("custPhone").value.trim();
+  const custPhone = custPhoneRaw.replace(/\D/g, ""); // fica só com dígitos
+  const phoneRule = PHONE_RULES[countryCode];
+  let phoneOk;
+  if(phoneRule){
+    phoneOk = phoneRule.re ? phoneRule.re.test(custPhone) : (custPhone.length >= phoneRule.min && custPhone.length <= phoneRule.max);
+  } else {
+    phoneOk = custPhone.length >= 8 && custPhone.length <= 15;
+  }
+  if(!phoneOk){
+    alert(`Insere um número de telefone válido para ${countryName ? countryName : "o país selecionado"}${phoneRule ? " (" + phoneRule.label + ")" : ""}.`);
+    document.getElementById("custPhone").focus();
+    return;
+  }
+
   const weightG = getCartWeightG();
   const shippingCost = shippingCostFor(weightG, zone);
   const street = document.getElementById("addrStreet").value.trim();
-  const zip = document.getElementById("addrZip").value.trim();
+  const zipRaw = document.getElementById("addrZip").value.trim();
   const city = document.getElementById("addrCity").value.trim();
-  if(!street || !zip || !city){
-    alert("Preenche a morada completa (rua, código postal e localidade) antes de finalizar.");
+  const cityRe = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/;
+
+  if(street.length < 5 || !/\d/.test(street)){
+    alert("Indica a morada completa, com rua e número da porta.");
+    document.getElementById("addrStreet").focus();
     return;
   }
+  let zip = zipRaw;
+  const postalRule = POSTAL_RULES[countryCode];
+  if(postalRule){
+    const m = zipRaw.replace(/\s+/g, countryCode === "GB" ? " " : "").match(postalRule.re);
+    if(!m){
+      alert(`Insere um código postal válido para ${countryName} (${postalRule.label}).`);
+      document.getElementById("addrZip").focus();
+      return;
+    }
+    zip = countryCode === "PT" ? `${m[1]}-${m[2]}` : m[0].toUpperCase();
+  } else if(zipRaw.length < 3){
+    alert("Insere um código postal válido.");
+    document.getElementById("addrZip").focus();
+    return;
+  }
+  if(!city || !cityRe.test(city)){
+    alert("Indica a localidade de entrega.");
+    document.getElementById("addrCity").focus();
+    return;
+  }
+
   const itemsTotal = cart.reduce((s,i)=> s + i.price*i.qty, 0);
 
   // ---- 1. Regista a encomenda automaticamente na base de dados, estado "pendente" ----
