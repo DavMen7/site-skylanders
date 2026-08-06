@@ -91,10 +91,10 @@
       </select>
       <div id="zoneNote" class="zone-note"></div>
       <label class="addr-label">Morada (rua, número, andar)</label>
-      <input id="addrStreet" type="text" placeholder="Ex: Rua das Flores, 123, 2º Dto" oninput="onAddressChange()">
+      <input id="addrStreet" type="text" placeholder="Ex: Rua das Flores, 123, 2º Dto" oninput="onAddressChange()" required>
       <div class="addr-row">
-        <input id="addrZip" type="text" placeholder="Código postal" oninput="onAddressChange()">
-        <input id="addrCity" type="text" placeholder="Localidade" oninput="onAddressChange()">
+        <input id="addrZip" type="text" placeholder="Código postal" oninput="onAddressChange()" required>
+        <input id="addrCity" type="text" placeholder="Localidade" oninput="onAddressChange()" required>
       </div>
     </div>
     <div class="shipping-row"><span>Portes de envio</span><span class="mono" id="shippingCost">—</span></div>
@@ -317,6 +317,10 @@ async function checkout(){
   const street = document.getElementById("addrStreet").value.trim();
   const zip = document.getElementById("addrZip").value.trim();
   const city = document.getElementById("addrCity").value.trim();
+  if(!street || !zip || !city){
+    alert("Preenche a morada completa (rua, código postal e localidade) antes de finalizar.");
+    return;
+  }
   const itemsTotal = cart.reduce((s,i)=> s + i.price*i.qty, 0);
 
   // ---- 1. Regista a encomenda automaticamente na base de dados, estado "pendente" ----
