@@ -10,6 +10,12 @@
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon + Open Graph -->
+  <link rel="icon" href="favicon.jpg">
+  <meta property="og:title" content="Skylanders Collection — Cartões NFC">
+  <meta property="og:description" content="Cartões NFC de Skylanders para o teu portal, a um preço mais simpático.">
+  <meta property="og:image" content="https://davmen7.github.io/site-skylanders/preview.jpg">
 </head>
 
 <body>
@@ -458,7 +464,7 @@
 
             // Se houver caminho de imagem, cria a tag <img>, senão mantém o placeholder
             const imageHtml = variantImg
-              ? `<img src="${variantImg}" alt="${item.name} (${variantName})" class="card-img">`
+              ? `<img src="${variantImg}" alt="${item.name} (${variantName})" class="card-img" loading="lazy">`
               : `<div class="no-photo">sem foto<br>(espaço reservado)</div>`;
 
             const isTrapsGroup = group.name === "Traps";

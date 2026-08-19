@@ -197,7 +197,7 @@ const CATALOG = {
           {
             name: "Ignitor", variants: [
               { name: "Series 2", image: "fotos/2. Giants/returning/Ignitor (Series 2).jpg" },
-              { name: "Legendary ", image: "fotos/2. Giants/variants/Legendary Ignitor.jpg" }
+              { name: "Legendary", image: "fotos/2. Giants/variants/Legendary Ignitor.jpg" }
             ]
           },
           { name: "Gill Grunt", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Gill Grunt (Series 2).jpg" }] },
@@ -221,7 +221,7 @@ const CATALOG = {
           { name: "Bash", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Bash (Series 2).jpg" }] },
           { name: "Spyro", variants: [{ name: "Series 2", image: "fotos/2. Giants/returning/Spyro (Series 2).jpg" }] },
           {
-            name: "Double Trouble ", variants: [
+            name: "Double Trouble", variants: [
               { name: "Series 2", image: "fotos/2. Giants/returning/Double Trouble (Series 2).jpg" },
               { name: "Royal", image: "fotos/2. Giants/variants/Royal Double Trouble.jpg" }
             ]
