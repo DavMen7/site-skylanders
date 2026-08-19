@@ -1,227 +1,234 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skylanders Collection — Cartões NFC Skylanders</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skylanders Collection — Cartões NFC Skylanders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="topbar">
-  <div class="brand"><span class="brand-ring"></span> <span>Sylanders Cards</span></div>
-  <div class="nav-links" id="navLinks"></div>
-  <button class="cart-btn" onclick="openCart()">🛒 Carrinho <span class="cart-count" id="cartCount">0</span></button>
-</div>
-
-<section class="hero">
-  <div class="portal"></div>
-  <h1>Toda a coleção Skylanders,<br>sem pagar o preço das figuras.</h1>
-  <p>Cada cartão tem um chip NFC embutido que faz o portal reconhecer o teu Skylander exatamente como se fosse a figura física — mesmos poderes, mesmo upgrade, mesma magia. A um preço bem mais simpático.</p>
-  <div class="hero-note">📦 Envio para todo o país · 💬 Encomendas confirmadas via WhatsApp</div>
-</section>
-
-<div class="chiprow" id="chipRow"></div>
-
-<div id="gamesRoot"></div>
-
-<section class="pack-section" id="packSection"></section>
-
-<footer>
-  <div class="brand"><span class="brand-ring"></span> <span>Traptanium Cards</span></div>
-  Coleção não-oficial de cartões NFC compatíveis · Skylanders é propriedade da Activision.<br>
-  Preços e stock ilustrativos — confirma sempre a disponibilidade antes de finalizar a encomenda.
-</footer>
-
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
-<div class="drawer" id="drawer">
-  <div class="drawer-head">
-    <h3>O teu carrinho</h3>
-    <button class="close-btn" onclick="closeCart()">✕</button>
+  <div class="topbar">
+    <div class="brand"><span class="brand-ring"></span> <span>Sylanders Cards</span></div>
+    <div class="nav-links" id="navLinks"></div>
+    <button class="cart-btn" onclick="openCart()">🛒 Carrinho <span class="cart-count" id="cartCount">0</span></button>
   </div>
-  <div class="drawer-items" id="drawerItems"></div>
-  <div class="drawer-foot">
-    <div class="address-block">
-      <label class="addr-label">O teu nome *</label>
-      <input id="custName" type="text" placeholder="Ex: Ana Costa" oninput="onAddressChange()">
-      <label class="addr-label">O teu contacto (WhatsApp) *</label>
-      <input id="custPhone" type="text" placeholder="Ex: 9xxxxxxxx" oninput="onAddressChange()">
-      <label class="addr-label">País de entrega *</label>
-      <select id="countrySelect" onchange="onAddressChange()">
-        <option value="">— Seleciona o país —</option>
-        <option value="PT">Portugal</option>
-        <optgroup label="Europa">
-          <option value="ES">Espanha</option>
-          <option value="FR">França</option>
-          <option value="DE">Alemanha</option>
-          <option value="IT">Itália</option>
-          <option value="GB">Reino Unido</option>
-          <option value="IE">Irlanda</option>
-          <option value="NL">Países Baixos</option>
-          <option value="BE">Bélgica</option>
-          <option value="LU">Luxemburgo</option>
-          <option value="AT">Áustria</option>
-          <option value="CH">Suíça</option>
-          <option value="LI">Liechtenstein</option>
-          <option value="DK">Dinamarca</option>
-          <option value="SE">Suécia</option>
-          <option value="NO">Noruega</option>
-          <option value="FI">Finlândia</option>
-          <option value="IS">Islândia</option>
-          <option value="PL">Polónia</option>
-          <option value="CZ">Chéquia</option>
-          <option value="SK">Eslováquia</option>
-          <option value="HU">Hungria</option>
-          <option value="RO">Roménia</option>
-          <option value="BG">Bulgária</option>
-          <option value="GR">Grécia</option>
-          <option value="HR">Croácia</option>
-          <option value="SI">Eslovénia</option>
-          <option value="EE">Estónia</option>
-          <option value="LV">Letónia</option>
-          <option value="LT">Lituânia</option>
-          <option value="MT">Malta</option>
-          <option value="CY">Chipre</option>
-          <option value="MC">Mónaco</option>
-          <option value="AD">Andorra</option>
-        </optgroup>
-        <option value="OTHER">Outro país (fora da Europa)</option>
-      </select>
-      <div id="zoneNote" class="zone-note"></div>
-      <label class="addr-label">Morada (rua, número, andar)</label>
-      <input id="addrStreet" type="text" placeholder="Ex: Rua das Flores, 123, 2º Dto" oninput="onAddressChange()" required>
-      <div class="addr-row">
-        <input id="addrZip" type="text" placeholder="Código postal" oninput="onAddressChange()" required>
-        <input id="addrCity" type="text" placeholder="Localidade" oninput="onAddressChange()" required>
-      </div>
+
+  <section class="hero">
+    <div class="portal"></div>
+    <h1>Toda a coleção Skylanders,<br>sem pagar o preço das figuras.</h1>
+    <p>Cada cartão tem um chip NFC embutido que faz o portal reconhecer o teu Skylander exatamente como se fosse a
+      figura física — mesmos poderes, mesmo upgrade, mesma magia. A um preço bem mais simpático.</p>
+    <div class="hero-note">📦 Envio para todo o país · 💬 Encomendas confirmadas via WhatsApp</div>
+  </section>
+
+  <div class="chiprow" id="chipRow"></div>
+
+  <div id="gamesRoot"></div>
+
+  <section class="pack-section" id="packSection"></section>
+
+  <footer>
+    <div class="brand"><span class="brand-ring"></span> <span>Traptanium Cards</span></div>
+    Coleção não-oficial de cartões NFC compatíveis · Skylanders é propriedade da Activision.<br>
+    Preços e stock ilustrativos — confirma sempre a disponibilidade antes de finalizar a encomenda.
+  </footer>
+
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
+  <div class="drawer" id="drawer">
+    <div class="drawer-head">
+      <h3>O teu carrinho</h3>
+      <button class="close-btn" onclick="closeCart()">✕</button>
     </div>
-    <div class="shipping-row"><span>Portes de envio</span><span class="mono" id="shippingCost">—</span></div>
-    <div class="total-row"><span>Total</span><span class="mono" id="cartTotal">0,00 €</span></div>
-    <button class="checkout-btn" onclick="checkout()">Finalizar por WhatsApp →</button>
-    <div class="checkout-note">Ao finalizar, abre-se o WhatsApp com a tua lista de cartões, morada e portes prontos a enviar. Nada é cobrado automaticamente — o pagamento e envio são combinados diretamente contigo.</div>
+    <div class="drawer-items" id="drawerItems"></div>
+    <div class="drawer-foot">
+      <div class="address-block">
+        <label class="addr-label">O teu nome *</label>
+        <input id="custName" type="text" placeholder="Ex: Ana Costa" oninput="onAddressChange()">
+        <label class="addr-label">O teu contacto (WhatsApp) *</label>
+        <input id="custPhone" type="text" placeholder="Ex: 9xxxxxxxx" oninput="onAddressChange()">
+        <label class="addr-label">País de entrega *</label>
+        <select id="countrySelect" onchange="onAddressChange()">
+          <option value="">— Seleciona o país —</option>
+          <option value="PT">Portugal</option>
+          <optgroup label="Europa">
+            <option value="ES">Espanha</option>
+            <option value="FR">França</option>
+            <option value="DE">Alemanha</option>
+            <option value="IT">Itália</option>
+            <option value="GB">Reino Unido</option>
+            <option value="IE">Irlanda</option>
+            <option value="NL">Países Baixos</option>
+            <option value="BE">Bélgica</option>
+            <option value="LU">Luxemburgo</option>
+            <option value="AT">Áustria</option>
+            <option value="CH">Suíça</option>
+            <option value="LI">Liechtenstein</option>
+            <option value="DK">Dinamarca</option>
+            <option value="SE">Suécia</option>
+            <option value="NO">Noruega</option>
+            <option value="FI">Finlândia</option>
+            <option value="IS">Islândia</option>
+            <option value="PL">Polónia</option>
+            <option value="CZ">Chéquia</option>
+            <option value="SK">Eslováquia</option>
+            <option value="HU">Hungria</option>
+            <option value="RO">Roménia</option>
+            <option value="BG">Bulgária</option>
+            <option value="GR">Grécia</option>
+            <option value="HR">Croácia</option>
+            <option value="SI">Eslovénia</option>
+            <option value="EE">Estónia</option>
+            <option value="LV">Letónia</option>
+            <option value="LT">Lituânia</option>
+            <option value="MT">Malta</option>
+            <option value="CY">Chipre</option>
+            <option value="MC">Mónaco</option>
+            <option value="AD">Andorra</option>
+          </optgroup>
+          <option value="OTHER">Outro país (fora da Europa)</option>
+        </select>
+        <div id="zoneNote" class="zone-note"></div>
+        <label class="addr-label">Morada (rua, número, andar)</label>
+        <input id="addrStreet" type="text" placeholder="Ex: Rua das Flores, 123, 2º Dto" oninput="onAddressChange()"
+          required>
+        <div class="addr-row">
+          <input id="addrZip" type="text" placeholder="Código postal" oninput="onAddressChange()" required>
+          <input id="addrCity" type="text" placeholder="Localidade" oninput="onAddressChange()" required>
+        </div>
+      </div>
+      <div class="shipping-row"><span>Portes de envio</span><span class="mono" id="shippingCost">—</span></div>
+      <div class="total-row"><span>Total</span><span class="mono" id="cartTotal">0,00 €</span></div>
+      <button class="checkout-btn" onclick="checkout()">Finalizar por WhatsApp →</button>
+      <div class="checkout-note">Ao finalizar, abre-se o WhatsApp com a tua lista de cartões, morada e portes prontos a
+        enviar. Nada é cobrado automaticamente — o pagamento e envio são combinados diretamente contigo.</div>
+    </div>
   </div>
-</div>
 
-<!-- Base de dados (Firebase) — tem de vir ANTES do catalog.js -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <!-- Base de dados (Firebase) — tem de vir ANTES do catalog.js -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
-<!--carregar Skylander-->
-<script src="catalog.js"></script>
+  <!--carregar Skylander-->
+  <script src="catalog.js"></script>
 
-<script>
-/* ======= CONFIGURAÇÃO — editar aqui ======= */
-const WHATSAPP_NUMBER = "351928053935"; // <-- substitui pelo teu número (formato: código do país + número, sem espaços)
-const PRICES = {
-  normal: 4.0,
-  trapmaster: 5.5,
-  mini: 3.0,
-  Senseis: 5.0,
-  Villain: 5.0,
-  supercharger: 5.0,
-  vehicles: 2.0
-};
-const RARE_SURCHARGE = 1.5; // acréscimo para variantes especiais (Legendary, Dark, LightCore, Nitro, etc.)
-const PACK_DISCOUNT = 0.85; // pack Trap Masters completo = 15% de desconto sobre a soma
+  <script>
+    /* ======= CONFIGURAÇÃO — editar aqui ======= */
+    const WHATSAPP_NUMBER = "351928053935"; // <-- substitui pelo teu número (formato: código do país + número, sem espaços)
+    const PRICES = {
+      normal: 4.0,
+      trapmaster: 5.5,
+      mini: 3.0,
+      Senseis: 5.0,
+      Villain: 5.0,
+      supercharger: 5.0,
+      vehicles: 2.0
+    };
+    const RARE_SURCHARGE = 1.5; // acréscimo para variantes especiais (Legendary, Dark, LightCore, Nitro, etc.)
+    const PACK_DISCOUNT = 0.85; // pack Trap Masters completo = 15% de desconto sobre a soma
 
-/* ---- envio: peso e tabela de portes ---- */
-const CARD_WEIGHT_G = 7;      // peso de cada cartão
-const ENVELOPE_WEIGHT_G = 6;  // peso do envelope
-const SHIPPING_TABLE = [
-    //Correio Normal
-  { maxG: 100,  pt: 1.58, eu: 2.65 },
-  { maxG: 250,  pt: 2.34, eu: 4.25 },
-  { maxG: 500,  pt: 5.55, eu: 7.05 },
-  { maxG: 1000, pt: 5.55, eu: 10.85 },
-  { maxG: 2000, pt: 5.55, eu: 18.47 }
-];
-/*
-        Tabela para Correio Azul
-  { maxG: 100,  pt: 2.10, eu: 5.80 },
-  { maxG: 250,  pt: 3.90, eu: 7.55 },
-  { maxG: 500,  pt: 3.90, eu: 9.80 },
-  { maxG: 1000, pt: 7.80, eu: 13.20 }
-*/
+    /* ---- envio: peso e tabela de portes ---- */
+    const CARD_WEIGHT_G = 7;      // peso de cada cartão
+    const ENVELOPE_WEIGHT_G = 6;  // peso do envelope
+    const SHIPPING_TABLE = [
+      //Correio Normal
+      { maxG: 100, pt: 1.58, eu: 2.65 },
+      { maxG: 250, pt: 2.34, eu: 4.25 },
+      { maxG: 500, pt: 5.55, eu: 7.05 },
+      { maxG: 1000, pt: 5.55, eu: 10.85 },
+      { maxG: 2000, pt: 5.55, eu: 18.47 }
+    ];
+    /*
+            Tabela para Correio Azul
+      { maxG: 100,  pt: 2.10, eu: 5.80 },
+      { maxG: 250,  pt: 3.90, eu: 7.55 },
+      { maxG: 500,  pt: 3.90, eu: 9.80 },
+      { maxG: 1000, pt: 7.80, eu: 13.20 }
+    */
 
-const EUROPE_CODES = new Set(["ES","FR","DE","IT","GB","IE","NL","BE","LU","AT","CH","LI","DK","SE","NO","FI","IS","PL","CZ","SK","HU","RO","BG","GR","HR","SI","EE","LV","LT","MT","CY","MC","AD"]);
+    const EUROPE_CODES = new Set(["ES", "FR", "DE", "IT", "GB", "IE", "NL", "BE", "LU", "AT", "CH", "LI", "DK", "SE", "NO", "FI", "IS", "PL", "CZ", "SK", "HU", "RO", "BG", "GR", "HR", "SI", "EE", "LV", "LT", "MT", "CY", "MC", "AD"]);
 
-/* ---- base de dados: cola aqui a tua configuração do Firebase ---- */
-const firebaseConfig = {
-  apiKey: "AIzaSyB74HzChHABbGxOGUfMV0mHfXWfve5Xt7E",
-  authDomain: "skylander-collection.firebaseapp.com",
-  projectId: "skylander-collection",
-  storageBucket: "skylander-collection.firebasestorage.app",
-  messagingSenderId: "20311660306",
-  appId: "1:20311660306:web:5caf4ce7eb28873f7a45cb"
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+    /* ---- base de dados: cola aqui a tua configuração do Firebase ---- */
+    const firebaseConfig = {
+      apiKey: "AIzaSyB74HzChHABbGxOGUfMV0mHfXWfve5Xt7E",
+      authDomain: "skylander-collection.firebaseapp.com",
+      projectId: "skylander-collection",
+      storageBucket: "skylander-collection.firebasestorage.app",
+      messagingSenderId: "20311660306",
+      appId: "1:20311660306:web:5caf4ce7eb28873f7a45cb"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
-function zoneOf(countryCode){
-  if(countryCode === "PT") return "pt";
-  if(EUROPE_CODES.has(countryCode)) return "eu";
-  if(countryCode === "OTHER") return "other";
-  return null; // nada selecionado ainda
-}
-function shippingCostFor(weightG, zone){
-  if(zone !== "pt" && zone !== "eu") return null; // "other" ou por selecionar -> sem tarifa automática
-  for(const tier of SHIPPING_TABLE){
-    if(weightG <= tier.maxG) return zone === "pt" ? tier.pt : tier.eu;
-  }
-  return null; // acima de 1kg -> a combinar
-}
-/* =========================================== */
+    function zoneOf(countryCode) {
+      if (countryCode === "PT") return "pt";
+      if (EUROPE_CODES.has(countryCode)) return "eu";
+      if (countryCode === "OTHER") return "other";
+      return null; // nada selecionado ainda
+    }
+    function shippingCostFor(weightG, zone) {
+      if (zone !== "pt" && zone !== "eu") return null; // "other" ou por selecionar -> sem tarifa automática
+      for (const tier of SHIPPING_TABLE) {
+        if (weightG <= tier.maxG) return zone === "pt" ? tier.pt : tier.eu;
+      }
+      return null; // acima de 1kg -> a combinar
+    }
+    /* =========================================== */
 
-function isRareVariant(v){
-  if(v === "Normal") return false;
-  if(v.startsWith("Series")) return false;
-  return true;
-}
-function tierOf(gameKey, group){
-  return group.special_tier || CATALOG[gameKey].tier;
-}
-function priceOf(gameKey, group, item, variant){
-  const base = item?.price ?? (PRICES[tierOf(gameKey, group)] ?? PRICES.normal);
-  return base + (isRareVariant(variant) ? RARE_SURCHARGE : 0);
-}
-function fmt(n){ return n.toFixed(2).replace(".", ",") + " €"; }
+    function isRareVariant(v) {
+      if (v === "Normal") return false;
+      if (v.startsWith("Series")) return false;
+      return true;
+    }
+    function tierOf(gameKey, group) {
+      return group.special_tier || CATALOG[gameKey].tier;
+    }
+    function priceOf(gameKey, group, item, variant) {
+      const base = item?.price ?? (PRICES[tierOf(gameKey, group)] ?? PRICES.normal);
+      return base + (isRareVariant(variant) ? RARE_SURCHARGE : 0);
+    }
+    function fmt(n) { return n.toFixed(2).replace(".", ",") + " €"; }
 
-let cart = []; // {id, name, variant, price, qty, units}
+    let cart = []; // {id, name, variant, price, qty, units}
 
-// Tabela interna: id -> {name, variant, price, image, units}
-// O botão "+" só passa o id (sempre seguro, sem espaços/aspas/acentos); os dados reais
-// (nome, variante, preço, imagem) vêm sempre daqui, nunca escritos diretamente no HTML.
-// Isto evita partir por causa de apóstrofos ou outros caracteres especiais em nomes/pastas.
-const CATALOG_INDEX = {};
+    // Tabela interna: id -> {name, variant, price, image, units}
+    // O botão "+" só passa o id (sempre seguro, sem espaços/aspas/acentos); os dados reais
+    // (nome, variante, preço, imagem) vêm sempre daqui, nunca escritos diretamente no HTML.
+    // Isto evita partir por causa de apóstrofos ou outros caracteres especiais em nomes/pastas.
+    const CATALOG_INDEX = {};
 
-function addToCart(id){
-  const entry = CATALOG_INDEX[id];
-  if(!entry){ console.error("Item não encontrado no catálogo:", id); return; }
-  const existing = cart.find(i => i.id === id);
-  if(existing){ existing.qty++; }
-  else{ cart.push({id, name: entry.name, variant: entry.variant, price: entry.price, qty:1, units: entry.units || 1, image: entry.image || null}); }
-  renderCart();
-  openCart();
-}
-function changeQty(id, delta){
-  const it = cart.find(i => i.id === id);
-  if(!it) return;
-  it.qty += delta;
-  if(it.qty <= 0) cart = cart.filter(i => i.id !== id);
-  renderCart();
-}
-function removeItem(id){ cart = cart.filter(i => i.id !== id); renderCart(); }
+    function addToCart(id) {
+      const entry = CATALOG_INDEX[id];
+      if (!entry) { console.error("Item não encontrado no catálogo:", id); return; }
+      const existing = cart.find(i => i.id === id);
+      if (existing) { existing.qty++; }
+      else { cart.push({ id, name: entry.name, variant: entry.variant, price: entry.price, qty: 1, units: entry.units || 1, image: entry.image || null }); }
+      renderCart();
+      openCart();
+    }
+    function changeQty(id, delta) {
+      const it = cart.find(i => i.id === id);
+      if (!it) return;
+      it.qty += delta;
+      if (it.qty <= 0) cart = cart.filter(i => i.id !== id);
+      renderCart();
+    }
+    function removeItem(id) { cart = cart.filter(i => i.id !== id); renderCart(); }
 
-function renderCart(){
-  const wrap = document.getElementById("drawerItems");
-  const count = cart.reduce((s,i)=>s+i.qty,0);
-  document.getElementById("cartCount").textContent = count;
-  if(cart.length === 0){
-    wrap.innerHTML = '<div class="empty-cart">O carrinho está vazio.<br>Escolhe uns cartões ✨</div>';
-  } else {
-    wrap.innerHTML = cart.map(i => `
+    function renderCart() {
+      const wrap = document.getElementById("drawerItems");
+      const count = cart.reduce((s, i) => s + i.qty, 0);
+      document.getElementById("cartCount").textContent = count;
+      if (cart.length === 0) {
+        wrap.innerHTML = '<div class="empty-cart">O carrinho está vazio.<br>Escolhe uns cartões ✨</div>';
+      } else {
+        wrap.innerHTML = cart.map(i => `
       <div class="d-item">
         ${i.image ? `<img class="d-thumb" src="${i.image}" alt="${i.name}">` : `<div class="d-thumb d-thumb-empty">?</div>`}
         <div class="d-item-info">
@@ -234,231 +241,232 @@ function renderCart(){
           </div>
         </div>
         <div class="price-col">
-          ${fmt(i.price*i.qty)}
+          ${fmt(i.price * i.qty)}
           <div><button class="remove-link" onclick="removeItem('${i.id}')">remover</button></div>
         </div>
       </div>`).join("");
-  }
-  updateTotals();
-}
-
-function getCartWeightG(){
-  const totalUnits = cart.reduce((s,i)=> s + (i.units||1)*i.qty, 0);
-  if(totalUnits === 0) return 0;
-  return ENVELOPE_WEIGHT_G + CARD_WEIGHT_G * totalUnits;
-}
-
-function updateTotals(){
-  const itemsTotal = cart.reduce((s,i)=> s + i.price*i.qty, 0);
-  const countryCode = document.getElementById("countrySelect").value;
-  const zone = zoneOf(countryCode);
-  const weightG = getCartWeightG();
-
-  const zoneNoteEl = document.getElementById("zoneNote");
-  zoneNoteEl.className = "zone-note";
-  if(!countryCode){
-    zoneNoteEl.classList.remove("show");
-  } else if(zone === "pt"){
-    zoneNoteEl.textContent = "🇵🇹 Envio nacional (Portugal).";
-    zoneNoteEl.classList.add("show","pt");
-  } else if(zone === "eu"){
-    zoneNoteEl.textContent = "🇪🇺 País da Europa — aplica-se a tarifa de envio europeu.";
-    zoneNoteEl.classList.add("show","eu");
-  } else {
-    zoneNoteEl.textContent = "🌍 Fora da Europa — os portes não estão automatizados para este destino; combinamos o valor exato por WhatsApp antes de confirmar.";
-    zoneNoteEl.classList.add("show","other");
-  }
-
-  let shipping = 0;
-  const shippingEl = document.getElementById("shippingCost");
-  if(cart.length === 0){
-    shippingEl.textContent = "—";
-  } else if(!countryCode){
-    shippingEl.textContent = "Seleciona o país";
-  } else {
-    const cost = shippingCostFor(weightG, zone);
-    if(cost === null){
-      shippingEl.textContent = zone === "other" ? "a combinar" : "encomenda >1kg, a combinar";
-    } else {
-      shipping = cost;
-      shippingEl.textContent = fmt(cost);
+      }
+      updateTotals();
     }
-  }
 
-  document.getElementById("cartTotal").textContent = fmt(itemsTotal + shipping);
-}
-
-function onAddressChange(){ updateTotals(); }
-
-/* Regras específicas para os países que existem na lista de seleção.
-   Países sem entrada aqui (ex: dentro de "Outro país") usam o fallback genérico. */
-const PHONE_RULES = {
-  PT: { re: /^9\d{8}$/,  label: "9 dígitos, começado em 9" },
-  ES: { re: /^\d{9}$/,   label: "9 dígitos" },
-  FR: { re: /^0?\d{9}$/, label: "10 dígitos (ou 9 sem o 0 inicial)" },
-  DE: { min: 10, max: 13, label: "entre 10 e 13 dígitos" },
-  GB: { min: 10, max: 11, label: "10 ou 11 dígitos" },
-};
-const POSTAL_RULES = {
-  PT: { re: /^(\d{4})-?(\d{3})$/, label: "formato 0000-000" },
-  ES: { re: /^\d{5}$/, label: "5 dígitos" },
-  FR: { re: /^\d{5}$/, label: "5 dígitos" },
-  DE: { re: /^\d{5}$/, label: "5 dígitos" },
-  GB: { re: /^[A-Za-z]{1,2}\d[A-Za-z\d]?\s?\d[A-Za-z]{2}$/, label: "formato tipo SW1A 1AA" },
-};
-
-function openCart(){ document.getElementById("drawer").classList.add("open"); document.getElementById("overlay").classList.add("open"); }
-function closeCart(){ document.getElementById("drawer").classList.remove("open"); document.getElementById("overlay").classList.remove("open"); }
-
-async function checkout(){
-  if(cart.length === 0){ alert("O carrinho está vazio."); return; }
-
-  const custName = document.getElementById("custName").value.trim();
-  const nameRe = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)+$/; // pelo menos nome + apelido
-  if(!custName || !nameRe.test(custName)){
-    alert("Indica o teu nome completo (nome e apelido).");
-    document.getElementById("custName").focus();
-    return;
-  }
-
-  const countrySelect = document.getElementById("countrySelect");
-  const countryCode = countrySelect.value;
-  if(!countryCode){
-    alert("Por favor seleciona o país de entrega antes de finalizar.");
-    countrySelect.focus();
-    return;
-  }
-  const countryName = countrySelect.options[countrySelect.selectedIndex].text;
-  const zone = zoneOf(countryCode);
-
-  const custPhoneRaw = document.getElementById("custPhone").value.trim();
-  const custPhone = custPhoneRaw.replace(/\D/g, ""); // fica só com dígitos
-  const phoneRule = PHONE_RULES[countryCode];
-  let phoneOk;
-  if(phoneRule){
-    phoneOk = phoneRule.re ? phoneRule.re.test(custPhone) : (custPhone.length >= phoneRule.min && custPhone.length <= phoneRule.max);
-  } else {
-    phoneOk = custPhone.length >= 8 && custPhone.length <= 15;
-  }
-  if(!phoneOk){
-    alert(`Insere um número de telefone válido para ${countryName ? countryName : "o país selecionado"}${phoneRule ? " (" + phoneRule.label + ")" : ""}.`);
-    document.getElementById("custPhone").focus();
-    return;
-  }
-
-  const weightG = getCartWeightG();
-  const shippingCost = shippingCostFor(weightG, zone);
-  const street = document.getElementById("addrStreet").value.trim();
-  const zipRaw = document.getElementById("addrZip").value.trim();
-  const city = document.getElementById("addrCity").value.trim();
-  const cityRe = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/;
-
-  if(street.length < 5 || !/\d/.test(street)){
-    alert("Indica a morada completa, com rua e número da porta.");
-    document.getElementById("addrStreet").focus();
-    return;
-  }
-  let zip = zipRaw;
-  const postalRule = POSTAL_RULES[countryCode];
-  if(postalRule){
-    const m = zipRaw.replace(/\s+/g, countryCode === "GB" ? " " : "").match(postalRule.re);
-    if(!m){
-      alert(`Insere um código postal válido para ${countryName} (${postalRule.label}).`);
-      document.getElementById("addrZip").focus();
-      return;
+    function getCartWeightG() {
+      const totalUnits = cart.reduce((s, i) => s + (i.units || 1) * i.qty, 0);
+      if (totalUnits === 0) return 0;
+      return ENVELOPE_WEIGHT_G + CARD_WEIGHT_G * totalUnits;
     }
-    zip = countryCode === "PT" ? `${m[1]}-${m[2]}` : m[0].toUpperCase();
-  } else if(zipRaw.length < 3){
-    alert("Insere um código postal válido.");
-    document.getElementById("addrZip").focus();
-    return;
-  }
-  if(!city || !cityRe.test(city)){
-    alert("Indica a localidade de entrega.");
-    document.getElementById("addrCity").focus();
-    return;
-  }
 
-  const itemsTotal = cart.reduce((s,i)=> s + i.price*i.qty, 0);
+    function updateTotals() {
+      const itemsTotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const countryCode = document.getElementById("countrySelect").value;
+      const zone = zoneOf(countryCode);
+      const weightG = getCartWeightG();
 
-  // ---- 1. Regista a encomenda automaticamente na base de dados, estado "pendente" ----
-  const checkoutBtn = document.querySelector(".checkout-btn");
-  checkoutBtn.disabled = true;
-  checkoutBtn.textContent = "A registar encomenda...";
-  try{
-    await db.collection("encomendas").add({
-      criadoEm: firebase.firestore.FieldValue.serverTimestamp(),
-      cliente: custName,
-      contacto: custPhone,
-      itens: cart.map(i => ({ nome: i.name, variante: i.variant, preco: i.price, qtd: i.qty })),
-      morada: { pais: countryName, rua: street, codigoPostal: zip, cidade: city },
-      subtotal: itemsTotal,
-      portes: shippingCost,
-      total: itemsTotal + (shippingCost || 0),
-      estado: "pendente"
-    });
-  }catch(err){
-    console.error("Não foi possível registar a encomenda na base de dados:", err);
-    // Não bloqueia o cliente — a encomenda ainda segue por WhatsApp normalmente.
-  }
-  checkoutBtn.disabled = false;
-  checkoutBtn.textContent = "Finalizar por WhatsApp →";
+      const zoneNoteEl = document.getElementById("zoneNote");
+      zoneNoteEl.className = "zone-note";
+      if (!countryCode) {
+        zoneNoteEl.classList.remove("show");
+      } else if (zone === "pt") {
+        zoneNoteEl.textContent = "🇵🇹 Envio nacional (Portugal).";
+        zoneNoteEl.classList.add("show", "pt");
+      } else if (zone === "eu") {
+        zoneNoteEl.textContent = "🇪🇺 País da Europa — aplica-se a tarifa de envio europeu.";
+        zoneNoteEl.classList.add("show", "eu");
+      } else {
+        zoneNoteEl.textContent = "🌍 Fora da Europa — os portes não estão automatizados para este destino; combinamos o valor exato por WhatsApp antes de confirmar.";
+        zoneNoteEl.classList.add("show", "other");
+      }
 
-  // ---- 2. Abre o WhatsApp normalmente (mantém-se enquanto não há botão de pagamento) ----
-  let msg = "Olá! Gostava de encomendar estes cartões NFC Skylanders:%0A%0A";
-  cart.forEach(i => { msg += `• ${i.qty}x ${i.name} (${i.variant}) — ${fmt(i.price*i.qty)}%0A`; });
+      let shipping = 0;
+      const shippingEl = document.getElementById("shippingCost");
+      if (cart.length === 0) {
+        shippingEl.textContent = "—";
+      } else if (!countryCode) {
+        shippingEl.textContent = "Seleciona o país";
+      } else {
+        const cost = shippingCostFor(weightG, zone);
+        if (cost === null) {
+          shippingEl.textContent = zone === "other" ? "a combinar" : "encomenda >1kg, a combinar";
+        } else {
+          shipping = cost;
+          shippingEl.textContent = fmt(cost);
+        }
+      }
 
-  msg += `%0ACliente: ${custName} (${custPhone})%0A`;
-  msg += `%0AMorada de entrega:%0A`;
-  msg += `País: ${countryName}%0A`;
-  if(street) msg += `Morada: ${street}%0A`;
-  if(zip || city) msg += `${zip ? zip + " " : ""}${city}%0A`;
-  msg += `(Peso estimado da encomenda: ${weightG}g)%0A`;
+      document.getElementById("cartTotal").textContent = fmt(itemsTotal + shipping);
+    }
 
-  msg += `%0APortes de envio: ${shippingCost !== null ? fmt(shippingCost) : "a combinar"}%0A`;
-  msg += `Subtotal artigos: ${fmt(itemsTotal)}%0A`;
-  if(shippingCost !== null){
-    msg += `Total (com portes): ${fmt(itemsTotal + shippingCost)}`;
-  }
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
-}
+    function onAddressChange() { updateTotals(); }
 
-/* ---------- render catalog ---------- */
-const gamesRoot = document.getElementById("gamesRoot");
-const navLinks = document.getElementById("navLinks");
-const chipRow = document.getElementById("chipRow");
+    /* Regras específicas para os países que existem na lista de seleção.
+       Países sem entrada aqui (ex: dentro de "Outro país") usam o fallback genérico. */
+    const PHONE_RULES = {
+      PT: { re: /^9\d{8}$/, label: "9 dígitos, começado em 9" },
+      ES: { re: /^\d{9}$/, label: "9 dígitos" },
+      FR: { re: /^0?\d{9}$/, label: "10 dígitos (ou 9 sem o 0 inicial)" },
+      DE: { min: 10, max: 13, label: "entre 10 e 13 dígitos" },
+      GB: { min: 10, max: 11, label: "10 ou 11 dígitos" },
+    };
+    const POSTAL_RULES = {
+      PT: { re: /^(\d{4})-?(\d{3})$/, label: "formato 0000-000" },
+      ES: { re: /^\d{5}$/, label: "5 dígitos" },
+      FR: { re: /^\d{5}$/, label: "5 dígitos" },
+      DE: { re: /^\d{5}$/, label: "5 dígitos" },
+      GB: { re: /^[A-Za-z]{1,2}\d[A-Za-z\d]?\s?\d[A-Za-z]{2}$/, label: "formato tipo SW1A 1AA" },
+    };
 
-Object.entries(CATALOG).forEach(([key, game]) => {
-  navLinks.innerHTML += `<button onclick="document.getElementById('game-${key}').scrollIntoView({behavior:'smooth'})">${game.title}</button>`;
-  chipRow.innerHTML += `<div class="chip" style="border-color:${game.color}" onclick="document.getElementById('game-${key}').scrollIntoView({behavior:'smooth'})">${game.title} <span class="mono" style="color:${game.color}">'${game.year.slice(2)}</span></div>`;
+    function openCart() { document.getElementById("drawer").classList.add("open"); document.getElementById("overlay").classList.add("open"); }
+    function closeCart() { document.getElementById("drawer").classList.remove("open"); document.getElementById("overlay").classList.remove("open"); }
 
- let groupsHtml = "";
-  game.groups.forEach(group => {
-    const tier = tierOf(key, group);
-    let cardsHtml = "";
-    group.items.forEach(item => {
-      item.variants.forEach(variant => {
-        // Suporte para variantes como objeto { name, image, tags? } ou como string simples
-        const variantName = typeof variant === "object" ? variant.name : variant;
-        const variantImg = typeof variant === "object" ? variant.image : (item.image || null);
-        // tags: permite mostrar mais que um selo (ex: "LightCore" + "Legendary" no mesmo cartão)
-        const variantTags = (typeof variant === "object" && Array.isArray(variant.tags) && variant.tags.length)
-          ? variant.tags
-          : [variantName];
+    async function checkout() {
+      if (cart.length === 0) { alert("O carrinho está vazio."); return; }
 
-        const id = `${key}-${item.name}-${variantName}`.replace(/[^a-zA-Z0-9_-]+/g,"_");
-        const price = priceOf(key, group, item, variantName);
+      const custName = document.getElementById("custName").value.trim();
+      const nameRe = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)+$/; // pelo menos nome + apelido
+      if (!custName || !nameRe.test(custName)) {
+        alert("Indica o teu nome completo (nome e apelido).");
+        document.getElementById("custName").focus();
+        return;
+      }
 
-        // Se houver caminho de imagem, cria a tag <img>, senão mantém o placeholder
-        const imageHtml = variantImg 
-          ? `<img src="${variantImg}" alt="${item.name} (${variantName})" class="card-img">`
-          : `<div class="no-photo">sem foto<br>(espaço reservado)</div>`;
+      const countrySelect = document.getElementById("countrySelect");
+      const countryCode = countrySelect.value;
+      if (!countryCode) {
+        alert("Por favor seleciona o país de entrega antes de finalizar.");
+        countrySelect.focus();
+        return;
+      }
+      const countryName = countrySelect.options[countrySelect.selectedIndex].text;
+      const zone = zoneOf(countryCode);
 
-        const badgesHtml = variantTags.map(t => `<span class="badge ${isRareVariant(t) ? 'rare':''}">${t}</span>`).join("");
+      const custPhoneRaw = document.getElementById("custPhone").value.trim();
+      const custPhone = custPhoneRaw.replace(/\D/g, ""); // fica só com dígitos
+      const phoneRule = PHONE_RULES[countryCode];
+      let phoneOk;
+      if (phoneRule) {
+        phoneOk = phoneRule.re ? phoneRule.re.test(custPhone) : (custPhone.length >= phoneRule.min && custPhone.length <= phoneRule.max);
+      } else {
+        phoneOk = custPhone.length >= 8 && custPhone.length <= 15;
+      }
+      if (!phoneOk) {
+        alert(`Insere um número de telefone válido para ${countryName ? countryName : "o país selecionado"}${phoneRule ? " (" + phoneRule.label + ")" : ""}.`);
+        document.getElementById("custPhone").focus();
+        return;
+      }
 
-        CATALOG_INDEX[id] = { name: item.name, variant: variantName, price, image: variantImg, units: 1 };
+      const weightG = getCartWeightG();
+      const shippingCost = shippingCostFor(weightG, zone);
+      const street = document.getElementById("addrStreet").value.trim();
+      const zipRaw = document.getElementById("addrZip").value.trim();
+      const city = document.getElementById("addrCity").value.trim();
+      const cityRe = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/;
 
-        cardsHtml += `
+      if (street.length < 5 || !/\d/.test(street)) {
+        alert("Indica a morada completa, com rua e número da porta.");
+        document.getElementById("addrStreet").focus();
+        return;
+      }
+      let zip = zipRaw;
+      const postalRule = POSTAL_RULES[countryCode];
+      if (postalRule) {
+        const m = zipRaw.replace(/\s+/g, countryCode === "GB" ? " " : "").match(postalRule.re);
+        if (!m) {
+          alert(`Insere um código postal válido para ${countryName} (${postalRule.label}).`);
+          document.getElementById("addrZip").focus();
+          return;
+        }
+        zip = countryCode === "PT" ? `${m[1]}-${m[2]}` : m[0].toUpperCase();
+      } else if (zipRaw.length < 3) {
+        alert("Insere um código postal válido.");
+        document.getElementById("addrZip").focus();
+        return;
+      }
+      if (!city || !cityRe.test(city)) {
+        alert("Indica a localidade de entrega.");
+        document.getElementById("addrCity").focus();
+        return;
+      }
+
+      const itemsTotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+      // ---- 1. Regista a encomenda automaticamente na base de dados, estado "pendente" ----
+      const checkoutBtn = document.querySelector(".checkout-btn");
+      checkoutBtn.disabled = true;
+      checkoutBtn.textContent = "A registar encomenda...";
+      try {
+        await db.collection("encomendas").add({
+          criadoEm: firebase.firestore.FieldValue.serverTimestamp(),
+          cliente: custName,
+          contacto: custPhone,
+          itens: cart.map(i => ({ nome: i.name, variante: i.variant, preco: i.price, qtd: i.qty })),
+          morada: { pais: countryName, rua: street, codigoPostal: zip, cidade: city },
+          subtotal: itemsTotal,
+          portes: shippingCost,
+          total: itemsTotal + (shippingCost || 0),
+          estado: "pendente"
+        });
+      } catch (err) {
+        console.error("Não foi possível registar a encomenda na base de dados:", err);
+        // Não bloqueia o cliente — a encomenda ainda segue por WhatsApp normalmente.
+      }
+      checkoutBtn.disabled = false;
+      checkoutBtn.textContent = "Finalizar por WhatsApp →";
+
+      // ---- 2. Abre o WhatsApp normalmente (mantém-se enquanto não há botão de pagamento) ----
+      let msg = "Olá! Gostava de encomendar estes cartões NFC Skylanders:%0A%0A";
+      cart.forEach(i => { msg += `• ${i.qty}x ${i.name} (${i.variant}) — ${fmt(i.price * i.qty)}%0A`; });
+
+      msg += `%0ACliente: ${custName} (${custPhone})%0A`;
+      msg += `%0AMorada de entrega:%0A`;
+      msg += `País: ${countryName}%0A`;
+      if (street) msg += `Morada: ${street}%0A`;
+      if (zip || city) msg += `${zip ? zip + " " : ""}${city}%0A`;
+      msg += `(Peso estimado da encomenda: ${weightG}g)%0A`;
+
+      msg += `%0APortes de envio: ${shippingCost !== null ? fmt(shippingCost) : "a combinar"}%0A`;
+      msg += `Subtotal artigos: ${fmt(itemsTotal)}%0A`;
+      if (shippingCost !== null) {
+        msg += `Total (com portes): ${fmt(itemsTotal + shippingCost)}`;
+      }
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+    }
+
+    /* ---------- render catalog ---------- */
+    const gamesRoot = document.getElementById("gamesRoot");
+    const navLinks = document.getElementById("navLinks");
+    const chipRow = document.getElementById("chipRow");
+
+    Object.entries(CATALOG).forEach(([key, game]) => {
+      navLinks.innerHTML += `<button onclick="document.getElementById('game-${key}').scrollIntoView({behavior:'smooth'})">${game.title}</button>`;
+      chipRow.innerHTML += `<div class="chip" style="border-color:${game.color}" onclick="document.getElementById('game-${key}').scrollIntoView({behavior:'smooth'})">${game.title} <span class="mono" style="color:${game.color}">'${game.year.slice(2)}</span></div>`;
+
+      let groupsHtml = "";
+      game.groups.forEach(group => {
+        const tier = tierOf(key, group);
+        let cardsHtml = "";
+        group.items.forEach(item => {
+          item.variants.forEach(variant => {
+            // Suporte para variantes como objeto { name, image, tags? } ou como string simples
+            const variantName = typeof variant === "object" ? variant.name : variant;
+            const variantImg = typeof variant === "object" ? variant.image : (item.image || null);
+            // tags: permite mostrar mais que um selo (ex: "LightCore" + "Legendary" no mesmo cartão)
+            const variantTags = (typeof variant === "object" && Array.isArray(variant.tags) && variant.tags.length)
+              ? variant.tags
+              : [variantName];
+
+            const id = `${key}-${item.name}-${variantName}`.replace(/[^a-zA-Z0-9_-]+/g, "_");
+            const price = priceOf(key, group, item, variantName);
+
+            // Se houver caminho de imagem, cria a tag <img>, senão mantém o placeholder
+            const imageHtml = variantImg
+              ? `<img src="${variantImg}" alt="${item.name} (${variantName})" class="card-img">`
+              : `<div class="no-photo">sem foto<br>(espaço reservado)</div>`;
+
+            const isTrapsGroup = group.name === "Traps";
+            const badgesHtml = variantTags.map(t => `<span class="badge ${(!isTrapsGroup && isRareVariant(t)) ? 'rare' : ''}">${t}</span>`).join("");
+
+            CATALOG_INDEX[id] = { name: item.name, variant: variantName, price, image: variantImg, units: 1 };
+
+            cardsHtml += `
           <div class="card" style="--accent:${game.color}">
             <div class="card-top"></div>
             ${imageHtml}
@@ -469,12 +477,12 @@ Object.entries(CATALOG).forEach(([key, game]) => {
               <button class="add-btn" onclick="addToCart('${id}')">+</button>
             </div>
           </div>`;
+          });
+        });
+        groupsHtml += `<div class="group-title">${group.name}</div><div class="grid">${cardsHtml}</div>`;
       });
-    });
-    groupsHtml += `<div class="group-title">${group.name}</div><div class="grid">${cardsHtml}</div>`;
-  });
 
-  gamesRoot.innerHTML += `
+      gamesRoot.innerHTML += `
     <div class="game-section" id="game-${key}">
       <div class="game-head" style="border-color:${game.color}55">
         <h2 style="color:${game.color}">${game.title}</h2>
@@ -482,22 +490,22 @@ Object.entries(CATALOG).forEach(([key, game]) => {
       </div>
       ${groupsHtml}
     </div>`;
-});
+    });
 
-/* ---------- Trap Masters pack ---------- */
-const tm = CATALOG["trap-team"].groups.find(g => g.name === "Trap Masters");
-const tmPriceEach = PRICES.trapmaster;
-const tmSum = tm.items.length * tmPriceEach; // 18 normais
-const packPrice = Math.round(tmSum * PACK_DISCOUNT * 100) / 100;
-CATALOG_INDEX["pack-trapmasters-full"] = { name: "Pack Trap Masters Completo", variant: "18 cartões", price: packPrice, image: "trapmasters.jpeg", units: 18 };
-document.getElementById("packSection").innerHTML = `
+    /* ---------- Trap Masters pack ---------- */
+    const tm = CATALOG["trap-team"].groups.find(g => g.name === "Trap Masters");
+    const tmPriceEach = PRICES.trapmaster;
+    const tmSum = tm.items.length * tmPriceEach; // 18 normais
+    const packPrice = Math.round(tmSum * PACK_DISCOUNT * 100) / 100;
+    CATALOG_INDEX["pack-trapmasters-full"] = { name: "Pack Trap Masters Completo", variant: "18 cartões", price: packPrice, image: "trapmasters.jpeg", units: 18 };
+    document.getElementById("packSection").innerHTML = `
   <div class="group-title" style="margin-top:0;">Packs completos</div>
   <div class="pack-card">
     <img src="trapmasters.jpeg" alt="Pack completo Trap Masters">
     <div class="pack-info">
       <h3>Pack Trap Masters Completo</h3>
       <p>Os 18 Trap Masters de Skylanders: Trap Team, num único pack — a coleção completa da foto acima, pronta para ativar qualquer um deles no portal.</p>
-      <div class="pack-list">${tm.items.map(i=>i.name).join(" · ")}</div>
+      <div class="pack-list">${tm.items.map(i => i.name).join(" · ")}</div>
       <div class="pack-price-row">
         <span class="pack-old">${fmt(tmSum)}</span>
         <span class="pack-new">${fmt(packPrice)}</span>
@@ -506,7 +514,8 @@ document.getElementById("packSection").innerHTML = `
     </div>
   </div>`;
 
-renderCart();
-</script>
+    renderCart();
+  </script>
 </body>
+
 </html>
