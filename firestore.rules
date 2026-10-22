@@ -1,0 +1,41 @@
+rules_version = '2';
+
+// Regras de segurança do Firestore — copiar para:
+// Firebase Console → Firestore Database → Regras → Publicar
+//
+// ⚠️ Troca o email abaixo pelo email da conta que usas para entrar no admin.html.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email == "O_TEU_EMAIL_DE_ADMIN@exemplo.com";
+    }
+
+    // Encomenda vinda do site (index.html): só pode ser criada, nunca lida/alterada,
+    // e tem de ter exatamente o formato que o site envia.
+    function isValidPublicOrder() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(["criadoEm", "cliente", "contacto", "itens", "morada", "subtotal", "portes", "total", "estado"])
+        && d.criadoEm == request.time
+        && d.estado == "pendente"
+        && d.cliente is string && d.cliente.size() > 0 && d.cliente.size() <= 100
+        && d.contacto is string && d.contacto.size() >= 6 && d.contacto.size() <= 20
+        && d.itens is list && d.itens.size() > 0 && d.itens.size() <= 300
+        && d.morada is map
+        && d.subtotal is number && d.subtotal >= 0 && d.subtotal < 10000
+        && (d.portes == null || d.portes is number)
+        && d.total is number && d.total >= 0 && d.total < 10000;
+    }
+
+    match /encomendas/{id} {
+      allow create: if isAdmin() || isValidPublicOrder();
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Tudo o resto fica fechado.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

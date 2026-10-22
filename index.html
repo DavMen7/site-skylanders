@@ -12,7 +12,10 @@
   <link rel="stylesheet" href="style.css">
 
   <!-- Favicon + Open Graph -->
-  <link rel="icon" href="favicon.png">
+  <link rel="icon" type="image/png" href="logo-64.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <meta name="description" content="Cartões NFC de Skylanders compatíveis com o portal — toda a coleção, de Spyro's Adventure a Imaginators. Envio para Portugal e Europa.">
+  <meta name="theme-color" content="#0b0c1e">
   <meta property="og:title" content="Skylanders Collection — Cartões NFC">
   <meta property="og:description" content="Cartões NFC de Skylanders para o teu portal, a um preço mais simpático.">
   <meta property="og:image" content="https://davmen7.github.io/site-skylanders/preview.png">
@@ -21,13 +24,13 @@
 <body>
 
   <div class="topbar">
-    <div class="brand"><span class="brand-ring"></span> <span>Sylanders Cards</span></div>
+    <div class="brand"><img class="brand-logo" src="logo.png" alt="" width="34" height="34"> <span>Skylanders Collection</span></div>
     <div class="nav-links" id="navLinks"></div>
     <button class="cart-btn" onclick="openCart()">🛒 Carrinho <span class="cart-count" id="cartCount">0</span></button>
   </div>
 
   <section class="hero">
-    <div class="portal"></div>
+    <div class="portal"><img class="portal-logo" src="logo.png" alt="Skylanders Collection"></div>
     <h1>Toda a coleção Skylanders,<br>sem pagar o preço das figuras.</h1>
     <p>Cada cartão tem um chip NFC embutido que faz o portal reconhecer o teu Skylander exatamente como se fosse a
       figura física — mesmos poderes, mesmo upgrade, mesma magia. A um preço bem mais simpático.</p>
@@ -36,15 +39,32 @@
 
   <div class="chiprow" id="chipRow"></div>
 
+  <div class="search-wrap">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input id="searchInput" type="search" placeholder="Procurar Skylander… (ex: Spyro, Legendary, Dark)" autocomplete="off"
+        oninput="applySearch()">
+    </div>
+    <div class="search-count" id="searchCount"></div>
+  </div>
+
   <div id="gamesRoot"></div>
+  <div class="no-results" id="noResults">Nenhum cartão encontrado. Tenta outro nome 🔎</div>
 
   <section class="pack-section" id="packSection"></section>
 
   <footer>
-    <div class="brand"><span class="brand-ring"></span> <span>Traptanium Cards</span></div>
+    <div class="brand"><img class="brand-logo" src="logo.png" alt="" width="34" height="34"> <span>Skylanders Collection</span></div>
     Coleção não-oficial de cartões NFC compatíveis · Skylanders é propriedade da Activision.<br>
     Preços e stock ilustrativos — confirma sempre a disponibilidade antes de finalizar a encomenda.
   </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
 
   <div class="overlay" id="overlay" onclick="closeCart()"></div>
   <div class="drawer" id="drawer">
@@ -216,7 +236,51 @@
       if (existing) { existing.qty++; }
       else { cart.push({ id, name: entry.name, variant: entry.variant, price: entry.price, qty: 1, units: entry.units || 1, image: entry.image || null }); }
       renderCart();
-      openCart();
+      showToast(`✓ ${entry.name} (${entry.variant}) adicionado ao carrinho`);
+      const countEl = document.getElementById("cartCount");
+      countEl.classList.remove("bump");
+      void countEl.offsetWidth; // reinicia a animação
+      countEl.classList.add("bump");
+    }
+
+    let toastTimer = null;
+    function showToast(text) {
+      const t = document.getElementById("toast");
+      t.textContent = text;
+      t.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.remove("show"), 2200);
+    }
+
+    /* ---- guardar carrinho e dados do cliente no browser (sobrevive a recarregar a página) ---- */
+    const CART_KEY = "skyCart";
+    const FORM_KEY = "skyCustomer";
+    const FORM_FIELDS = ["custName", "custPhone", "countrySelect", "addrStreet", "addrZip", "addrCity"];
+    function saveCart() {
+      try { localStorage.setItem(CART_KEY, JSON.stringify(cart.map(i => ({ id: i.id, qty: i.qty })))); } catch (e) { }
+    }
+    function loadCart() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+        // os dados (nome, preço, imagem) vêm sempre do catálogo atual, nunca do que ficou guardado
+        cart = saved.filter(s => CATALOG_INDEX[s.id] && s.qty > 0).map(s => {
+          const e = CATALOG_INDEX[s.id];
+          return { id: s.id, name: e.name, variant: e.variant, price: e.price, qty: s.qty, units: e.units || 1, image: e.image || null };
+        });
+      } catch (e) { cart = []; }
+    }
+    function saveForm() {
+      try {
+        const data = {};
+        FORM_FIELDS.forEach(f => data[f] = document.getElementById(f).value);
+        localStorage.setItem(FORM_KEY, JSON.stringify(data));
+      } catch (e) { }
+    }
+    function loadForm() {
+      try {
+        const data = JSON.parse(localStorage.getItem(FORM_KEY) || "{}");
+        FORM_FIELDS.forEach(f => { if (data[f]) document.getElementById(f).value = data[f]; });
+      } catch (e) { }
     }
     function changeQty(id, delta) {
       const it = cart.find(i => i.id === id);
@@ -252,6 +316,7 @@
         </div>
       </div>`).join("");
       }
+      saveCart();
       updateTotals();
     }
 
@@ -301,7 +366,7 @@
       document.getElementById("cartTotal").textContent = fmt(itemsTotal + shipping);
     }
 
-    function onAddressChange() { updateTotals(); }
+    function onAddressChange() { saveForm(); updateTotals(); }
 
     /* Regras específicas para os países que existem na lista de seleção.
        Países sem entrada aqui (ex: dentro de "Outro país") usam o fallback genérico. */
@@ -322,6 +387,17 @@
 
     function openCart() { document.getElementById("drawer").classList.add("open"); document.getElementById("overlay").classList.add("open"); }
     function closeCart() { document.getElementById("drawer").classList.remove("open"); document.getElementById("overlay").classList.remove("open"); }
+
+    function openLightbox(src, caption) {
+      document.getElementById("lightboxImg").src = src;
+      document.getElementById("lightboxImg").alt = caption;
+      document.getElementById("lightboxCaption").textContent = caption;
+      document.getElementById("lightbox").classList.add("open");
+    }
+    function closeLightbox() { document.getElementById("lightbox").classList.remove("open"); }
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") { closeLightbox(); closeCart(); }
+    });
 
     async function checkout() {
       if (cart.length === 0) { alert("O carrinho está vazio."); return; }
@@ -418,22 +494,23 @@
       checkoutBtn.textContent = "Finalizar por WhatsApp →";
 
       // ---- 2. Abre o WhatsApp normalmente (mantém-se enquanto não há botão de pagamento) ----
-      let msg = "Olá! Gostava de encomendar estes cartões NFC Skylanders:%0A%0A";
-      cart.forEach(i => { msg += `• ${i.qty}x ${i.name} (${i.variant}) — ${fmt(i.price * i.qty)}%0A`; });
+      // texto normal com \n; o encodeURIComponent no fim trata de "&", "#", "+" etc. na morada/nome
+      let msg = "Olá! Gostava de encomendar estes cartões NFC Skylanders:\n\n";
+      cart.forEach(i => { msg += `• ${i.qty}x ${i.name} (${i.variant}) — ${fmt(i.price * i.qty)}\n`; });
 
-      msg += `%0ACliente: ${custName} (${custPhone})%0A`;
-      msg += `%0AMorada de entrega:%0A`;
-      msg += `País: ${countryName}%0A`;
-      if (street) msg += `Morada: ${street}%0A`;
-      if (zip || city) msg += `${zip ? zip + " " : ""}${city}%0A`;
-      msg += `(Peso estimado da encomenda: ${weightG}g)%0A`;
+      msg += `\nCliente: ${custName} (${custPhone})\n`;
+      msg += `\nMorada de entrega:\n`;
+      msg += `País: ${countryName}\n`;
+      if (street) msg += `Morada: ${street}\n`;
+      if (zip || city) msg += `${zip ? zip + " " : ""}${city}\n`;
+      msg += `(Peso estimado da encomenda: ${weightG}g)\n`;
 
-      msg += `%0APortes de envio: ${shippingCost !== null ? fmt(shippingCost) : "a combinar"}%0A`;
-      msg += `Subtotal artigos: ${fmt(itemsTotal)}%0A`;
+      msg += `\nPortes de envio: ${shippingCost !== null ? fmt(shippingCost) : "a combinar"}\n`;
+      msg += `Subtotal artigos: ${fmt(itemsTotal)}\n`;
       if (shippingCost !== null) {
         msg += `Total (com portes): ${fmt(itemsTotal + shippingCost)}`;
       }
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
     }
 
     /* ---------- render catalog ---------- */
@@ -441,9 +518,12 @@
     const navLinks = document.getElementById("navLinks");
     const chipRow = document.getElementById("chipRow");
 
+    let navHtml = "", chipHtml = "", gamesHtml = "";
+    function normalize(s) { return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+
     Object.entries(CATALOG).forEach(([key, game]) => {
-      navLinks.innerHTML += `<button onclick="document.getElementById('game-${key}').scrollIntoView({behavior:'smooth'})">${game.title}</button>`;
-      chipRow.innerHTML += `<div class="chip" style="border-color:${game.color}" onclick="document.getElementById('game-${key}').scrollIntoView({behavior:'smooth'})">${game.title} <span class="mono" style="color:${game.color}">'${game.year.slice(2)}</span></div>`;
+      navHtml += `<button onclick="document.getElementById('game-${key}').scrollIntoView({behavior:'smooth'})">${game.title}</button>`;
+      chipHtml += `<div class="chip" style="border-color:${game.color}" onclick="document.getElementById('game-${key}').scrollIntoView({behavior:'smooth'})">${game.title} <span class="mono" style="color:${game.color}">'${game.year.slice(2)}</span></div>`;
 
       let groupsHtml = "";
       game.groups.forEach(group => {
@@ -472,8 +552,9 @@
 
             CATALOG_INDEX[id] = { name: item.name, variant: variantName, price, image: variantImg, units: 1 };
 
+            const searchText = normalize(`${item.name} ${variantTags.join(" ")} ${game.title} ${group.name}`).replace(/"/g, "");
             cardsHtml += `
-          <div class="card" style="--accent:${game.color}">
+          <div class="card" style="--accent:${game.color}" data-search="${searchText}">
             <div class="card-top"></div>
             ${imageHtml}
             <div class="badge-row">${badgesHtml}</div>
@@ -485,10 +566,10 @@
           </div>`;
           });
         });
-        groupsHtml += `<div class="group-title">${group.name}</div><div class="grid">${cardsHtml}</div>`;
+        groupsHtml += `<div class="group"><div class="group-title">${group.name}</div><div class="grid">${cardsHtml}</div></div>`;
       });
 
-      gamesRoot.innerHTML += `
+      gamesHtml += `
     <div class="game-section" id="game-${key}">
       <div class="game-head" style="border-color:${game.color}55">
         <h2 style="color:${game.color}">${game.title}</h2>
@@ -497,11 +578,43 @@
       ${groupsHtml}
     </div>`;
     });
+    navLinks.innerHTML = navHtml;
+    chipRow.innerHTML = chipHtml;
+    gamesRoot.innerHTML = gamesHtml;
+
+    // clicar na foto de um cartão abre-a em grande
+    gamesRoot.addEventListener("click", e => {
+      const img = e.target.closest(".card-img");
+      if (img) openLightbox(img.src, img.alt);
+    });
+
+    /* ---------- pesquisa ---------- */
+    const allCards = [...gamesRoot.querySelectorAll(".card")];
+    function applySearch() {
+      const terms = normalize(document.getElementById("searchInput").value.trim()).split(/\s+/).filter(Boolean);
+      let visible = 0;
+      allCards.forEach(card => {
+        const match = terms.every(t => card.dataset.search.includes(t));
+        card.classList.toggle("hidden", !match);
+        if (match) visible++;
+      });
+      // esconde grupos e jogos que ficaram sem cartões
+      gamesRoot.querySelectorAll(".group").forEach(g => {
+        g.classList.toggle("hidden", !g.querySelector(".card:not(.hidden)"));
+      });
+      gamesRoot.querySelectorAll(".game-section").forEach(s => {
+        s.classList.toggle("hidden", !s.querySelector(".group:not(.hidden)"));
+      });
+      const searching = terms.length > 0;
+      document.getElementById("searchCount").textContent = searching ? `${visible} cartão${visible === 1 ? "" : "s"} encontrado${visible === 1 ? "" : "s"}` : `${allCards.length} cartões disponíveis`;
+      document.getElementById("noResults").classList.toggle("show", searching && visible === 0);
+      document.getElementById("packSection").style.display = searching ? "none" : "";
+    }
 
     /* ---------- Trap Masters pack ---------- */
     const tm = CATALOG["trap-team"].groups.find(g => g.name === "Trap Masters");
-    const tmPriceEach = PRICES.trapmaster;
-    const tmSum = tm.items.length * tmPriceEach; // 18 normais
+    // soma dos preços reais de cada Trap Master (versão Normal), para o desconto ser sempre verdadeiro
+    const tmSum = tm.items.reduce((s, item) => s + priceOf("trap-team", tm, item, "Normal"), 0);
     const packPrice = Math.round(tmSum * PACK_DISCOUNT * 100) / 100;
     CATALOG_INDEX["pack-trapmasters-full"] = { name: "Pack Trap Masters Completo", variant: "18 cartões", price: packPrice, image: "trapmasters.jpeg", units: 18 };
     document.getElementById("packSection").innerHTML = `
@@ -520,7 +633,10 @@
     </div>
   </div>`;
 
+    loadForm();
+    loadCart();
     renderCart();
+    applySearch();
   </script>
 </body>
 
